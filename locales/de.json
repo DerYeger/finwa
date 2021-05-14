@@ -1,0 +1,23 @@
+{
+  "actions": {
+    "close-menu": "Menü schließen",
+    "create-expense": "Ausgabe erstellen",
+    "open-menu": "Menü öffnen",
+    "use-dark-theme": "Zum dunklen Design wechseln",
+    "use-light-theme": "Zum hellen Design wechseln"
+  },
+  "domain": {
+    "category": {
+      "food": "Lebensmittel",
+      "leisure": "Freizeit",
+      "livelihood": "Lebensunterhalt"
+    }
+  },
+  "home": {
+    "title": "Startseite"
+  },
+  "misc": {
+    "empty-list": "Es gibt nichts zu zeigen ¯\\_(ツ)_/¯",
+    "cost": "Kosten"
+  }
+}
