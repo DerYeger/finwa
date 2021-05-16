@@ -1,12 +1,12 @@
 <template>
-  <v-row class="expense-form">
+  <v-row class="responsive-list expense-form">
     <v-text-field v-model="value" type="number" :label="$t('misc.costs')" />
     <v-btn-toggle v-model="categoryIndex" borderless mandatory>
-      <v-btn v-for="(category, index) of categories" :key="index">
+      <v-btn v-for="(category, index) of categories" :key="index" small>
         {{ $t(category.name) }}
       </v-btn>
     </v-btn-toggle>
-    <v-btn :disabled="value < 1" @click="addExpense(createExpense())">{{ $t('actions.create-expense') }}</v-btn>
+    <v-btn color="primary" :disabled="value < 1" @click="addExpense(createExpense())">{{ $t('actions.create-expense') }}</v-btn>
   </v-row>
 </template>
 
@@ -43,11 +43,5 @@ export default defineComponent({
 <style scoped>
 .expense-form {
   align-items: center;
-  display: flex;
-  flex-direction: row;
-}
-
-.expense-form > * + * {
-  margin-left: 1rem;
 }
 </style>
