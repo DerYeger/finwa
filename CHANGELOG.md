@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/DerYeger/finwa/compare/v1.0.0...v1.1.0) (2021-05-16)
+
+
+### Bug Fixes
+
+* minor visual adjustment ([c975022](https://github.com/DerYeger/finwa/commit/c9750227adbe2fa7ddb5fd6937643e151ac0a2fc))
+
+
+### Features
+
+* add settings page with placeholder functionality ([fe0f8b2](https://github.com/DerYeger/finwa/commit/fe0f8b2e1bec4143b1f3fd81f94dbe64c678931a))
+
 # 1.0.0 (2021-05-16)
 
 
