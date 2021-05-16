@@ -8,9 +8,12 @@ export interface Expense {
   value: number
 }
 
+export type Layout = 'compact' | 'default'
+
 export interface State {
   categories: Category[]
   expenses: Expense[]
+  layout: Layout
   useDarkTheme: boolean
 }
 
@@ -30,6 +33,7 @@ export const state: () => State = () => ({
     },
   ],
   expenses: [],
+  layout: 'default',
   useDarkTheme: true,
 })
 
@@ -40,6 +44,9 @@ export const mutations = {
   removeExpense(state: State, expense: Expense) {
     const index = state.expenses.indexOf(expense)
     state.expenses.splice(index, 1)
+  },
+  setLayout(state: State, layout: Layout) {
+    state.layout = layout
   },
   toggleTheme(state: State) {
     state.useDarkTheme = !state.useDarkTheme

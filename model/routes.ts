@@ -10,4 +10,9 @@ export const routes: Record<string, Route> = {
     to: '/',
     icon: 'mdi-home',
   },
+  settings: {
+    title: 'settings.title',
+    to: '/settings',
+    icon: 'mdi-cog',
+  },
 }

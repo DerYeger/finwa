@@ -5,7 +5,7 @@
     </v-navigation-drawer>
     <app-header :drawer-open="drawerOpen" :on-nav-icon-clicked="toggleDrawer" />
     <v-main>
-      <v-container class="page-container">
+      <v-container class="page-container" :class="{ 'bound-width': layout === 'compact' }">
         <nuxt />
       </v-container>
     </v-main>
@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
+import { mapState } from 'vuex'
 
 export default defineComponent({
   data() {
@@ -35,6 +36,9 @@ export default defineComponent({
         },
       ],
     }
+  },
+  computed: {
+    ...mapState(['layout']),
   },
   methods: {
     toggleDrawer() {

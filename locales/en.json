@@ -17,7 +17,10 @@
     "title": "Home"
   },
   "misc": {
-    "empty-list": "There's nothing to show ¯\\_(ツ)_/¯",
-    "cost": "Costs"
+    "costs": "Costs",
+    "empty-list": "There's nothing to show ¯\\_(ツ)_/¯"
+  },
+  "settings": {
+    "title": "Settings"
   }
 }

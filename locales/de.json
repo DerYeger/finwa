@@ -17,7 +17,10 @@
     "title": "Startseite"
   },
   "misc": {
-    "empty-list": "Es gibt nichts zu zeigen ¯\\_(ツ)_/¯",
-    "cost": "Kosten"
+    "costs": "Kosten",
+    "empty-list": "Es gibt nichts zu zeigen ¯\\_(ツ)_/¯"
+  },
+  "settings": {
+    "title": "Einstellungen"
   }
 }
