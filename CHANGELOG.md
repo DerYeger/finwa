@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/DerYeger/finwa/compare/v1.1.0...v1.2.0) (2021-05-17)
+
+
+### Features
+
+* implement layout selection ([d5e1cfd](https://github.com/DerYeger/finwa/commit/d5e1cfd4ab87ab70d8ba77c6ba89eb2339da12ea))
+
 # [1.1.0](https://github.com/DerYeger/finwa/compare/v1.0.0...v1.1.0) (2021-05-16)
 
 
