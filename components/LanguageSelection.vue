@@ -14,16 +14,10 @@ import { defineComponent } from '@nuxtjs/composition-api'
 export default defineComponent({
   data() {
     return {
-      locales: [
-        {
-          code: 'de',
-          name: 'DE',
-        },
-        {
-          code: 'en',
-          name: 'EN',
-        },
-      ],
+      locales: this.$i18n.availableLocales.map((locale) => ({
+        code: locale,
+        name: locale.toUpperCase(),
+      })),
     }
   },
 })

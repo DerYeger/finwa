@@ -5,7 +5,7 @@
     </v-navigation-drawer>
     <app-header :drawer-open="drawerOpen" :on-nav-icon-clicked="toggleDrawer" />
     <v-main>
-      <v-container class="page-container" :class="{ 'bound-width': layout === 'compact' }">
+      <v-container class="page-container" :class="{ 'bound-width': layout === 'compact', 'unbound-width': layout === 'fill' }">
         <nuxt />
       </v-container>
     </v-main>

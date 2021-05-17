@@ -16,6 +16,12 @@
   "home": {
     "title": "Home"
   },
+  "layout": {
+    "compact": "Compact",
+    "default": "Default",
+    "fill": "Fill",
+    "title": "Layout"
+  },
   "misc": {
     "costs": "Costs",
     "empty-list": "There's nothing to show ¯\\_(ツ)_/¯"

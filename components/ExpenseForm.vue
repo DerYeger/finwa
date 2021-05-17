@@ -1,8 +1,8 @@
 <template>
   <v-row class="responsive-list expense-form">
     <v-text-field v-model="value" type="number" :label="$t('misc.costs')" />
-    <v-btn-toggle v-model="categoryIndex" borderless mandatory>
-      <v-btn v-for="(category, index) of categories" :key="index" small>
+    <v-btn-toggle v-model="categoryIndex" borderless dense mandatory>
+      <v-btn v-for="(category, index) of categories" :key="index">
         {{ $t(category.name) }}
       </v-btn>
     </v-btn-toggle>

@@ -1,8 +1,14 @@
 <template>
   <v-col>
-    <expense-form />
-    <expense-chart class="expense-chart" />
-    <expense-list />
+    <v-row>
+      <expense-form />
+    </v-row>
+    <v-row>
+      <expense-chart class="expense-chart" />
+    </v-row>
+    <v-row>
+      <expense-list />
+    </v-row>
   </v-col>
 </template>
 

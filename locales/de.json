@@ -16,6 +16,12 @@
   "home": {
     "title": "Startseite"
   },
+  "layout": {
+    "compact": "Kompakt",
+    "default": "Standard",
+    "fill": "Füllen",
+    "title": "Layout"
+  },
   "misc": {
     "costs": "Kosten",
     "empty-list": "Es gibt nichts zu zeigen ¯\\_(ツ)_/¯"

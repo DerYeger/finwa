@@ -1,3 +1,5 @@
+import { Layout } from '~/model/layout'
+
 export interface Category {
   name: string
   color: string
@@ -7,8 +9,6 @@ export interface Expense {
   categoryName: string
   value: number
 }
-
-export type Layout = 'compact' | 'default'
 
 export interface State {
   categories: Category[]

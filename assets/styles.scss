@@ -6,6 +6,10 @@ html {
   overflow-y: auto !important;
 }
 
+main .row {
+  margin: 0;
+}
+
 .unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -21,6 +25,10 @@ html {
 .page-container {
   display: flex;
   justify-content: center;
+}
+
+.unbound-width {
+  max-width: unset !important;
 }
 
 .bound-width {
