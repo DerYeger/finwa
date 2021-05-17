@@ -14,6 +14,9 @@ describe('LanguageSelection', () => {
       vuetify,
       mocks: {
         switchLocalePath: (i) => i,
+        $i18n: {
+          availableLocales: [],
+        },
       },
       stubs: {
         RouterLink: RouterLinkStub,
