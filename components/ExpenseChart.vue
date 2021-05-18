@@ -1,5 +1,7 @@
 <template>
-  <pie-chart :chart-data="expenseChartData" />
+  <div class="expense-chart">
+    <pie-chart :chart-data="expenseChartData" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -29,3 +31,9 @@ export default defineComponent({
   },
 })
 </script>
+
+<style scoped>
+.expense-chart {
+  max-width: 24rem;
+}
+</style>

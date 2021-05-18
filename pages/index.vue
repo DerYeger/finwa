@@ -3,8 +3,8 @@
     <v-row>
       <expense-form />
     </v-row>
-    <v-row>
-      <expense-chart class="expense-chart" />
+    <v-row class="d-block">
+      <expense-chart class="mx-auto" />
     </v-row>
     <v-row>
       <expense-list />
@@ -25,9 +25,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style>
-.expense-chart {
-  max-width: 30rem;
-}
-</style>
