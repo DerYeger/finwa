@@ -3,6 +3,7 @@
     "close-menu": "Close menu",
     "create-expense": "Create expense",
     "open-menu": "Open menu",
+    "reset-data": "Reset data",
     "use-dark-theme": "Switch to dark theme",
     "use-light-theme": "Switch to light theme"
   },
@@ -10,7 +11,8 @@
     "category": {
       "food": "Food",
       "leisure": "Leisure",
-      "livelihood": "Livelihood"
+      "livelihood": "Livelihood",
+      "title": "Categories"
     }
   },
   "home": {
@@ -27,6 +29,7 @@
     "empty-list": "There's nothing to show ¯\\_(ツ)_/¯"
   },
   "settings": {
+    "advanced": "Advanced options",
     "title": "Settings"
   }
 }

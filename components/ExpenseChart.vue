@@ -5,24 +5,23 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { ChartData } from 'chart.js'
-import { Category, Expense } from '~/store'
-import { sum } from '~/utils/collections'
+import { mapExpensesToCategories, sumExpenses } from '~/model'
+import { Expense } from '~/model/expense'
+import { Category } from '~/model/category'
 
 export default defineComponent({
   computed: {
     expenseChartData(): ChartData {
       const categories: Category[] = this.$store.state.categories
       const expenses: Expense[] = this.$store.state.expenses
-      const expensesByCategory = categories.map((category) =>
-        sum(expenses.filter((expense) => expense.categoryName === category.name).map((expense) => expense.value))
-      )
+      const categoryValues = sumExpenses(mapExpensesToCategories(expenses, categories))
       return {
-        labels: categories.map((category: Category) => this.$t(category.name) as string),
+        labels: categories.map((category) => this.$t(category.name) as string),
         datasets: [
           {
-            label: 'Categories',
-            backgroundColor: categories.map((category: Category) => category.color),
-            data: expensesByCategory,
+            label: this.$t('domain.category.title') as string,
+            backgroundColor: categories.map((category) => category.color),
+            data: categoryValues.map((element) => element.value),
           },
         ],
       }

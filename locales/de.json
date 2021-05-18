@@ -3,6 +3,7 @@
     "close-menu": "Menü schließen",
     "create-expense": "Ausgabe erstellen",
     "open-menu": "Menü öffnen",
+    "reset-data": "Daten zurücksetzen",
     "use-dark-theme": "Zum dunklen Design wechseln",
     "use-light-theme": "Zum hellen Design wechseln"
   },
@@ -10,7 +11,8 @@
     "category": {
       "food": "Lebensmittel",
       "leisure": "Freizeit",
-      "livelihood": "Lebensunterhalt"
+      "livelihood": "Lebensunterhalt",
+      "title": "Kategorien"
     }
   },
   "home": {
@@ -27,6 +29,7 @@
     "empty-list": "Es gibt nichts zu zeigen ¯\\_(ツ)_/¯"
   },
   "settings": {
+    "advanced": "Erweiterte Einstellungen",
     "title": "Einstellungen"
   }
 }

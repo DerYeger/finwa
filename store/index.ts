@@ -1,14 +1,6 @@
 import { Layout } from '~/model/layout'
-
-export interface Category {
-  name: string
-  color: string
-}
-
-export interface Expense {
-  categoryName: string
-  value: number
-}
+import { builtinCategories, Category } from '~/model/category'
+import { Expense } from '~/model/expense'
 
 export interface State {
   categories: Category[]
@@ -18,21 +10,8 @@ export interface State {
 }
 
 export const state: () => State = () => ({
-  categories: [
-    {
-      name: 'domain.category.food',
-      color: 'green',
-    },
-    {
-      name: 'domain.category.livelihood',
-      color: 'red',
-    },
-    {
-      name: 'domain.category.leisure',
-      color: 'blue',
-    },
-  ],
-  expenses: [],
+  categories: builtinCategories,
+  expenses: [] as Expense[],
   layout: 'default',
   useDarkTheme: true,
 })
@@ -40,6 +19,10 @@ export const state: () => State = () => ({
 export const mutations = {
   addExpense(state: State, expense: Expense) {
     state.expenses.push(expense)
+  },
+  resetData(state: State) {
+    state.categories = builtinCategories
+    state.expenses = []
   },
   removeExpense(state: State, expense: Expense) {
     const index = state.expenses.indexOf(expense)

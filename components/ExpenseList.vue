@@ -1,9 +1,9 @@
 <template>
   <client-only>
-    <ul v-if="expenses.length > 0">
-      <li v-for="(expense, index) of expenses" :key="index" class="my-4">
-        {{ $t(expense.categoryName) }}, {{ expense.value }}
-        <v-btn small @click="removeExpense(expense)">Delete</v-btn>
+    <ul v-if="mappedExpenses.length > 0">
+      <li v-for="element of mappedExpenses" :key="element.expense.id" class="my-4">
+        {{ $t(element.category.name) }}, {{ element.expense.value }}
+        <v-btn small @click="removeExpense(element.expense)">Delete</v-btn>
       </li>
     </ul>
     <span v-else>{{ $t('misc.empty-list') }}</span>
@@ -12,11 +12,16 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { mapMutations, mapState } from 'vuex'
+import { mapMutations } from 'vuex'
+import { mapCategoriesToExpenses, ExpenseMapping } from '~/model'
 
 export default defineComponent({
   computed: {
-    ...mapState(['expenses']),
+    mappedExpenses(): ExpenseMapping[] {
+      const expenses = this.$store.state.expenses
+      const categories = this.$store.state.categories
+      return mapCategoriesToExpenses(expenses, categories)
+    },
   },
   methods: {
     ...mapMutations(['removeExpense']),

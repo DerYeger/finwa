@@ -13,7 +13,8 @@
 <script lang="ts">
 import { mapMutations, mapState } from 'vuex'
 import { defineComponent } from '@nuxtjs/composition-api'
-import { Expense } from '~/store'
+import { Expense } from '~/model/expense'
+import { uuid } from '~/utils'
 
 export default defineComponent({
   data() {
@@ -24,15 +25,16 @@ export default defineComponent({
   },
   computed: {
     ...mapState(['categories']),
-    categoryName(): string {
-      return this.$store.state.categories[this.categoryIndex].name
+    categoryId(): string {
+      return this.$store.state.categories[this.categoryIndex].id
     },
   },
   methods: {
     ...mapMutations(['addExpense']),
     createExpense(): Expense {
       return {
-        categoryName: this.categoryName,
+        id: uuid(),
+        categoryId: this.categoryId,
         value: parseInt(this.value),
       }
     },
