@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/DerYeger/finwa/compare/v1.3.0...v1.3.1) (2021-05-18)
+
+
+### Bug Fixes
+
+* use vuetify colors for builtin categories ([1007200](https://github.com/DerYeger/finwa/commit/1007200b891a4b87f21643dbe5e44df711e59433))
+
 # [1.3.0](https://github.com/DerYeger/finwa/compare/v1.2.0...v1.3.0) (2021-05-18)
 
 
