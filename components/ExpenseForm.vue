@@ -11,8 +11,8 @@
             <v-list-item-title>
               <v-row no-gutters align="center">
                 <span>{{ $t(item.name) }}</span>
-                <v-spacer></v-spacer>
-                <v-chip :color="item.color" small />
+                <v-spacer />
+                <v-badge inline :color="item.color" />
               </v-row>
             </v-list-item-title>
           </v-list-item-content>

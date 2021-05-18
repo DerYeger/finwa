@@ -10,6 +10,7 @@ import { ChartData } from 'chart.js'
 import { mapExpensesToCategories, sumExpenses } from '~/model'
 import { Expense } from '~/model/expense'
 import { Category } from '~/model/category'
+import { maybeGetVuetifyColor } from '~/utils'
 
 export default defineComponent({
   computed: {
@@ -22,7 +23,7 @@ export default defineComponent({
         datasets: [
           {
             label: this.$tc('domain.category.title', categories.length) as string,
-            backgroundColor: categories.map((category) => category.color),
+            backgroundColor: categories.map((category) => maybeGetVuetifyColor(category.color)),
             data: categoryValues.map((element) => element.value),
           },
         ],

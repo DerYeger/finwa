@@ -10,7 +10,7 @@ export const uncategorized = {
   id: 'uncategorized',
   isBuiltin: true,
   name: 'domain.category.uncategorized',
-  color: 'gray',
+  color: 'grey',
 }
 
 export const builtinCategories: Category[] = [
