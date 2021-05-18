@@ -12,7 +12,8 @@
       "food": "Lebensmittel",
       "leisure": "Freizeit",
       "livelihood": "Lebensunterhalt",
-      "title": "Kategorien"
+      "title": "Kategorie | Kategorien",
+      "uncategorized": "Unkategorisiert"
     }
   },
   "home": {

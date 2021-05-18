@@ -12,7 +12,8 @@
       "food": "Food",
       "leisure": "Leisure",
       "livelihood": "Livelihood",
-      "title": "Categories"
+      "title": "Category | Categories",
+      "uncategorized": "Uncategorized"
     }
   },
   "home": {

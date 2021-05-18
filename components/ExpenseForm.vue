@@ -1,11 +1,24 @@
 <template>
   <v-row class="responsive-list expense-form">
     <v-text-field v-model="value" type="number" :label="$t('misc.costs')" />
-    <v-btn-toggle v-model="categoryIndex" borderless dense mandatory>
-      <v-btn v-for="(category, index) of categories" :key="index">
-        {{ $t(category.name) }}
-      </v-btn>
-    </v-btn-toggle>
+    <v-select v-model="categoryId" :items="categories" item-value="id" :label="$tc('domain.category.title', 1)" dense>
+      <template #selection="{ item }">
+        {{ $t(item.name) }}
+      </template>
+      <template #item="{ item, attrs, on }">
+        <v-list-item v-bind="attrs" v-on="on">
+          <v-list-item-content>
+            <v-list-item-title>
+              <v-row no-gutters align="center">
+                <span>{{ $t(item.name) }}</span>
+                <v-spacer></v-spacer>
+                <v-chip :color="item.color" small />
+              </v-row>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
+    </v-select>
     <v-btn color="primary" :disabled="value < 1" @click="addExpense(createExpense())">{{ $t('actions.create-expense') }}</v-btn>
   </v-row>
 </template>
@@ -15,19 +28,17 @@ import { mapMutations, mapState } from 'vuex'
 import { defineComponent } from '@nuxtjs/composition-api'
 import { Expense } from '~/model/expense'
 import { uuid } from '~/utils'
+import { uncategorized } from '~/model/category'
 
 export default defineComponent({
   data() {
     return {
       value: '0',
-      categoryIndex: 0,
+      categoryId: uncategorized.id,
     }
   },
   computed: {
     ...mapState(['categories']),
-    categoryId(): string {
-      return this.$store.state.categories[this.categoryIndex].id
-    },
   },
   methods: {
     ...mapMutations(['addExpense']),

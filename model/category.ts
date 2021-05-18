@@ -6,6 +6,13 @@ export interface Category extends Entity {
   color: string
 }
 
+export const uncategorized = {
+  id: 'uncategorized',
+  isBuiltin: true,
+  name: 'domain.category.uncategorized',
+  color: 'gray',
+}
+
 export const builtinCategories: Category[] = [
   {
     id: 'food',
@@ -25,4 +32,5 @@ export const builtinCategories: Category[] = [
     name: 'domain.category.leisure',
     color: 'blue',
   },
+  uncategorized,
 ]
