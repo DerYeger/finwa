@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/DerYeger/finwa/compare/v1.2.0...v1.3.0) (2021-05-18)
+
+
+### Bug Fixes
+
+* disable flexbox for chart container ([25d831c](https://github.com/DerYeger/finwa/commit/25d831cc33529b1704531d6a5994b487bd541681))
+* use dropdown for category selection ([ac4e9d7](https://github.com/DerYeger/finwa/commit/ac4e9d7d850c1ca08ba196eaf63bea0c74eca534))
+* **deps:** pin dependencies ([1742886](https://github.com/DerYeger/finwa/commit/17428868b537317ba03c8878072c48018eacc8ac))
+
+
+### Features
+
+* update model to use uuids ([d4cfea6](https://github.com/DerYeger/finwa/commit/d4cfea633d15e36aa1eda07f1a8484f5b96e2a85))
+
 # [1.2.0](https://github.com/DerYeger/finwa/compare/v1.1.0...v1.2.0) (2021-05-17)
 
 
