@@ -1,5 +1,5 @@
 <template>
-  <v-list width="100%" elevation="6">
+  <v-list width="100%" elevation="6" subheader>
     <v-list-item-group>
       <v-subheader>{{ $t('settings.appearance') }}</v-subheader>
       <layout-selection />

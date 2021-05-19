@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar fixed app dense flat color="primary" :clipped-left="true">
+  <v-app-bar app dense fixed color="primary" :clipped-left="true">
     <v-app-bar-nav-icon
       v-show="$vuetify.breakpoint.mdAndDown"
       :aria-label="$t(drawerOpen ? 'actions.close-menu' : 'actions.open-menu')"

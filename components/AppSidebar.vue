@@ -1,5 +1,5 @@
 <template>
-  <v-list dense nav>
+  <v-list dense nav subheader>
     <app-navigation />
     <resources />
     <quick-access />
