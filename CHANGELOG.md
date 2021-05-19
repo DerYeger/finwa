@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/DerYeger/finwa/compare/v1.4.2...v1.4.3) (2021-05-19)
+
+
+### Bug Fixes
+
+* enable responsive charts ([a948f8a](https://github.com/DerYeger/finwa/commit/a948f8a08a1de8c8721aa16d1cf3ab5ba4a4be38))
+
 ## [1.4.2](https://github.com/DerYeger/finwa/compare/v1.4.1...v1.4.2) (2021-05-19)
 
 
