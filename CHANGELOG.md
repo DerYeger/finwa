@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/DerYeger/finwa/compare/v1.4.1...v1.4.2) (2021-05-19)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency jest-canvas-mock to 2.3.1 ([2d22a06](https://github.com/DerYeger/finwa/commit/2d22a06281368acbca691ba08a5cf83f1a352196))
+
 ## [1.4.1](https://github.com/DerYeger/finwa/compare/v1.4.0...v1.4.1) (2021-05-19)
 
 
