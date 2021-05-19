@@ -1,5 +1,5 @@
 <template>
-  <v-row class="responsive-list expense-form">
+  <div>
     <v-text-field v-model="value" type="number" :label="$t('misc.costs')" />
     <v-select v-model="categoryId" :items="categories" item-value="id" :label="$tc('domain.category.title', 1)" dense>
       <template #selection="{ item }">
@@ -12,7 +12,7 @@
               <v-row no-gutters align="center">
                 <span>{{ $t(item.name) }}</span>
                 <v-spacer />
-                <v-badge inline :color="item.color" />
+                <v-badge inline :color="item.color" style="height: 20px" />
               </v-row>
             </v-list-item-title>
           </v-list-item-content>
@@ -20,7 +20,7 @@
       </template>
     </v-select>
     <v-btn color="primary" :disabled="value < 1" @click="addExpense(createExpense())">{{ $t('actions.create-expense') }}</v-btn>
-  </v-row>
+  </div>
 </template>
 
 <script lang="ts">
