@@ -1,3 +1,11 @@
+## [1.3.2](https://github.com/DerYeger/finwa/compare/v1.3.1...v1.3.2) (2021-05-19)
+
+
+### Bug Fixes
+
+* improve expense form design ([0a14213](https://github.com/DerYeger/finwa/commit/0a142130b8d86956bb381e7a9375f3e3cc0cd393))
+* simplify color usage ([3bd2669](https://github.com/DerYeger/finwa/commit/3bd2669883e93842ad192c2c2cd4beae283fd681))
+
 ## [1.3.1](https://github.com/DerYeger/finwa/compare/v1.3.0...v1.3.1) (2021-05-18)
 
 
