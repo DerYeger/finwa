@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/DerYeger/finwa/compare/v1.3.2...v1.4.0) (2021-05-19)
+
+
+### Features
+
+* overhaul layout ([4ed3b7e](https://github.com/DerYeger/finwa/commit/4ed3b7e155accc1238155632e42a952fbd04766b))
+
 ## [1.3.2](https://github.com/DerYeger/finwa/compare/v1.3.1...v1.3.2) (2021-05-19)
 
 
