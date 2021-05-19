@@ -27,10 +27,14 @@
   },
   "misc": {
     "costs": "Costs",
-    "empty-list": "There's nothing to show ¯\\_(ツ)_/¯"
+    "empty-list": "There's nothing to show ¯\\_(ツ)_/¯",
+    "navigation": "Navigation",
+    "quick-access": "Quick Access",
+    "resources": "Resources"
   },
   "settings": {
     "advanced": "Advanced options",
+    "appearance": "Appearance",
     "title": "Settings"
   }
 }

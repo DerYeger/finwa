@@ -1,13 +1,27 @@
 <template>
-  <v-btn-toggle :value="layout" borderless dense mandatory>
-    <v-btn v-for="layout of layoutOptions" :key="layout" @click="setLayout(layout)">{{ $t(`layout.${layout}`) }}</v-btn>
-  </v-btn-toggle>
+  <v-list-item>
+    <v-list-item-content>
+      <v-select v-model="layout" :items="layoutOptions" :label="$t('layout.title')" dense>
+        <template #selection="{ item }">
+          {{ $t(`layout.${item}`) }}
+        </template>
+        <template #item="{ item, attrs, on }">
+          <v-list-item v-bind="attrs" v-on="on">
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ $t(`layout.${item}`) }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
+      </v-select>
+    </v-list-item-content>
+  </v-list-item>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { mapMutations, mapState } from 'vuex'
-import { layouts } from '~/model/layout'
+import { Layout, layouts } from '~/model/layout'
 
 export default defineComponent({
   data() {
@@ -16,10 +30,14 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapState(['layout']),
-  },
-  methods: {
-    ...mapMutations(['setLayout']),
+    layout: {
+      get(): Layout {
+        return this.$store.state.layout
+      },
+      set(value: string) {
+        this.$store.commit('setLayout', value)
+      },
+    },
   },
 })
 </script>

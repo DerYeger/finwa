@@ -13,7 +13,7 @@ export const state: () => State = () => ({
   categories: builtinCategories,
   expenses: [] as Expense[],
   layout: 'default',
-  useDarkTheme: true,
+  useDarkTheme: false,
 })
 
 export const mutations = {
@@ -31,7 +31,7 @@ export const mutations = {
   setLayout(state: State, layout: Layout) {
     state.layout = layout
   },
-  toggleTheme(state: State) {
-    state.useDarkTheme = !state.useDarkTheme
+  setUseDarkTheme(state: State, useDarkTheme: boolean) {
+    state.useDarkTheme = useDarkTheme
   },
 }

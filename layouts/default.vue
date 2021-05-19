@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawerOpen" fixed app :expand-on-hover="$vuetify.breakpoint.lgAndUp">
-      <app-navigation />
+    <v-navigation-drawer v-model="drawerOpen" fixed app :permanent="$vuetify.breakpoint.lgAndUp" :clipped="true">
+      <app-sidebar />
     </v-navigation-drawer>
     <app-header :drawer-open="drawerOpen" :on-nav-icon-clicked="toggleDrawer" />
     <v-main>
@@ -9,7 +9,6 @@
         <nuxt />
       </v-container>
     </v-main>
-    <app-footer />
   </v-app>
 </template>
 
@@ -39,6 +38,9 @@ export default defineComponent({
   },
   computed: {
     ...mapState(['layout']),
+  },
+  created() {
+    this.$vuetify.theme.dark = this.$store.state.useDarkTheme
   },
   methods: {
     toggleDrawer() {

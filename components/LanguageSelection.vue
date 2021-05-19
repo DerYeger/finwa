@@ -1,11 +1,16 @@
 <template>
-  <div style="width: max-content">
-    <v-btn-toggle mandatory>
-      <v-btn v-for="locale of locales" :key="locale.code" plain x-small :to="switchLocalePath(locale.code)">
-        {{ locale.name }}
-      </v-btn>
-    </v-btn-toggle>
-  </div>
+  <v-list-item>
+    <v-list-item-icon>
+      <v-icon>mdi-translate</v-icon>
+    </v-list-item-icon>
+    <v-list-item-content>
+      <v-btn-toggle dense mandatory rounded>
+        <v-btn v-for="locale of locales" :key="locale.code" small depressed :to="switchLocalePath(locale.code)">
+          {{ locale.name }}
+        </v-btn>
+      </v-btn-toggle>
+    </v-list-item-content>
+  </v-list-item>
 </template>
 
 <script lang="ts">

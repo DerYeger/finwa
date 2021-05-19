@@ -18,12 +18,13 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '/assets/styles.scss';
 
 .logo-container {
   width: 48px;
   height: 48px;
+  margin-right: -12px;
 
   img {
     @extend .unselectable;

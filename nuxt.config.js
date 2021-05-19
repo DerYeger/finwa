@@ -11,12 +11,6 @@ export default {
       return titleChunk ? `${titleChunk} · FinWa` : 'FinWa'
     },
     title: undefined,
-    link: [
-      {
-        rel: 'stylesheet',
-        href: 'https://use.fontawesome.com/releases/v5.15.3/css/all.css',
-      },
-    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
