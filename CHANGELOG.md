@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/DerYeger/finwa/compare/v1.4.0...v1.4.1) (2021-05-19)
+
+
+### Bug Fixes
+
+* minor visual changes ([b4a2426](https://github.com/DerYeger/finwa/commit/b4a242604109239b952a27634d551f7eb24b0318))
+
 # [1.4.0](https://github.com/DerYeger/finwa/compare/v1.3.2...v1.4.0) (2021-05-19)
 
 
