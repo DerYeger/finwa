@@ -1,19 +1,15 @@
 <template>
-  <v-row>
-    <v-col>
-      <v-row>
-        <expense-form />
-      </v-row>
-      <v-row class="d-block">
-        <expense-chart />
-      </v-row>
-    </v-col>
-    <v-col>
-      <v-row>
-        <expense-list />
-      </v-row>
-    </v-col>
-  </v-row>
+  <v-col>
+    <v-row>
+      <expense-form />
+    </v-row>
+    <v-row class="d-block">
+      <expense-chart />
+    </v-row>
+    <v-row>
+      <expense-list />
+    </v-row>
+  </v-col>
 </template>
 
 <script lang="ts">
