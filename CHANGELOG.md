@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/DerYeger/finwa/compare/v1.4.4...v1.4.5) (2021-05-24)
+
+
+### Bug Fixes
+
+* improve initial loading of dark theme ([96bf0b6](https://github.com/DerYeger/finwa/commit/96bf0b6e00e97e7a4a31b1e11cabaa0593137c4f))
+
 ## [1.4.4](https://github.com/DerYeger/finwa/compare/v1.4.3...v1.4.4) (2021-05-21)
 
 
