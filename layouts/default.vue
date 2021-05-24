@@ -39,8 +39,10 @@ export default defineComponent({
   computed: {
     ...mapState(['layout']),
   },
-  created() {
-    this.$vuetify.theme.dark = this.$store.state.useDarkTheme
+  mounted() {
+    if (this.$store.state.useDarkTheme) {
+      this.$vuetify.theme.dark = true
+    }
   },
   methods: {
     toggleDrawer() {
