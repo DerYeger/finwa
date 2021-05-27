@@ -3,8 +3,6 @@
     <v-list-item-group>
       <v-subheader>{{ $t('settings.appearance') }}</v-subheader>
       <layout-selection />
-      <language-selection />
-      <theme-selection />
     </v-list-item-group>
     <v-list-item-group>
       <v-subheader>{{ $t('settings.advanced') }}</v-subheader>

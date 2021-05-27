@@ -1,8 +1,8 @@
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import Vuetify from 'vuetify'
-import LanguageToggle from '~/components/LanguageSelection.vue'
+import LanguageToggle from '~/components/LanguageMenu.vue'
 
-describe('LanguageSelection', () => {
+describe('LanguageMenu', () => {
   let vuetify
 
   beforeEach(() => {

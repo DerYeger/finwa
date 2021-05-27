@@ -31,7 +31,7 @@ export const mutations = {
   setLayout(state: State, layout: Layout) {
     state.layout = layout
   },
-  setUseDarkTheme(state: State, useDarkTheme: boolean) {
-    state.useDarkTheme = useDarkTheme
+  toggleTheme(state: State) {
+    state.useDarkTheme = !state.useDarkTheme
   },
 }

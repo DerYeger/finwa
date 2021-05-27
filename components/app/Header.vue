@@ -1,15 +1,16 @@
 <template>
-  <v-app-bar app dense fixed color="primary" :clipped-left="true">
+  <v-app-bar app dark dense fixed color="primary" :clipped-left="true">
     <v-app-bar-nav-icon
       v-show="$vuetify.breakpoint.mdAndDown"
       :aria-label="$t(drawerOpen ? 'actions.close-menu' : 'actions.open-menu')"
-      style="margin-left: -16px"
-      color="white"
+      class="ml-n4"
       @click.stop="onNavIconClicked()"
     />
-    <span style="color: white">FinWa</span>
+    <logo :class="{ 'ml-n2': $vuetify.breakpoint.lgAndUp }" />
     <v-spacer />
-    <logo />
+    <v-divider vertical />
+    <theme-toggle />
+    <language-menu />
   </v-app-bar>
 </template>
 

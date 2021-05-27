@@ -2,7 +2,6 @@
   <v-list dense nav subheader>
     <app-navigation />
     <resources />
-    <quick-access />
   </v-list>
 </template>
 

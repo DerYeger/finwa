@@ -27,8 +27,6 @@ export default defineComponent({
   margin-right: -12px;
 
   img {
-    @extend .unselectable;
-
     width: 36px;
     height: 36px;
     margin: 6px;
