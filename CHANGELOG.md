@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/DerYeger/finwa/compare/v1.4.6...v1.5.0) (2021-05-27)
+
+
+### Features
+
+* overhaul language and theme settings ([58e2dc8](https://github.com/DerYeger/finwa/commit/58e2dc8f28653dc24af82891dd4e7ff2f1f58748))
+
 ## [1.4.6](https://github.com/DerYeger/finwa/compare/v1.4.5...v1.4.6) (2021-05-25)
 
 
