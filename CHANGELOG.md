@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/DerYeger/finwa/compare/v1.5.3...v1.6.0) (2021-05-29)
+
+
+### Bug Fixes
+
+* remove unused import ([8ff52ba](https://github.com/DerYeger/finwa/commit/8ff52bae6b3bdec790b06bf82192b3e15831991d))
+
+
+### Features
+
+* implement creation and deletion of custom categories ([9ed995b](https://github.com/DerYeger/finwa/commit/9ed995b6c07e9080872bc611b4538cd5f74f3cd5))
+
 ## [1.5.3](https://github.com/DerYeger/finwa/compare/v1.5.2...v1.5.3) (2021-05-29)
 
 
