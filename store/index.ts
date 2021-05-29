@@ -1,7 +1,7 @@
 import { Layout } from '~/model/layout'
 import { builtinCategories, Category, uncategorized } from '~/model/category'
 import { Expense } from '~/model/expense'
-import { mapCategoriesToExpenses, mapExpensesToCategories } from '~/model'
+import { mapExpensesToCategories } from '~/model'
 
 export interface State {
   categories: Category[]
