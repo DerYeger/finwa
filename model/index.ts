@@ -1,13 +1,13 @@
 import { Expense } from '~/model/expense'
-import { Category } from '~/model/category'
+import { Category, uncategorized } from '~/model/category'
 import { findById, sum } from '~/utils/collections'
 
-export type ExpenseMapping = { expense: Expense; category: Category | undefined }
+export type ExpenseMapping = { expense: Expense; category: Category }
 
 export function mapCategoriesToExpenses(expenses: Expense[], categories: Category[]): ExpenseMapping[] {
   return expenses.map((expense) => ({
     expense,
-    category: expense.categoryId !== undefined ? findById(categories, expense.categoryId) : undefined,
+    category: findById(categories, expense.categoryId) ?? uncategorized,
   }))
 }
 

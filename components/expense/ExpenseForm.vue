@@ -12,14 +12,14 @@
               <v-row no-gutters align="center">
                 <span>{{ $t(item.name) }}</span>
                 <v-spacer />
-                <v-badge inline :color="item.color" style="height: 20px" />
+                <v-badge inline :color="item.color" />
               </v-row>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </template>
     </v-select>
-    <v-btn color="primary" :disabled="value < 1" @click="addExpense(createExpense())">{{ $t('actions.create-expense') }}</v-btn>
+    <v-btn color="primary" :disabled="value < 1" @click="addExpense(createExpense())">{{ $t('actions.create') }}</v-btn>
   </div>
 </template>
 
@@ -52,9 +52,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped>
-.expense-form {
-  align-items: center;
-}
-</style>

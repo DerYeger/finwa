@@ -1,11 +1,14 @@
 {
   "actions": {
     "close-menu": "Menü schließen",
-    "create-expense": "Ausgabe erstellen",
+    "create": "Erstellen",
     "open-menu": "Menü öffnen",
     "reset-data": "Daten zurücksetzen",
     "use-dark-theme": "Zum dunklen Design wechseln",
     "use-light-theme": "Zum hellen Design wechseln"
+  },
+  "categories": {
+    "title": "Kategorien"
   },
   "domain": {
     "category": {
@@ -28,6 +31,7 @@
   "misc": {
     "costs": "Kosten",
     "empty-list": "Es gibt nichts zu zeigen ¯\\_(ツ)_/¯",
+    "name": "Name",
     "navigation": "Navigation",
     "quick-access": "Schnellzugriff",
     "resources": "Ressourcen"

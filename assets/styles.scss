@@ -68,3 +68,7 @@ a {
     margin-left: auto;
   }
 }
+
+.v-badge--inline {
+  height: 20px; // fixes offset caused by badge-wrapper being too large
+}

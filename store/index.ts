@@ -1,6 +1,7 @@
 import { Layout } from '~/model/layout'
-import { builtinCategories, Category } from '~/model/category'
+import { builtinCategories, Category, uncategorized } from '~/model/category'
 import { Expense } from '~/model/expense'
+import { mapCategoriesToExpenses, mapExpensesToCategories } from '~/model'
 
 export interface State {
   categories: Category[]
@@ -17,12 +18,25 @@ export const state: () => State = () => ({
 })
 
 export const mutations = {
+  addCategory(state: State, category: Category) {
+    state.categories.push(category)
+  },
   addExpense(state: State, expense: Expense) {
     state.expenses.push(expense)
   },
   resetData(state: State) {
     state.categories = builtinCategories
     state.expenses = []
+  },
+  removeCategory(state: State, category: Category) {
+    if (category.isBuiltin) {
+      return
+    }
+    const index = state.categories.indexOf(category)
+    state.categories.splice(index, 1)
+    mapExpensesToCategories(state.expenses, [category])[0].expenses.forEach((expense) => {
+      expense.categoryId = uncategorized.id
+    })
   },
   removeExpense(state: State, expense: Expense) {
     const index = state.expenses.indexOf(expense)
