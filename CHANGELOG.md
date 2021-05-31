@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/DerYeger/finwa/compare/v1.6.0...v1.7.0) (2021-05-31)
+
+
+### Features
+
+* implement monthly expenses ([12164d4](https://github.com/DerYeger/finwa/commit/12164d4ebdc873b75a1f00600a455d1e89a2e851))
+
 # [1.6.0](https://github.com/DerYeger/finwa/compare/v1.5.3...v1.6.0) (2021-05-29)
 
 
