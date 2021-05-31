@@ -19,12 +19,12 @@
         </v-list-item>
       </template>
     </v-select>
-    <v-btn color="primary" :disabled="value < 1" @click="addExpense(createExpense())">{{ $t('actions.create') }}</v-btn>
+    <v-btn color="primary" :disabled="value < 1" @click="$emit('confirm', createExpense())">{{ $t('actions.create') }}</v-btn>
   </div>
 </template>
 
 <script lang="ts">
-import { mapMutations, mapState } from 'vuex'
+import { mapState } from 'vuex'
 import { defineComponent } from '@nuxtjs/composition-api'
 import { Expense } from '~/model/expense'
 import { uuid } from '~/utils'
@@ -37,11 +37,8 @@ export default defineComponent({
       categoryId: uncategorized.id,
     }
   },
-  computed: {
-    ...mapState(['categories']),
-  },
+  computed: mapState(['categories']),
   methods: {
-    ...mapMutations(['addExpense']),
     createExpense(): Expense {
       return {
         id: uuid(),

@@ -20,7 +20,7 @@ export default {
   plugins: [{ src: '~/plugins/persistedState.client.js' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: ['~/components/', { path: '~/components/charts/' }],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [

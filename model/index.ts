@@ -28,3 +28,5 @@ export function sumExpenses(categoryMappings: CategoryMapping[]): (CategoryMappi
     value: sum(mapping.expenses.map((expense) => expense.value)),
   }))
 }
+
+export type HasExpenses = { expenses: Expense[] }

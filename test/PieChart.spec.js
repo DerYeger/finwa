@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import Vuetify from 'vuetify'
-import PieChart from '~/components/PieChart.vue'
+import PieChart from '~/components/charts/PieChart.vue'
 
 describe('PieChart', () => {
   let vuetify
@@ -25,6 +25,6 @@ describe('PieChart', () => {
       },
     })
     expect(wrapper.vm).toBeTruthy()
-    expect(wrapper.vm.$el.querySelector('.pie-chart')).not.toBe(undefined)
+    expect(wrapper.vm.$el.querySelector('.pie-charts')).not.toBe(undefined)
   })
 })

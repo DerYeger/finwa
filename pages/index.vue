@@ -1,22 +1,22 @@
 <template>
-  <v-col>
-    <v-row>
-      <expense-form />
-    </v-row>
-    <v-row class="d-block">
-      <expense-chart />
-    </v-row>
-    <v-row>
-      <expense-list />
-    </v-row>
-  </v-col>
+  <v-row>
+    <v-col>
+      <month-overview :month-id="currentMonth" />
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { routes } from '~/model/routes'
+import { currentMonth } from '~/utils'
 
 export default defineComponent({
+  data() {
+    return {
+      currentMonth: currentMonth(),
+    }
+  },
   head() {
     const title = (this.$t as Function)(routes.home.title)
     return {

@@ -40,6 +40,9 @@
     "quick-access": "Quick Access",
     "resources": "Resources"
   },
+  "months": {
+    "title": "Monthly Overview"
+  },
   "settings": {
     "advanced": "Advanced options",
     "appearance": "Appearance",

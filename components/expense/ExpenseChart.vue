@@ -12,10 +12,16 @@ import { Expense } from '~/model/expense'
 import { Category } from '~/model/category'
 
 export default defineComponent({
+  props: {
+    expenses: {
+      type: Array as () => Expense[],
+      required: true,
+    },
+  },
   computed: {
     expenseChartData(): ChartData {
       const categories: Category[] = this.$store.state.categories
-      const expenses: Expense[] = this.$store.state.expenses
+      const expenses: Expense[] = this.expenses
       const categoryValues = sumExpenses(mapExpensesToCategories(expenses, categories))
       return {
         labels: categories.map((category) => this.$t(category.name) as string),
@@ -33,7 +39,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.expense-chart {
-  max-width: 24rem;
+.expense-chart > div {
+  margin: auto;
 }
 </style>

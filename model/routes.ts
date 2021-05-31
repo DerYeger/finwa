@@ -15,6 +15,11 @@ export const routes: Record<string, Route> = {
     to: '/categories',
     icon: 'mdi-format-list-bulleted-type',
   },
+  months: {
+    title: 'months.title',
+    to: '/months',
+    icon: 'mdi-calendar',
+  },
   settings: {
     title: 'settings.title',
     to: '/settings',

@@ -11,7 +11,7 @@
           <v-list-item-title>{{ $t(element.category.name) }}, {{ element.expense.value }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
-          <v-btn color="red" x-small fab depressed @click="removeExpense(element.expense)">
+          <v-btn color="red" x-small fab depressed @click="$emit('delete-expense', element.expense)">
             <v-icon v-text="'mdi-delete'" />
           </v-btn>
         </v-list-item-action>
@@ -22,19 +22,21 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { mapMutations } from 'vuex'
 import { ExpenseMapping, mapCategoriesToExpenses } from '~/model'
+import { Expense } from '~/model/expense'
 
 export default defineComponent({
-  computed: {
-    mappedExpenses(): ExpenseMapping[] {
-      const expenses = this.$store.state.expenses
-      const categories = this.$store.state.categories
-      return mapCategoriesToExpenses(expenses, categories)
+  props: {
+    expenses: {
+      type: Array as () => Expense[],
+      required: true,
     },
   },
-  methods: {
-    ...mapMutations(['removeExpense']),
+  computed: {
+    mappedExpenses(): ExpenseMapping[] {
+      const categories = this.$store.state.categories
+      return mapCategoriesToExpenses(this.expenses, categories)
+    },
   },
 })
 </script>

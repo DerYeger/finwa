@@ -36,6 +36,9 @@
     "quick-access": "Schnellzugriff",
     "resources": "Ressourcen"
   },
+  "months": {
+    "title": "Monatsübersicht"
+  },
   "settings": {
     "advanced": "Erweiterte Einstellungen",
     "appearance": "Erscheinung",

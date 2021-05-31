@@ -3,6 +3,10 @@ import en from './en.json'
 
 const dateTimeFormats = {
   en: {
+    'no-day': {
+      month: 'long',
+      year: 'numeric',
+    },
     short: {
       year: 'numeric',
       month: 'short',
@@ -15,6 +19,10 @@ const dateTimeFormats = {
     },
   },
   de: {
+    'no-day': {
+      month: 'long',
+      year: 'numeric',
+    },
     short: {
       year: 'numeric',
       month: 'short',
