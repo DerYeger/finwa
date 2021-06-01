@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/DerYeger/finwa/compare/v1.7.1...v1.7.2) (2021-06-01)
+
+
+### Bug Fixes
+
+* localize error layout ([b2c6bf3](https://github.com/DerYeger/finwa/commit/b2c6bf36cd484c5b2400efb04162264230528693))
+
 ## [1.7.1](https://github.com/DerYeger/finwa/compare/v1.7.0...v1.7.1) (2021-06-01)
 
 
