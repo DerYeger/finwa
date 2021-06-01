@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Bar, mixins } from 'vue-chartjs'
 import { defineComponent } from '@nuxtjs/composition-api'
-import { ChartData } from 'chart.js'
+import { ChartData, ChartTooltipItem } from 'chart.js'
 
 export default defineComponent({
   extends: Bar,
@@ -20,14 +20,23 @@ export default defineComponent({
             },
           },
         ],
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
       },
-      legend: false,
+      legend: {
+        display: false,
+      },
       tooltips: {
         displayColors: false,
         enabled: true,
         mode: 'single',
         callbacks: {
-          label: (tooltipItems) => tooltipItems.yLabel,
+          label: (item: ChartTooltipItem) => item.value ?? '',
         },
       },
     })
