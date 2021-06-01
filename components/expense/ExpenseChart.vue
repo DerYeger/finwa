@@ -1,7 +1,12 @@
 <template>
-  <div class="expense-chart">
-    <pie-chart :chart-data="expenseChartData" />
-  </div>
+  <v-row>
+    <v-col sm="6" md="6" lg="4" align-self="center">
+      <pie-chart :chart-data="expenseChartData" :styles="pieChartStyles" />
+    </v-col>
+    <v-col sm="6" md="6" lg="8" align-self="center">
+      <bar-chart :chart-data="expenseChartData" :styles="barChartStyles" />
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts">
@@ -34,12 +39,21 @@ export default defineComponent({
         ],
       }
     },
+    barChartStyles(): any {
+      return {
+        margin: 'auto',
+        position: 'relative',
+        width: `min(99%, ${this.$store.state.categories.length * 12}rem)`,
+        height: '24rem',
+      }
+    },
+    pieChartStyles(): any {
+      return {
+        margin: 'auto',
+        position: 'relative',
+        width: 'min(99%, 24rem)',
+      }
+    },
   },
 })
 </script>
-
-<style scoped>
-.expense-chart > div {
-  margin: auto;
-}
-</style>
