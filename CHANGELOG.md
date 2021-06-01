@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/DerYeger/finwa/compare/v1.7.2...v1.8.0) (2021-06-01)
+
+
+### Bug Fixes
+
+* correct typings ([97221b2](https://github.com/DerYeger/finwa/commit/97221b2fe98a816fd05515e79af62c42a01257fe))
+
+
+### Features
+
+* implement bar chart ([fee24c9](https://github.com/DerYeger/finwa/commit/fee24c90b0cede18da628668f82fc035e680a7d0))
+
 ## [1.7.2](https://github.com/DerYeger/finwa/compare/v1.7.1...v1.7.2) (2021-06-01)
 
 
