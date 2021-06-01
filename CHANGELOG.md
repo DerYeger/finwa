@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/DerYeger/finwa/compare/v1.7.0...v1.7.1) (2021-06-01)
+
+
+### Bug Fixes
+
+* avoid generation of invalid css ([a67136a](https://github.com/DerYeger/finwa/commit/a67136aeb882e609786ca306f7b7c7f8f7876714))
+
 # [1.7.0](https://github.com/DerYeger/finwa/compare/v1.6.0...v1.7.0) (2021-05-31)
 
 
