@@ -17,6 +17,6 @@ export default defineComponent({
 
 <style scoped>
 div {
-  width: clamp(0rem, 99%, 24rem); /* Fixes charts not being responsive */
+  width: min(99%, 24rem); /* Fixes charts not being responsive */
 }
 </style>
