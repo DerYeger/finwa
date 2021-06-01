@@ -5206,7 +5206,7 @@ eslint-plugin-vue@^7.1.0, eslint-plugin-vue@^7.9.0:
     semver "^7.3.2"
     vue-eslint-parser "^7.6.0"
 
-eslint-plugin-vuetify@^1.0.1:
+eslint-plugin-vuetify@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-vuetify/-/eslint-plugin-vuetify-1.0.1.tgz#0eaa11b71aa3d03f27869ba190ab5383485d5b2d"
   integrity sha512-mf1gpx3dvCOhVZiK4eET3QIFR3sdcJ+LLfGxGDQ9APnKwN+iSJ3E0TKztIKWW6Yo7A/FH5OcwJZCS7ZnTMZ7Bg==
