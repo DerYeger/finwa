@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/months", {data:[{}],fetch:{},mutations:[]});
