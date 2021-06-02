@@ -22,13 +22,13 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 import { ChartData } from 'chart.js'
 import { routes } from '~/model/routes'
-import { currentMonth } from '~/utils'
 import { generateMonthChartData } from '~/model'
+import { currentMonthId } from '~/model/month'
 
 export default defineComponent({
   data() {
     return {
-      selectedMonth: currentMonth(),
+      selectedMonth: currentMonthId(),
     }
   },
   head() {
@@ -39,7 +39,7 @@ export default defineComponent({
   },
   computed: {
     monthChartData(): ChartData {
-      return generateMonthChartData(this.$store.getters.months(12), this.$store.state.categories, this.$i18n, this.$vuetify)
+      return generateMonthChartData(this.$store.getters.months(12), this.$store.state.categories, this.$i18n)
     },
     lineChartStyles(): any {
       return {
@@ -49,9 +49,6 @@ export default defineComponent({
         height: '24rem',
       }
     },
-  },
-  mounted() {
-    this.selectedMonth = currentMonth()
   },
 })
 </script>

@@ -1,7 +1,6 @@
 import { ChartData, ChartDataSets } from 'chart.js'
 // eslint-disable-next-line import/named
 import { NuxtI18nInstance } from 'nuxt-i18n'
-import { Framework } from 'vuetify'
 import { Expense } from '~/model/expense'
 import { Category, uncategorized } from '~/model/category'
 import { findById, sum } from '~/utils/collections'
@@ -36,12 +35,12 @@ export function sumExpenses(categoryMappings: CategoryMapping[]): (CategoryMappi
 
 export type HasExpenses = { expenses: Expense[] }
 
-export function generateMonthChartData(months: Month[], categories: Category[], i18n: NuxtI18nInstance, vuetify: Framework): ChartData {
+export function generateMonthChartData(months: Month[], categories: Category[], i18n: NuxtI18nInstance): ChartData {
   const monthValues = months.map((month) => sumExpenses(mapExpensesToCategories(month.expenses, categories)))
   const datasets: ChartDataSets[] = categories.map((category) => ({
     label: i18n.t(category.name) as string,
     borderColor: category.color,
-    backgroundColor: vuetify.theme.dark ? 'rgba(255, 255, 255, 0.1)' : 'rgb(0, 0, 0, 0.1)',
+    backgroundColor: `${category.color}10`,
     data: monthValues.flatMap((mappings) => mappings.filter((mapping) => mapping.category.id === category.id))?.map((value) => value.value),
   }))
   return {

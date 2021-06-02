@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { mapMutations } from 'vuex'
-import { Month } from '~/model/month'
+import { createMonth, Month } from '~/model/month'
 
 export default defineComponent({
   props: {
@@ -29,10 +29,7 @@ export default defineComponent({
       if (month !== undefined) {
         return month
       }
-      const newMonth: Month = {
-        id: this.monthId,
-        expenses: [],
-      }
+      const newMonth: Month = createMonth(this.monthId)
       this.$store.commit('addMonth', newMonth)
       return newMonth
     },

@@ -9,12 +9,12 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { routes } from '~/model/routes'
-import { currentMonth } from '~/utils'
+import { currentMonthId } from '~/model/month'
 
 export default defineComponent({
   data() {
     return {
-      currentMonth: currentMonth(),
+      currentMonth: currentMonthId(),
     }
   },
   head() {

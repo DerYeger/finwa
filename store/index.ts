@@ -2,9 +2,8 @@ import { Layout } from '~/model/layout'
 import { builtinCategories, Category, uncategorized } from '~/model/category'
 import { Expense } from '~/model/expense'
 import { mapExpensesToCategories } from '~/model'
-import { Month } from '~/model/month'
+import { currentMonthId, lastTwelveMonths, Month } from '~/model/month'
 import { findById } from '~/utils/collections'
-import { currentMonth } from '~/utils'
 
 export interface State {
   categories: Category[]
@@ -13,12 +12,14 @@ export interface State {
   useDarkTheme: boolean
 }
 
-export const state: () => State = () => ({
+const initialState: State = {
   categories: builtinCategories,
-  months: [] as Month[],
+  months: [...lastTwelveMonths()],
   layout: 'default',
   useDarkTheme: false,
-})
+}
+
+export const state: () => State = () => initialState
 
 export const getters = {
   monthById: (state: State) => (id: string) => {
@@ -26,7 +27,7 @@ export const getters = {
   },
   months:
     (state: State) =>
-    (limit: number = 0, until: Date = new Date(currentMonth())) => {
+    (limit: number = 0, until: Date = new Date(currentMonthId())) => {
       if (limit === 0) {
         return []
       }
@@ -49,7 +50,7 @@ export const mutations = {
   },
   resetData(state: State) {
     state.categories = builtinCategories
-    state.months = []
+    state.months = [...lastTwelveMonths()]
   },
   removeCategory(state: State, category: Category) {
     if (category.isBuiltin) {

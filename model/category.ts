@@ -1,10 +1,20 @@
 import colors from 'vuetify/es5/util/colors'
 import { Entity } from '~/model/entity'
+import { uuid } from '~/utils'
 
 export interface Category extends Entity {
   isBuiltin: boolean
   name: string
   color: string
+}
+
+export function createCategory(isBuiltin: boolean, name: string, color: string): Category {
+  return {
+    id: uuid(),
+    isBuiltin,
+    name,
+    color,
+  }
 }
 
 export const uncategorized = {
