@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/DerYeger/finwa/compare/v1.8.1...v1.9.0) (2021-06-02)
+
+
+### Features
+
+* implement line chart ([4761ed7](https://github.com/DerYeger/finwa/commit/4761ed7cd5352d12d562192e8f643f050dcbb5bb))
+
 ## [1.8.1](https://github.com/DerYeger/finwa/compare/v1.8.0...v1.8.1) (2021-06-02)
 
 
