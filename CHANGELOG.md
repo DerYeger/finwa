@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/DerYeger/finwa/compare/v1.9.0...v1.9.1) (2021-06-02)
+
+
+### Bug Fixes
+
+* improve model and use category color in monthly overview ([8f593ca](https://github.com/DerYeger/finwa/commit/8f593caba5167ba2d204a160bb687757cef09fa7))
+
 # [1.9.0](https://github.com/DerYeger/finwa/compare/v1.8.1...v1.9.0) (2021-06-02)
 
 
