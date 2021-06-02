@@ -1,11 +1,11 @@
 <script lang="ts">
-import { Bar, mixins } from 'vue-chartjs'
+import { Line, mixins } from 'vue-chartjs'
 import { defineComponent } from '@nuxtjs/composition-api'
 import { ChartData, ChartOptions } from 'chart.js'
-import { barChartTooltipLabel, chartColors } from '~/utils/charts'
+import { chartColors, lineChartTooltipLabel, lineChartTooltipTitle } from '~/utils/charts'
 
 export default defineComponent({
-  extends: Bar,
+  extends: Line,
   mixins: [mixins.reactiveProp],
   computed: {
     chartOptions(): ChartOptions {
@@ -46,7 +46,8 @@ export default defineComponent({
           enabled: true,
           mode: 'single',
           callbacks: {
-            label: barChartTooltipLabel,
+            title: lineChartTooltipTitle,
+            label: lineChartTooltipLabel,
           },
         },
       }
@@ -62,7 +63,7 @@ export default defineComponent({
   },
   methods: {
     render(chartOptions: ChartOptions) {
-      const chartRef = this as unknown as Bar
+      const chartRef = this as unknown as Line
       chartRef.renderChart(this.chartData as ChartData, chartOptions)
     },
   },

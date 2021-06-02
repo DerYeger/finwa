@@ -7,6 +7,9 @@ const dateTimeFormats = {
       month: 'long',
       year: 'numeric',
     },
+    month: {
+      month: 'long',
+    },
     short: {
       year: 'numeric',
       month: 'short',
@@ -22,6 +25,9 @@ const dateTimeFormats = {
     'no-day': {
       month: 'long',
       year: 'numeric',
+    },
+    month: {
+      month: 'long',
     },
     short: {
       year: 'numeric',

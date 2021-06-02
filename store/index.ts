@@ -4,6 +4,7 @@ import { Expense } from '~/model/expense'
 import { mapExpensesToCategories } from '~/model'
 import { Month } from '~/model/month'
 import { findById } from '~/utils/collections'
+import { currentMonth } from '~/utils'
 
 export interface State {
   categories: Category[]
@@ -23,6 +24,17 @@ export const getters = {
   monthById: (state: State) => (id: string) => {
     return findById(state.months, id)
   },
+  months:
+    (state: State) =>
+    (limit: number = 0, until: Date = new Date(currentMonth())) => {
+      if (limit === 0) {
+        return []
+      }
+      const months = state.months
+        .filter((month: Month) => new Date(month.id) <= until)
+        .sort((a: Month, b: Month) => new Date(a.id).getTime() - new Date(b.id).getTime())
+      return months.splice(-limit)
+    },
 }
 
 export const mutations = {
