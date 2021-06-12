@@ -8,12 +8,10 @@ export interface Category extends Entity {
   color: string
 }
 
-export function createCategory(isBuiltin: boolean, name: string, color: string): Category {
+export function createCategory(data: Omit<Category, 'id'>): Category {
   return {
     id: uuid(),
-    isBuiltin,
-    name,
-    color,
+    ...data,
   }
 }
 

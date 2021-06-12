@@ -39,7 +39,7 @@ export default defineComponent({
   computed: mapState(['categories']),
   methods: {
     newExpense(): Expense {
-      return createExpense(this.categoryId, parseInt(this.value))
+      return createExpense({ categoryId: this.categoryId, value: parseInt(this.value) })
     },
   },
 })

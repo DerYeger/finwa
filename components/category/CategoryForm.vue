@@ -22,7 +22,7 @@ export default defineComponent({
   methods: {
     ...mapMutations(['addCategory']),
     newCategory(): Category {
-      return createCategory(false, this.name, this.color)
+      return createCategory({ isBuiltin: false, name: this.name, color: this.color })
     },
   },
 })

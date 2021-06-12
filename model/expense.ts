@@ -6,10 +6,21 @@ export interface Expense extends Entity {
   value: number
 }
 
-export function createExpense(categoryId: string, value: number): Expense {
+export function createExpense(data: Omit<Expense, 'id'>): Expense {
   return {
     id: uuid(),
-    categoryId,
-    value,
+    ...data,
+  }
+}
+
+export interface RecurringExpense extends Expense {
+  startingMonthId: string
+  frequency: number
+}
+
+export function createRecurringExpense(data: Omit<RecurringExpense, 'id'>): RecurringExpense {
+  return {
+    id: uuid(),
+    ...data,
   }
 }
