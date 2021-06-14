@@ -1,7 +1,7 @@
 import createPersistedState from 'vuex-persistedstate'
 import SecureLS from 'secure-ls'
 
-const ls = new SecureLS({ isCompression: true })
+const ls = new SecureLS()
 
 export default ({ store }) => {
   createPersistedState({

@@ -1,4 +1,5 @@
 import { Entity } from '~/model/entity'
+import { EntityRecord } from '~/model/types'
 
 export function sum(array: number[]): number {
   return array.reduce((prev, current) => prev + current, 0)
@@ -14,6 +15,10 @@ export function findById<T extends Entity>(array: T[], id: string): T | undefine
 
 export function toRecord<T extends Record<string, any>, K extends keyof T>(array: T[], selector: K): Record<T[K], T> {
   return array.reduce((acc, item) => ({ ...acc, [item[selector]]: item }), {} as Record<T[K], T>)
+}
+
+export function toEntityRecord<T extends Entity>(array: T[]): EntityRecord<T> {
+  return toRecord(array, 'id')
 }
 
 export function toArray<T>(record: Record<any, T>): T[] {

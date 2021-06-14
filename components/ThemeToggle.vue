@@ -9,7 +9,7 @@ import { defineComponent } from '@nuxtjs/composition-api'
 import { mapMutations, mapState } from 'vuex'
 
 export default defineComponent({
-  computed: mapState(['useDarkTheme']),
+  computed: mapState('settings', ['useDarkTheme']),
   watch: {
     useDarkTheme(val) {
       this.$vuetify.theme.dark = val
@@ -22,6 +22,6 @@ export default defineComponent({
       this.$vuetify.theme.dark = newTheme
     }
   },
-  methods: mapMutations(['toggleTheme']),
+  methods: mapMutations('settings', ['toggleTheme']),
 })
 </script>

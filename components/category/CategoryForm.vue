@@ -2,7 +2,7 @@
   <div>
     <v-text-field v-model="name" type="text" :label="$t('misc.name')" class="name-input" />
     <v-color-picker v-model="color" dot-size="24" hide-inputs class="mb-4" elevation="4" />
-    <v-btn color="primary" :disabled="name.length < 4" @click="addCategory(newCategory())">{{ $t('actions.create') }}</v-btn>
+    <v-btn color="primary" :disabled="name.length < 4" @click="add(newCategory())">{{ $t('actions.create') }}</v-btn>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default defineComponent({
     }
   },
   methods: {
-    ...mapMutations(['addCategory']),
+    ...mapMutations('categories', ['add']),
     newCategory(): Category {
       return createCategory({ isBuiltin: false, name: this.name, color: this.color })
     },

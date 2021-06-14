@@ -25,7 +25,7 @@ export default defineComponent({
   },
   computed: {
     expenseChartData(): ChartData {
-      const categories: Category[] = this.$store.getters.categories
+      const categories: Category[] = this.$store.getters['categories/categories']
       const expenses: Expense[] = this.expenses
       const categoryValues = sumExpenses(mapExpensesToCategories(expenses, categories))
       return {

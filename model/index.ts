@@ -5,17 +5,14 @@ import { Expense } from '~/model/expense'
 import { builtinCategories, Category } from '~/model/category'
 import { sum, toArray } from '~/utils/collections'
 import { Month } from '~/model/month'
+import { CategoryMapping, EntityRecord, ExpenseMapping, HasValue } from '~/model/types'
 
-export type ExpenseMapping = { expense: Expense; category: Category }
-
-export function mapCategoriesToExpenses(expenses: Expense[], categories: Record<string, Category>): ExpenseMapping[] {
+export function mapCategoriesToExpenses(expenses: Expense[], categories: EntityRecord<Category>): ExpenseMapping[] {
   return expenses.map((expense) => ({
     expense,
     category: categories[expense.categoryId] ?? builtinCategories.uncategorized,
   }))
 }
-
-export type CategoryMapping = { category: Category; expenses: Expense[] }
 
 export function mapExpensesToCategories(expenses: Expense[], categories: Category[]): CategoryMapping[] {
   return categories.map((category) => ({
@@ -24,16 +21,12 @@ export function mapExpensesToCategories(expenses: Expense[], categories: Categor
   }))
 }
 
-export type HasValue = { value: number }
-
 export function sumExpenses(categoryMappings: CategoryMapping[]): (CategoryMapping & HasValue)[] {
   return categoryMappings.map((mapping) => ({
     ...mapping,
     value: sum(mapping.expenses.map((expense) => expense.value)),
   }))
 }
-
-export type HasExpenses = { expenses: Expense[] }
 
 export function generateMonthChartData(months: Month[], categories: Category[], i18n: NuxtI18nInstance): ChartData {
   const monthValues = months.map((month) => sumExpenses(mapExpensesToCategories(toArray(month.expenses), categories)))

@@ -32,10 +32,10 @@ export default defineComponent({
   computed: {
     layout: {
       get(): Layout {
-        return this.$store.state.layout
+        return this.$store.state.settings.layout
       },
       set(value: string) {
-        this.$store.commit('setLayout', value)
+        this.$store.commit('settings/setLayout', value)
       },
     },
   },

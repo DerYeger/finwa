@@ -22,8 +22,9 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { ExpenseMapping, mapCategoriesToExpenses } from '~/model'
+import { mapCategoriesToExpenses } from '~/model'
 import { Expense } from '~/model/expense'
+import { ExpenseMapping } from '~/model/types'
 
 export default defineComponent({
   props: {

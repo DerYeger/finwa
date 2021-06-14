@@ -37,7 +37,7 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapState(['layout']),
+    ...mapState('settings', ['layout']),
   },
   methods: {
     toggleDrawer() {

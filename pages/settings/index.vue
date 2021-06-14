@@ -10,7 +10,7 @@
           <v-subheader>{{ $t('settings.advanced') }}</v-subheader>
           <v-list-item>
             <v-list-item-content>
-              <v-btn color="red" @click="resetData()">{{ $t('actions.reset-data') }}</v-btn>
+              <v-btn color="red" @click="reset()">{{ $t('actions.reset') }}</v-btn>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import { routes } from '~/model/routes'
 
 export default defineComponent({
@@ -31,6 +31,6 @@ export default defineComponent({
       title,
     }
   },
-  methods: mapMutations(['resetData']),
+  methods: mapActions(['reset']),
 })
 </script>

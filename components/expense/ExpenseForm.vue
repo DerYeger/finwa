@@ -36,7 +36,7 @@ export default defineComponent({
       categoryId: builtinCategories.uncategorized.id,
     }
   },
-  computed: mapGetters(['categories']),
+  computed: mapGetters('categories', ['categories']),
   methods: {
     newExpense(): Expense {
       return createExpense({ categoryId: this.categoryId, value: parseInt(this.value) })

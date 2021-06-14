@@ -2,12 +2,12 @@
   <v-card>
     <v-card-title>{{ $d(new Date(month.id), 'no-day') }}</v-card-title>
     <v-card-text>
-      <expense-form @confirm="addExpenseToMonth({ month, expense: $event })" />
+      <expense-form @confirm="addExpense({ month, expense: $event })" />
     </v-card-text>
     <v-divider class="my-4" />
     <expense-chart :expenses="expenses" />
     <v-divider class="my-4" />
-    <expense-list :expenses="expenses" @delete-expense="removeExpenseFromMonth({ month, expense: $event })" />
+    <expense-list :expenses="expenses" @delete-expense="removeExpense({ month, expense: $event })" />
   </v-card>
 </template>
 
@@ -27,18 +27,18 @@ export default defineComponent({
   },
   computed: {
     month(): Month {
-      const month = this.$store.getters.monthById(this.monthId)
+      const month = this.$store.getters['months/byId'](this.monthId)
       if (month !== undefined) {
         return month
       }
       const newMonth: Month = createMonth({ id: this.monthId })
-      this.$store.commit('addMonth', newMonth)
+      this.$store.commit('months/add', newMonth)
       return newMonth
     },
     expenses(): Expense[] {
       return toArray(this.month.expenses)
     },
   },
-  methods: mapMutations(['addExpenseToMonth', 'removeExpenseFromMonth']),
+  methods: mapMutations('months', ['addExpense', 'removeExpense']),
 })
 </script>

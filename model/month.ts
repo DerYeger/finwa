@@ -1,8 +1,9 @@
 import { Entity } from '~/model/entity'
 import { Expense } from '~/model/expense'
+import { EntityRecord } from '~/model/types'
 
 export interface Month extends Entity {
-  expenses: Record<string, Expense>
+  expenses: EntityRecord<Expense>
 }
 
 export function createMonth(data: Omit<Month, 'expenses'>): Month {
