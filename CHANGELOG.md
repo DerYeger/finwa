@@ -1,3 +1,16 @@
+# [1.11.0](https://github.com/DerYeger/finwa/compare/v1.10.0...v1.11.0) (2021-06-14)
+
+
+### Bug Fixes
+
+* enable compression for secure-ls ([57083ad](https://github.com/DerYeger/finwa/commit/57083ad45cf14d186794eb7b11b16e82a727c9f9))
+* use custom scrollbar style ([d7f33c2](https://github.com/DerYeger/finwa/commit/d7f33c21ea07b4d5ec295aa441ba428d16e9b5c1))
+
+
+### Features
+
+* use namespaces in vuex ([f51f591](https://github.com/DerYeger/finwa/commit/f51f59169665e4213a3fcdd579a1819b73480fd2))
+
 # [1.10.0](https://github.com/DerYeger/finwa/compare/v1.9.3...v1.10.0) (2021-06-14)
 
 
