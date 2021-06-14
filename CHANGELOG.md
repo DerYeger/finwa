@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/DerYeger/finwa/compare/v1.9.3...v1.10.0) (2021-06-14)
+
+
+### Features
+
+* update model to use properties for collections ([451f055](https://github.com/DerYeger/finwa/commit/451f0550349d45276d4465293286d15ad46bb6ee))
+
 ## [1.9.3](https://github.com/DerYeger/finwa/compare/v1.9.2...v1.9.3) (2021-06-07)
 
 
