@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/DerYeger/finwa/compare/v1.11.0...v1.12.0) (2021-06-14)
+
+
+### Features
+
+* add month picker to expense form ([583a4df](https://github.com/DerYeger/finwa/commit/583a4dfb56d0293ff4e627d9dd95cb94e9a277ce))
+
 # [1.11.0](https://github.com/DerYeger/finwa/compare/v1.10.0...v1.11.0) (2021-06-14)
 
 
