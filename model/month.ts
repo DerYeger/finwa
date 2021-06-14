@@ -6,13 +6,6 @@ export interface Month extends Entity {
   expenses: EntityRecord<Expense>
 }
 
-export function createMonth(data: Omit<Month, 'expenses'>): Month {
-  return {
-    expenses: {},
-    ...data,
-  }
-}
-
 function monthIdFromDate(date: Date): string {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -29,6 +22,6 @@ export function lastTwelveMonths(): Month[] {
   return [...Array(12).keys()].map((offset) => {
     const date = new Date()
     date.setMonth(now.getMonth() - offset)
-    return createMonth({ id: monthIdFromDate(date) })
+    return { id: monthIdFromDate(date), expenses: {} }
   })
 }

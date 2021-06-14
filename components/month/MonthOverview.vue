@@ -2,7 +2,7 @@
   <v-card>
     <v-card-title>{{ $d(new Date(month.id), 'no-day') }}</v-card-title>
     <v-card-text>
-      <expense-form @confirm="addExpense({ month, expense: $event })" />
+      <expense-form :initial-month-id="monthId" />
     </v-card-text>
     <v-divider class="my-4" />
     <expense-chart :expenses="expenses" />
@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { mapMutations } from 'vuex'
-import { createMonth, Month } from '~/model/month'
+import { Month } from '~/model/month'
 import { toArray } from '~/utils/collections'
 import { Expense } from '~/model/expense'
 
@@ -26,19 +26,20 @@ export default defineComponent({
     },
   },
   computed: {
-    month(): Month {
-      const month = this.$store.getters['months/byId'](this.monthId)
-      if (month !== undefined) {
-        return month
-      }
-      const newMonth: Month = createMonth({ id: this.monthId })
-      this.$store.commit('months/add', newMonth)
-      return newMonth
+    month(): Month | undefined {
+      return this.$store.getters['months/byId'](this.monthId)
     },
     expenses(): Expense[] {
-      return toArray(this.month.expenses)
+      return this.month === undefined ? [] : toArray(this.month.expenses)
     },
   },
-  methods: mapMutations('months', ['addExpense', 'removeExpense']),
+  watch: {
+    monthId() {
+      if (this.month === undefined) {
+        this.$store.dispatch('months/create', { id: this.monthId })
+      }
+    },
+  },
+  methods: mapMutations('months', ['removeExpense']),
 })
 </script>

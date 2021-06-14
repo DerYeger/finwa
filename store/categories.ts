@@ -3,12 +3,21 @@ import { builtinCategories, Category } from '~/model/category'
 import { EntityRecord } from '~/model/types'
 import { toArray } from '~/utils/collections'
 import { Committer } from '~/store/index'
+import { uuid } from '~/utils'
 
 export type CategoriesState = EntityRecord<Category>
 
 export const state: () => CategoriesState = () => builtinCategories
 
 export const actions = {
+  create({ commit }: Committer, data: Omit<Category, 'id' | 'isBuiltin'>) {
+    const category: Category = {
+      id: uuid(),
+      isBuiltin: false,
+      ...data,
+    }
+    commit('add', category)
+  },
   reset({ commit }: Committer) {
     commit('deleteAll')
     commit('set', builtinCategories)

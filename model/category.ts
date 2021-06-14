@@ -1,19 +1,11 @@
 import colors from 'vuetify/es5/util/colors'
 import { Entity } from '~/model/entity'
-import { uuid } from '~/utils'
 import { EntityRecord } from '~/model/types'
 
 export interface Category extends Entity {
   isBuiltin: boolean
   name: string
   color: string
-}
-
-export function createCategory(data: Omit<Category, 'id'>): Category {
-  return {
-    id: uuid(),
-    ...data,
-  }
 }
 
 export const builtinCategories: EntityRecord<Category> = {
