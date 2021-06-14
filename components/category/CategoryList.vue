@@ -25,10 +25,10 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { mapMutations, mapState } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default defineComponent({
-  computed: mapState(['categories']),
+  computed: mapGetters(['categories']),
   methods: mapMutations(['removeCategory']),
 })
 </script>

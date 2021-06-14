@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { mapMutations, mapState } from 'vuex'
+import { mapMutations } from 'vuex'
 import { defineComponent } from '@nuxtjs/composition-api'
 import { Category, createCategory } from '~/model/category'
 
@@ -18,7 +18,6 @@ export default defineComponent({
       color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
     }
   },
-  computed: mapState(['categories']),
   methods: {
     ...mapMutations(['addCategory']),
     newCategory(): Category {

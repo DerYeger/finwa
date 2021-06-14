@@ -25,7 +25,7 @@ export default defineComponent({
   },
   computed: {
     expenseChartData(): ChartData {
-      const categories: Category[] = this.$store.state.categories
+      const categories: Category[] = this.$store.getters.categories
       const expenses: Expense[] = this.expenses
       const categoryValues = sumExpenses(mapExpensesToCategories(expenses, categories))
       return {
@@ -43,7 +43,7 @@ export default defineComponent({
       return {
         margin: 'auto',
         position: 'relative',
-        width: `min(99%, ${this.$store.state.categories.length * 12}rem)`,
+        width: '99%',
         height: '24rem',
       }
     },

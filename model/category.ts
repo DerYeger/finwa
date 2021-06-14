@@ -15,31 +15,29 @@ export function createCategory(data: Omit<Category, 'id'>): Category {
   }
 }
 
-export const uncategorized = {
-  id: 'uncategorized',
-  isBuiltin: true,
-  name: 'domain.category.uncategorized',
-  color: colors.grey.lighten1,
-}
-
-export const builtinCategories: Category[] = [
-  {
+export const builtinCategories: Record<string, Category> = {
+  food: {
     id: 'food',
     isBuiltin: true,
     name: 'domain.category.food',
     color: colors.green.base,
   },
-  {
+  livelihood: {
     id: 'livelihood',
     isBuiltin: true,
     name: 'domain.category.livelihood',
     color: colors.red.base,
   },
-  {
+  leisure: {
     id: 'leisure',
     isBuiltin: true,
     name: 'domain.category.leisure',
     color: colors.blue.base,
   },
-  uncategorized,
-]
+  uncategorized: {
+    id: 'uncategorized',
+    isBuiltin: true,
+    name: 'domain.category.uncategorized',
+    color: colors.grey.lighten1,
+  },
+}

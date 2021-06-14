@@ -5,9 +5,9 @@
       <expense-form @confirm="addExpenseToMonth({ month, expense: $event })" />
     </v-card-text>
     <v-divider class="my-4" />
-    <expense-chart :expenses="month.expenses" />
+    <expense-chart :expenses="expenses" />
     <v-divider class="my-4" />
-    <expense-list :expenses="month.expenses" @delete-expense="removeExpenseFromMonth({ month, expense: $event })" />
+    <expense-list :expenses="expenses" @delete-expense="removeExpenseFromMonth({ month, expense: $event })" />
   </v-card>
 </template>
 
@@ -15,6 +15,8 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 import { mapMutations } from 'vuex'
 import { createMonth, Month } from '~/model/month'
+import { toArray } from '~/utils/collections'
+import { Expense } from '~/model/expense'
 
 export default defineComponent({
   props: {
@@ -29,9 +31,12 @@ export default defineComponent({
       if (month !== undefined) {
         return month
       }
-      const newMonth: Month = createMonth(this.monthId)
+      const newMonth: Month = createMonth({ id: this.monthId })
       this.$store.commit('addMonth', newMonth)
       return newMonth
+    },
+    expenses(): Expense[] {
+      return toArray(this.month.expenses)
     },
   },
   methods: mapMutations(['addExpenseToMonth', 'removeExpenseFromMonth']),

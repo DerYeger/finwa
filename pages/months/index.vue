@@ -24,6 +24,7 @@ import { ChartData } from 'chart.js'
 import { routes } from '~/model/routes'
 import { generateMonthChartData } from '~/model'
 import { currentMonthId } from '~/model/month'
+import { toArray } from '~/utils/collections'
 
 export default defineComponent({
   data() {
@@ -39,7 +40,7 @@ export default defineComponent({
   },
   computed: {
     monthChartData(): ChartData {
-      return generateMonthChartData(this.$store.getters.months(12), this.$store.state.categories, this.$i18n)
+      return generateMonthChartData(this.$store.getters.months(12), toArray(this.$store.state.categories), this.$i18n)
     },
     lineChartStyles(): any {
       return {

@@ -24,19 +24,19 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import { defineComponent } from '@nuxtjs/composition-api'
 import { createExpense, Expense } from '~/model/expense'
-import { uncategorized } from '~/model/category'
+import { builtinCategories } from '~/model/category'
 
 export default defineComponent({
   data() {
     return {
       value: '0',
-      categoryId: uncategorized.id,
+      categoryId: builtinCategories.uncategorized.id,
     }
   },
-  computed: mapState(['categories']),
+  computed: mapGetters(['categories']),
   methods: {
     newExpense(): Expense {
       return createExpense({ categoryId: this.categoryId, value: parseInt(this.value) })

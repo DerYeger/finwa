@@ -1,13 +1,14 @@
-import { HasExpenses } from '~/model/index'
 import { Entity } from '~/model/entity'
 import { Expense } from '~/model/expense'
 
-export interface Month extends Entity, HasExpenses {}
+export interface Month extends Entity {
+  expenses: Record<string, Expense>
+}
 
-export function createMonth(id: string, expenses: Expense[] = []): Month {
+export function createMonth(data: Omit<Month, 'expenses'>): Month {
   return {
-    id,
-    expenses,
+    expenses: {},
+    ...data,
   }
 }
 
@@ -27,6 +28,6 @@ export function lastTwelveMonths(): Month[] {
   return [...Array(12).keys()].map((offset) => {
     const date = new Date()
     date.setMonth(now.getMonth() - offset)
-    return createMonth(monthIdFromDate(date))
+    return createMonth({ id: monthIdFromDate(date) })
   })
 }

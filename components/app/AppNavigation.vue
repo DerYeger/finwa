@@ -15,11 +15,12 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { routes } from '~/model/routes'
+import { toArray } from '~/utils/collections'
 
 export default defineComponent({
   data() {
     return {
-      routes: Object.values(routes),
+      routes: toArray(routes),
     }
   },
 })
