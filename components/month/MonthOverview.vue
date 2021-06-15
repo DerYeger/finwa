@@ -13,7 +13,7 @@ import { defineComponent } from '@nuxtjs/composition-api'
 import { mapMutations } from 'vuex'
 import { Month } from '~/model/month'
 import { toArray } from '~/utils/collections'
-import { Expense } from '~/model/expense'
+import { OneTimeExpense } from '~/model/expense'
 
 export default defineComponent({
   props: {
@@ -26,7 +26,7 @@ export default defineComponent({
     month(): Month | undefined {
       return this.$store.getters['months/byId'](this.monthId)
     },
-    expenses(): Expense[] {
+    expenses(): OneTimeExpense[] {
       return this.month === undefined ? [] : toArray(this.month.expenses)
     },
   },

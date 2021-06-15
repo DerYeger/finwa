@@ -10,12 +10,13 @@ export const actions = {
     if (category.isBuiltin) {
       return
     }
-    commit('categories/delete', category)
+    commit('categories/remove', category)
     commit('months/removeCategory', category)
   },
   reset({ dispatch }: Dispatcher) {
     dispatch('categories/reset')
     dispatch('months/reset')
+    dispatch('recurringExpenses/reset')
     dispatch('settings/reset')
   },
 }

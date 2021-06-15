@@ -11,6 +11,7 @@
     </v-col>
     <v-col>
       <month-picker v-model="selectedMonth" full-width />
+      <expense-list :expenses="recurringExpenses" @delete-expense="remove($event)" />
     </v-col>
     <v-col sm="12" md="9">
       <month-overview :month-id="selectedMonth" />
@@ -22,9 +23,12 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { ChartData } from 'chart.js'
+import { mapMutations } from 'vuex'
 import { routes } from '~/model/routes'
 import { generateMonthChartData } from '~/model'
 import { currentMonthId } from '~/model/month'
+import { RecurringExpense } from '~/model/expense'
+import { toArray } from '~/utils/collections'
 
 export default defineComponent({
   data() {
@@ -39,6 +43,9 @@ export default defineComponent({
     }
   },
   computed: {
+    recurringExpenses(): RecurringExpense[] {
+      return toArray(this.$store.getters['recurringExpenses/recurringExpenses'])
+    },
     monthChartData(): ChartData {
       const getters = this.$store.getters
       const months = getters['months/sorted'](12)
@@ -54,5 +61,6 @@ export default defineComponent({
       }
     },
   },
+  methods: mapMutations('recurringExpenses', ['remove']),
 })
 </script>

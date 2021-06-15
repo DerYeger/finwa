@@ -1,27 +1,20 @@
 import { ChartData, ChartDataSets } from 'chart.js'
 // eslint-disable-next-line import/named
 import { NuxtI18nInstance } from 'nuxt-i18n'
-import { Expense } from '~/model/expense'
-import { builtinCategories, Category } from '~/model/category'
+import { Category } from '~/model/category'
 import { sum, toArray } from '~/utils/collections'
 import { Month } from '~/model/month'
-import { CategoryMapping, EntityRecord, ExpenseMapping, HasValue } from '~/model/types'
+import { CategoryMapping, HasValue } from '~/model/types'
+import { Expense } from '~/model/expense'
 
-export function mapCategoriesToExpenses(expenses: Expense[], categories: EntityRecord<Category>): ExpenseMapping[] {
-  return expenses.map((expense) => ({
-    expense,
-    category: categories[expense.categoryId] ?? builtinCategories.uncategorized,
-  }))
-}
-
-export function mapExpensesToCategories(expenses: Expense[], categories: Category[]): CategoryMapping[] {
+export function mapExpensesToCategories<T extends Expense>(expenses: T[], categories: Category[]): CategoryMapping<T>[] {
   return categories.map((category) => ({
     category,
     expenses: expenses.filter((expense) => expense.categoryId === category.id),
   }))
 }
 
-export function sumExpenses(categoryMappings: CategoryMapping[]): (CategoryMapping & HasValue)[] {
+export function sumExpenses<T extends Expense>(categoryMappings: CategoryMapping<T>[]): (CategoryMapping<T> & HasValue)[] {
   return categoryMappings.map((mapping) => ({
     ...mapping,
     value: sum(mapping.expenses.map((expense) => expense.value)),

@@ -10,16 +10,16 @@ export type CategoriesState = EntityRecord<Category>
 export const state: () => CategoriesState = () => builtinCategories
 
 export const actions = {
-  create({ commit }: Committer, data: Omit<Category, 'id' | 'isBuiltin'>) {
+  create({ commit }: Committer, categoryData: Omit<Category, 'id' | 'isBuiltin'>) {
     const category: Category = {
       id: uuid(),
       isBuiltin: false,
-      ...data,
+      ...categoryData,
     }
     commit('add', category)
   },
   reset({ commit }: Committer) {
-    commit('deleteAll')
+    commit('removeAll')
     commit('set', builtinCategories)
   },
 }
@@ -36,10 +36,10 @@ export const mutations = {
   add(state: CategoriesState, category: Category) {
     Vue.set(state, category.id, category)
   },
-  delete(state: CategoriesState, category: Category) {
+  remove(state: CategoriesState, category: Category) {
     Vue.delete(state, category.id)
   },
-  deleteAll(state: CategoriesState) {
+  removeAll(state: CategoriesState) {
     toArray(state).forEach((category) => Vue.delete(state, category.id))
   },
   set(state: CategoriesState, categories: CategoriesState) {

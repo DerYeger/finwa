@@ -1,9 +1,9 @@
 import { Entity } from '~/model/entity'
-import { Expense } from '~/model/expense'
+import { OneTimeExpense } from '~/model/expense'
 import { EntityRecord } from '~/model/types'
 
 export interface Month extends Entity {
-  expenses: EntityRecord<Expense>
+  expenses: EntityRecord<OneTimeExpense>
 }
 
 function monthIdFromDate(date: Date): string {

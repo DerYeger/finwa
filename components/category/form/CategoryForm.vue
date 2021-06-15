@@ -4,7 +4,7 @@
       <v-card-title>{{ $tc('category.title', 1) }}</v-card-title>
       <v-card-text>
         <v-text-field v-model="name" type="text" :counter="20" :label="$t('misc.name')" :rules="nameRules" class="name-input" required />
-        <v-color-picker v-model="color" dot-size="24" hide-inputs />
+        <v-color-picker v-model="color" dot-size="24" hide-inputs elevation="2" />
       </v-card-text>
       <v-card-actions>
         <v-spacer />
@@ -23,8 +23,8 @@ export default defineComponent({
       color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
       name: '',
       nameRules: [
-        (v: string) => v.length > 0 || this.$t('category.validation.name.required'),
-        (v: string) => v.length <= 20 || this.$t('category.validation.name.too-long'),
+        (v: string) => v.length > 0 || this.$t('validations.required'),
+        (v: string) => v.length <= 20 || this.$t('validations.too-long', [20]),
       ],
       valid: false,
     }

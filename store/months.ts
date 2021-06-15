@@ -3,31 +3,31 @@ import { EntityRecord } from '~/model/types'
 import { toArray, toEntityRecord } from '~/utils/collections'
 import { currentMonthId, lastTwelveMonths, Month } from '~/model/month'
 import { builtinCategories, Category } from '~/model/category'
-import { Expense } from '~/model/expense'
 import { Committer } from '~/store/index'
 import { uuid } from '~/utils'
+import { OneTimeExpense } from '~/model/expense'
 
 export type MonthsState = EntityRecord<Month>
 
 export const state: () => MonthsState = () => toEntityRecord(lastTwelveMonths())
 
 export const actions = {
-  create({ commit }: Committer, data: Pick<Month, 'id'>) {
+  create({ commit }: Committer, monthData: Pick<Month, 'id'>) {
     const month: Month = {
       expenses: {},
-      ...data,
+      ...monthData,
     }
     commit('add', month)
   },
-  createExpense({ commit }: Committer, { monthId, data }: { monthId: string; data: Omit<Expense, 'id'> }) {
-    const expense: Expense = {
+  createExpense({ commit }: Committer, { monthId, expenseData }: { monthId: string; expenseData: Omit<OneTimeExpense, 'id'> }) {
+    const expense: OneTimeExpense = {
       id: uuid(),
-      ...data,
+      ...expenseData,
     }
     commit('addExpense', { monthId, expense })
   },
   reset({ commit }: Committer) {
-    commit('deleteAll')
+    commit('removeAll')
     commit('set', toEntityRecord(lastTwelveMonths()))
   },
 }
@@ -56,13 +56,13 @@ export const mutations = {
   add(state: MonthsState, month: Month) {
     Vue.set(state, month.id, month)
   },
-  addExpense(state: MonthsState, { monthId, expense }: { monthId: string; expense: Expense }) {
+  addExpense(state: MonthsState, { monthId, expense }: { monthId: string; expense: OneTimeExpense }) {
     Vue.set(state[monthId].expenses, expense.id, expense)
   },
-  delete(state: MonthsState, month: Month) {
+  remove(state: MonthsState, month: Month) {
     Vue.delete(state, month.id)
   },
-  deleteAll(state: MonthsState) {
+  removeAll(state: MonthsState) {
     toArray(state).forEach((month) => Vue.delete(state, month.id))
   },
   removeCategory(state: MonthsState, category: Category) {
@@ -72,7 +72,7 @@ export const mutations = {
         .forEach((expense) => (expense.categoryId = builtinCategories.uncategorized.id))
     })
   },
-  removeExpense(state: MonthsState, { month, expense }: { month: Month; expense: Expense }) {
+  removeExpense(state: MonthsState, { month, expense }: { month: Month; expense: OneTimeExpense }) {
     Vue.delete(state[month.id].expenses, expense.id)
   },
   set(state: MonthsState, months: EntityRecord<Month>) {

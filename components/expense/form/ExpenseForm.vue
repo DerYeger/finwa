@@ -13,6 +13,16 @@
         />
         <month-selection v-model="monthId" />
         <category-selection v-model="categoryId" />
+        <v-checkbox v-model="isRecurring" :label="$t('misc.recurring')" hide-details />
+        <v-text-field
+          v-model="frequency"
+          :rules="frequencyRules"
+          :disabled="!isRecurring"
+          type="number"
+          :label="$t('expense.frequency.title')"
+          :hint="$tc('expense.frequency.hint', +frequency)"
+          prepend-icon="mdi-repeat"
+        />
       </v-card-text>
       <v-card-actions>
         <v-spacer />
@@ -27,6 +37,7 @@ import { mapGetters } from 'vuex'
 import { defineComponent } from '@nuxtjs/composition-api'
 import { builtinCategories } from '~/model/category'
 import { currentMonthId } from '~/model/month'
+import { Expense, RecurringExpense } from '~/model/expense'
 
 export default defineComponent({
   props: {
@@ -38,12 +49,20 @@ export default defineComponent({
   data() {
     return {
       categoryId: builtinCategories.food.id,
+      frequency: '1',
+      frequencyRules: [
+        (v: string) => v.length > 0 || this.$t('validations.required'),
+        (v: string) => parseFloat(v) === parseInt(v) || this.$t('validations.integer'),
+        (v: string) => parseInt(v) > 0 || this.$t('validations.positive'),
+      ],
+      isRecurring: false,
       monthId: this.initialMonthId,
       valid: false,
       value: '10',
       valueRules: [
-        (v: string) => parseFloat(v) === parseInt(v) || this.$t('expense.validation.cost.integer'),
-        (v: string) => parseFloat(v) > 0 || this.$t('expense.validation.cost.positive'),
+        (v: string) => v.length > 0 || this.$t('validations.required'),
+        (v: string) => parseFloat(v) === parseInt(v) || this.$t('validations.integer'),
+        (v: string) => parseInt(v) > 0 || this.$t('validations.positive'),
       ],
     }
   },
@@ -55,15 +74,33 @@ export default defineComponent({
   },
   methods: {
     createNewExpense() {
-      this.$store.dispatch('months/createExpense', {
-        monthId: this.monthId,
-        data: { categoryId: this.categoryId, value: parseInt(this.value) },
-      })
+      const expenseData: Omit<Expense, 'id'> = { categoryId: this.categoryId, value: parseInt(this.value) }
+      if (this.isRecurring) {
+        this.createNewRecurringExpense(expenseData)
+      } else {
+        this.createNewOneTimeExpense(this.monthId, expenseData)
+      }
       this.$emit('create')
       this.resetForm()
     },
+    createNewOneTimeExpense(monthId: string, expenseData: Omit<Expense, 'id'>) {
+      this.$store.dispatch('months/createExpense', {
+        monthId,
+        expenseData,
+      })
+    },
+    createNewRecurringExpense(expenseData: Omit<Expense, 'id'>) {
+      const recurringExpenseData: Omit<RecurringExpense, 'id'> = {
+        ...expenseData,
+        startingMonthId: this.monthId,
+        frequency: parseInt(this.frequency),
+      }
+      this.$store.dispatch('recurringExpenses/create', recurringExpenseData)
+    },
     resetForm() {
       this.categoryId = builtinCategories.food.id
+      this.frequency = '1'
+      this.isRecurring = false
       this.monthId = this.initialMonthId
       this.value = '10'
       ;(this.$refs.form as any).resetValidation()
