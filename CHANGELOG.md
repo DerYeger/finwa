@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/DerYeger/finwa/compare/v1.12.1...v1.13.0) (2021-06-15)
+
+
+### Features
+
+* replace expense form with dialog ([049b585](https://github.com/DerYeger/finwa/commit/049b585dca60cd6a50e9f3c534a5af6d7fb67be5))
+
 ## [1.12.1](https://github.com/DerYeger/finwa/compare/v1.12.0...v1.12.1) (2021-06-15)
 
 
