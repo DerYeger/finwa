@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/DerYeger/finwa/compare/v1.15.0...v1.16.0) (2021-06-15)
+
+
+### Features
+
+* include recurring expenses in graphs ([8ecb926](https://github.com/DerYeger/finwa/commit/8ecb926a0c74095084dbbe89a6488c256c0ffe41))
+
 # [1.15.0](https://github.com/DerYeger/finwa/compare/v1.14.2...v1.15.0) (2021-06-15)
 
 
