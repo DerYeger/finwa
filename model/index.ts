@@ -10,8 +10,8 @@ import { monthsBetween } from '~/utils'
 
 export function isApplicable(month: Month, expense: RecurringExpense): boolean {
   const monthDate = new Date(month.id)
-  const date = new Date(expense.startingMonthId)
-  return monthsBetween(monthDate, date) % expense.frequency === 0
+  const startingDate = new Date(expense.startingMonthId)
+  return startingDate <= monthDate && monthsBetween(monthDate, startingDate) % expense.frequency === 0
 }
 
 export function findRecurringExpensesForMonth(month: Month, expenses: RecurringExpense[]): RecurringExpense[] {
