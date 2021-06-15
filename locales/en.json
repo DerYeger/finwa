@@ -7,17 +7,15 @@
     "use-dark-theme": "Switch to dark theme",
     "use-light-theme": "Switch to light theme"
   },
-  "categories": {
-    "title": "Categories"
+  "category": {
+    "food": "Food",
+    "leisure": "Leisure",
+    "livelihood": "Livelihood",
+    "title": "Category | Categories",
+    "uncategorized": "Uncategorized"
   },
-  "domain": {
-    "category": {
-      "food": "Food",
-      "leisure": "Leisure",
-      "livelihood": "Livelihood",
-      "title": "Category | Categories",
-      "uncategorized": "Uncategorized"
-    }
+  "expense": {
+    "title": "Expense | Expenses"
   },
   "home": {
     "title": "Home"
@@ -35,14 +33,13 @@
   "misc": {
     "costs": "Costs",
     "empty-list": "There's nothing to show ¯\\_(ツ)_/¯",
-    "month": "Month",
     "name": "Name",
     "navigation": "Navigation",
     "quick-access": "Quick Access",
     "resources": "Resources"
   },
-  "months": {
-    "title": "Monthly Overview"
+  "month": {
+    "title": "Month | Months"
   },
   "settings": {
     "advanced": "Advanced options",

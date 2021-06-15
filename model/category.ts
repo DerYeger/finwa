@@ -12,25 +12,25 @@ export const builtinCategories: EntityRecord<Category> = {
   food: {
     id: 'food',
     isBuiltin: true,
-    name: 'domain.category.food',
+    name: 'category.food',
     color: colors.green.base,
   },
   livelihood: {
     id: 'livelihood',
     isBuiltin: true,
-    name: 'domain.category.livelihood',
+    name: 'category.livelihood',
     color: colors.red.base,
   },
   leisure: {
     id: 'leisure',
     isBuiltin: true,
-    name: 'domain.category.leisure',
+    name: 'category.leisure',
     color: colors.blue.base,
   },
   uncategorized: {
     id: 'uncategorized',
     isBuiltin: true,
-    name: 'domain.category.uncategorized',
+    name: 'category.uncategorized',
     color: colors.grey.lighten1,
   },
 }

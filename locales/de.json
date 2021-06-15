@@ -7,17 +7,15 @@
     "use-dark-theme": "Zum dunklen Design wechseln",
     "use-light-theme": "Zum hellen Design wechseln"
   },
-  "categories": {
-    "title": "Kategorien"
+  "category": {
+    "food": "Lebensmittel",
+    "leisure": "Freizeit",
+    "livelihood": "Lebensunterhalt",
+    "title": "Kategorie | Kategorien",
+    "uncategorized": "Unkategorisiert"
   },
-  "domain": {
-    "category": {
-      "food": "Lebensmittel",
-      "leisure": "Freizeit",
-      "livelihood": "Lebensunterhalt",
-      "title": "Kategorie | Kategorien",
-      "uncategorized": "Unkategorisiert"
-    }
+  "expense": {
+    "title": "Ausgabe | Ausgaben"
   },
   "home": {
     "title": "Startseite"
@@ -31,14 +29,13 @@
   "misc": {
     "costs": "Kosten",
     "empty-list": "Es gibt nichts zu zeigen ¯\\_(ツ)_/¯",
-    "month": "Monat",
     "name": "Name",
     "navigation": "Navigation",
     "quick-access": "Schnellzugriff",
     "resources": "Ressourcen"
   },
-  "months": {
-    "title": "Monatsübersicht"
+  "month": {
+    "title": "Monat | Monate"
   },
   "settings": {
     "advanced": "Erweiterte Einstellungen",

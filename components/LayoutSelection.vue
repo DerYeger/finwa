@@ -1,22 +1,18 @@
 <template>
-  <v-list-item>
-    <v-list-item-content>
-      <v-select v-model="layout" :items="layoutOptions" :label="$t('layout.title')" dense>
-        <template #selection="{ item }">
-          {{ $t(`layout.${item}`) }}
-        </template>
-        <template #item="{ item, attrs, on }">
-          <v-list-item v-bind="attrs" v-on="on">
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ $t(`layout.${item}`) }}
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </template>
-      </v-select>
-    </v-list-item-content>
-  </v-list-item>
+  <v-select v-model="layout" :items="layoutOptions" :label="$t('layout.title')" dense>
+    <template #selection="{ item }">
+      {{ $t(`layout.${item}`) }}
+    </template>
+    <template #item="{ item, attrs, on }">
+      <v-list-item v-bind="attrs" v-on="on">
+        <v-list-item-content>
+          <v-list-item-title>
+            {{ $t(`layout.${item}`) }}
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </template>
+  </v-select>
 </template>
 
 <script lang="ts">

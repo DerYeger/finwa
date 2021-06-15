@@ -32,7 +32,7 @@ export default defineComponent({
         labels: categories.map((category) => this.$t(category.name) as string),
         datasets: [
           {
-            label: this.$tc('domain.category.title', categories.length) as string,
+            label: this.$tc('category.title', categories.length) as string,
             backgroundColor: categories.map((category) => category.color),
             data: categoryValues.map((element) => element.value),
           },

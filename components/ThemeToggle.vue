@@ -17,7 +17,7 @@ export default defineComponent({
   },
   mounted() {
     const currentTheme = this.$vuetify.theme.dark
-    const newTheme = this.$store.state.useDarkTheme
+    const newTheme = this.$store.state.settings.useDarkTheme
     if (currentTheme !== newTheme) {
       this.$vuetify.theme.dark = newTheme
     }

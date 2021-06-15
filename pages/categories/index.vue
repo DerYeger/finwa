@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row dense>
     <v-col>
       <category-form />
     </v-col>

@@ -1,9 +1,6 @@
 <template>
   <v-card>
     <v-card-title>{{ $d(new Date(month.id), 'no-day') }}</v-card-title>
-    <v-card-text>
-      <expense-form :initial-month-id="monthId" />
-    </v-card-text>
     <v-divider class="my-4" />
     <expense-chart :expenses="expenses" />
     <v-divider class="my-4" />

@@ -6,7 +6,7 @@
         <v-icon>{{ route.icon }}</v-icon>
       </v-list-item-icon>
       <v-list-item-content>
-        <v-list-item-title v-text="$t(route.title)" />
+        <v-list-item-title v-text="$tc(route.title, 2)" />
       </v-list-item-content>
     </v-list-item>
   </v-list-item-group>

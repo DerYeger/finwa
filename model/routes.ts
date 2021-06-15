@@ -11,12 +11,12 @@ export const routes: Record<string, Route> = {
     icon: 'mdi-home',
   },
   categories: {
-    title: 'categories.title',
+    title: 'category.title',
     to: '/categories',
     icon: 'mdi-format-list-bulleted-type',
   },
   months: {
-    title: 'months.title',
+    title: 'month.title',
     to: '/months',
     icon: 'mdi-calendar',
   },

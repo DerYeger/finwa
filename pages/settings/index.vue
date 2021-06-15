@@ -1,20 +1,25 @@
 <template>
-  <v-row>
+  <v-row dense>
     <v-col>
-      <v-list width="100%" elevation="6" subheader>
-        <v-list-item-group>
-          <v-subheader>{{ $t('settings.appearance') }}</v-subheader>
-          <layout-selection />
-        </v-list-item-group>
-        <v-list-item-group>
-          <v-subheader>{{ $t('settings.advanced') }}</v-subheader>
+      <v-card>
+        <v-card-title>Settings</v-card-title>
+        <v-divider />
+        <v-card-subtitle>
+          {{ $t('settings.appearance') }}
+        </v-card-subtitle>
+        <v-card-actions>
           <v-list-item>
-            <v-list-item-content>
-              <v-btn color="red" @click="reset()">{{ $t('actions.reset') }}</v-btn>
-            </v-list-item-content>
+            <layout-selection />
           </v-list-item>
-        </v-list-item-group>
-      </v-list>
+        </v-card-actions>
+        <v-divider />
+        <v-card-subtitle>{{ $t('settings.advanced') }}</v-card-subtitle>
+        <v-card-actions>
+          <v-list-item>
+            <v-btn color="error" @click="reset()">{{ $t('actions.reset') }}</v-btn>
+          </v-list-item>
+        </v-card-actions>
+      </v-card>
     </v-col>
   </v-row>
 </template>

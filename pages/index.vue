@@ -1,8 +1,9 @@
 <template>
-  <v-row>
+  <v-row dense>
     <v-col>
       <month-overview :month-id="currentMonth" />
     </v-col>
+    <expense-form-dialog />
   </v-row>
 </template>
 

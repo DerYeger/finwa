@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row dense>
     <v-col cols="12">
       <v-card>
         <v-row>
@@ -10,11 +10,12 @@
       </v-card>
     </v-col>
     <v-col>
-      <v-date-picker v-model="selectedMonth" type="month" full-width color="red" header-color="primary" elevation="2" />
+      <month-picker v-model="selectedMonth" full-width />
     </v-col>
     <v-col sm="12" md="9">
       <month-overview :month-id="selectedMonth" />
     </v-col>
+    <expense-form-dialog :initial-month-id="selectedMonth" />
   </v-row>
 </template>
 
