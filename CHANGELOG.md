@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/DerYeger/finwa/compare/v1.16.0...v1.16.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* check that starting date is before month date ([8dac598](https://github.com/DerYeger/finwa/commit/8dac59854e0f7c2a79cb82004f005518f498d0aa))
+
 # [1.16.0](https://github.com/DerYeger/finwa/compare/v1.15.0...v1.16.0) (2021-06-15)
 
 
