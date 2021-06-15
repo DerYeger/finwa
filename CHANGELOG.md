@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/DerYeger/finwa/compare/v1.14.2...v1.15.0) (2021-06-15)
+
+
+### Features
+
+* update model to support recurring expenses ([4eddf2f](https://github.com/DerYeger/finwa/commit/4eddf2fbdd944c20d6d3297247a49177c9256e6b))
+
 ## [1.14.2](https://github.com/DerYeger/finwa/compare/v1.14.1...v1.14.2) (2021-06-15)
 
 
