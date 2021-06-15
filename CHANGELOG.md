@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/DerYeger/finwa/compare/v1.14.0...v1.14.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* add form validation ([b1caf7a](https://github.com/DerYeger/finwa/commit/b1caf7afe9769a6b9265e995cf4a067ace133b2f))
+
 # [1.14.0](https://github.com/DerYeger/finwa/compare/v1.13.0...v1.14.0) (2021-06-15)
 
 
