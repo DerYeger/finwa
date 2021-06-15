@@ -12,10 +12,22 @@
     "leisure": "Freizeit",
     "livelihood": "Lebensunterhalt",
     "title": "Kategorie | Kategorien",
-    "uncategorized": "Unkategorisiert"
+    "uncategorized": "Unkategorisiert",
+    "validation": {
+      "name": {
+        "required": "Name ist erforderlich",
+        "too-long": "Name darf maximal 20 Zeichen lang sein"
+      }
+    }
   },
   "expense": {
-    "title": "Ausgabe | Ausgaben"
+    "title": "Ausgabe | Ausgaben",
+    "validation": {
+      "cost": {
+        "integer": "Kosten müssen ganzzahlig sein",
+        "positive": "Kosten müssen positiv sein"
+      }
+    }
   },
   "home": {
     "title": "Startseite"

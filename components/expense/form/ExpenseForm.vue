@@ -1,16 +1,25 @@
 <template>
-  <v-card>
-    <v-card-title>{{ $tc('expense.title', 1) }}</v-card-title>
-    <v-card-text>
-      <v-text-field v-model="value" type="number" :label="$t('misc.costs')" />
-      <month-selection v-model="monthId" />
-      <category-selection v-model="categoryId" />
-    </v-card-text>
-    <v-card-actions>
-      <v-spacer />
-      <v-btn text color="primary" :disabled="value < 1" @click="createNewExpense()">{{ $t('actions.create') }}</v-btn>
-    </v-card-actions>
-  </v-card>
+  <v-form ref="form" v-model="valid">
+    <v-card>
+      <v-card-title>{{ $tc('expense.title', 1) }}</v-card-title>
+      <v-card-text>
+        <v-text-field
+          v-model="value"
+          :rules="valueRules"
+          type="number"
+          :label="$t('misc.costs')"
+          prepend-icon="mdi-currency-usd"
+          required
+        />
+        <month-selection v-model="monthId" />
+        <category-selection v-model="categoryId" />
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn text color="primary" :disabled="!valid" @click="createNewExpense()">{{ $t('actions.create') }}</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-form>
 </template>
 
 <script lang="ts">
@@ -28,10 +37,14 @@ export default defineComponent({
   },
   data() {
     return {
-      categoryId: builtinCategories.uncategorized.id,
-      monthPickerOpen: false,
+      categoryId: builtinCategories.food.id,
       monthId: this.initialMonthId,
-      value: '0',
+      valid: false,
+      value: '10',
+      valueRules: [
+        (v: string) => parseFloat(v) === parseInt(v) || this.$t('expense.validation.cost.integer'),
+        (v: string) => parseFloat(v) > 0 || this.$t('expense.validation.cost.positive'),
+      ],
     }
   },
   computed: mapGetters('categories', ['categories']),
@@ -47,6 +60,13 @@ export default defineComponent({
         data: { categoryId: this.categoryId, value: parseInt(this.value) },
       })
       this.$emit('create')
+      this.resetForm()
+    },
+    resetForm() {
+      this.categoryId = builtinCategories.food.id
+      this.monthId = this.initialMonthId
+      this.value = '10'
+      ;(this.$refs.form as any).resetValidation()
     },
   },
 })

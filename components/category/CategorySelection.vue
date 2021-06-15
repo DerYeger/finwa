@@ -1,5 +1,12 @@
 <template>
-  <v-select :value="value" :items="categories" item-value="id" :label="$tc('category.title', 1)" @input="$emit('input', $event)">
+  <v-select
+    :value="value"
+    :items="categories"
+    item-value="id"
+    :label="$tc('category.title', 1)"
+    prepend-icon="mdi-format-list-bulleted-type"
+    @input="$emit('input', $event)"
+  >
     <template #selection="{ item }">
       {{ $t(item.name) }}
     </template>

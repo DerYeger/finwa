@@ -25,6 +25,10 @@ export const actions = {
 }
 
 export const getters = {
+  byId:
+    (state: CategoriesState) =>
+    (id: string): Category | undefined =>
+      state[id],
   categories: (state: CategoriesState): Category[] => toArray(state),
 }
 

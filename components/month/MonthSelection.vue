@@ -1,7 +1,14 @@
 <template>
   <v-menu v-model="monthPickerOpen" :close-on-content-click="false" transition="scale-transition" min-width="auto">
     <template #activator="{ on, attrs }">
-      <v-text-field :value="$d(new Date(value), 'no-day')" :label="$tc('month.title', 1)" readonly v-bind="attrs" v-on="on" />
+      <v-text-field
+        :value="$d(new Date(value), 'no-day')"
+        :label="$tc('month.title', 1)"
+        prepend-icon="mdi-calendar"
+        readonly
+        v-bind="attrs"
+        v-on="on"
+      />
     </template>
     <month-picker :value="value" @input="updateMonthId" />
   </v-menu>

@@ -91,3 +91,13 @@ a {
 .v-badge--inline {
   height: 20px; // fixes offset caused by badge-wrapper being too large
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}

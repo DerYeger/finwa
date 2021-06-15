@@ -12,10 +12,22 @@
     "leisure": "Leisure",
     "livelihood": "Livelihood",
     "title": "Category | Categories",
-    "uncategorized": "Uncategorized"
+    "uncategorized": "Uncategorized",
+    "validation": {
+      "name": {
+        "required": "Name is required",
+        "too-long": "Name cannot exceed 20 characters"
+      }
+    }
   },
   "expense": {
-    "title": "Expense | Expenses"
+    "title": "Expense | Expenses",
+    "validation": {
+      "cost": {
+        "integer": "Cost must be a whole number",
+        "positive": "Costs must be positive"
+      }
+    }
   },
   "home": {
     "title": "Home"
