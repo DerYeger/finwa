@@ -1,11 +1,9 @@
 <template>
   <v-row dense>
     <v-col>
-      <category-form />
-    </v-col>
-    <v-col>
       <category-list />
     </v-col>
+    <category-form-dialog />
   </v-row>
 </template>
 
