@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/DerYeger/finwa/compare/v1.13.0...v1.14.0) (2021-06-15)
+
+
+### Features
+
+* replace category form with dialog ([133adad](https://github.com/DerYeger/finwa/commit/133adadf6f8faed0fb78639fc0b00a07a65856b1))
+
 # [1.13.0](https://github.com/DerYeger/finwa/compare/v1.12.1...v1.13.0) (2021-06-15)
 
 
