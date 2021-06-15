@@ -1,3 +1,10 @@
+## [1.14.2](https://github.com/DerYeger/finwa/compare/v1.14.1...v1.14.2) (2021-06-15)
+
+
+### Bug Fixes
+
+* use error color for delete buttons ([06fa910](https://github.com/DerYeger/finwa/commit/06fa91079f34163f5ab72c74823eb91041299695))
+
 ## [1.14.1](https://github.com/DerYeger/finwa/compare/v1.14.0...v1.14.1) (2021-06-15)
 
 
