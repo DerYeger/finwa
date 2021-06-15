@@ -57,7 +57,16 @@ export const mutations = {
     Vue.set(state, month.id, month)
   },
   addExpense(state: MonthsState, { monthId, expense }: { monthId: string; expense: OneTimeExpense }) {
-    Vue.set(state[monthId].expenses, expense.id, expense)
+    if (state[monthId] === undefined) {
+      state[monthId] = {
+        id: monthId,
+        expenses: {
+          [expense.id]: expense,
+        },
+      }
+    } else {
+      Vue.set(state[monthId].expenses, expense.id, expense)
+    }
   },
   remove(state: MonthsState, month: Month) {
     Vue.delete(state, month.id)

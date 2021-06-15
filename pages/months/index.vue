@@ -11,10 +11,12 @@
     </v-col>
     <v-col>
       <month-picker v-model="selectedMonth" full-width />
-      <expense-list :expenses="recurringExpenses" @delete-expense="remove($event)" />
     </v-col>
     <v-col sm="12" md="9">
       <month-overview :month-id="selectedMonth" />
+    </v-col>
+    <v-col cols="12">
+      <expense-list :expenses="recurringExpenses" @delete-expense="remove($event)" />
     </v-col>
     <expense-form-dialog :initial-month-id="selectedMonth" />
   </v-row>
@@ -49,8 +51,9 @@ export default defineComponent({
     monthChartData(): ChartData {
       const getters = this.$store.getters
       const months = getters['months/sorted'](12)
+      const recurringExpenses = getters['recurringExpenses/recurringExpenses']
       const categories = getters['categories/categories']
-      return generateMonthChartData(months, categories, this.$i18n)
+      return generateMonthChartData(months, categories, recurringExpenses, this.$i18n)
     },
     lineChartStyles(): any {
       return {

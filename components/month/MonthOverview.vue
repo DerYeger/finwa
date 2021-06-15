@@ -4,16 +4,16 @@
     <v-divider class="my-4" />
     <expense-chart :expenses="expenses" />
     <v-divider class="my-4" />
-    <expense-list :expenses="expenses" @delete-expense="removeExpense({ month, expense: $event })" />
+    <expense-list :expenses="expenses" @delete-expense="removeExpense($event)" />
   </v-card>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { mapMutations } from 'vuex'
 import { Month } from '~/model/month'
 import { toArray } from '~/utils/collections'
-import { OneTimeExpense } from '~/model/expense'
+import { findRecurringExpensesForMonth } from '~/model'
+import { Expense, isRecurringExpense } from '~/model/expense'
 
 export default defineComponent({
   props: {
@@ -26,8 +26,13 @@ export default defineComponent({
     month(): Month | undefined {
       return this.$store.getters['months/byId'](this.monthId)
     },
-    expenses(): OneTimeExpense[] {
-      return this.month === undefined ? [] : toArray(this.month.expenses)
+    expenses(): Expense[] {
+      if (this.month === undefined) {
+        return []
+      }
+      const oneTimeExpenses = toArray(this.month.expenses)
+      const recurringExpenses = findRecurringExpensesForMonth(this.month, this.$store.getters['recurringExpenses/recurringExpenses'])
+      return [...oneTimeExpenses, ...recurringExpenses]
     },
   },
   watch: {
@@ -37,6 +42,14 @@ export default defineComponent({
       }
     },
   },
-  methods: mapMutations('months', ['removeExpense']),
+  methods: {
+    removeExpense(expense: Expense) {
+      if (isRecurringExpense(expense)) {
+        this.$store.commit('recurringExpenses/remove', expense)
+      } else {
+        this.$store.commit('months/removeExpense', { month: this.month, expense })
+      }
+    },
+  },
 })
 </script>

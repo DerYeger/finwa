@@ -5,7 +5,18 @@ import { Category } from '~/model/category'
 import { sum, toArray } from '~/utils/collections'
 import { Month } from '~/model/month'
 import { CategoryMapping, HasValue } from '~/model/types'
-import { Expense } from '~/model/expense'
+import { Expense, RecurringExpense } from '~/model/expense'
+import { monthsBetween } from '~/utils'
+
+export function isApplicable(month: Month, expense: RecurringExpense): boolean {
+  const monthDate = new Date(month.id)
+  const date = new Date(expense.startingMonthId)
+  return monthsBetween(monthDate, date) % expense.frequency === 0
+}
+
+export function findRecurringExpensesForMonth(month: Month, expenses: RecurringExpense[]): RecurringExpense[] {
+  return expenses.filter((expense) => isApplicable(month, expense))
+}
 
 export function mapExpensesToCategories<T extends Expense>(expenses: T[], categories: Category[]): CategoryMapping<T>[] {
   return categories.map((category) => ({
@@ -21,8 +32,17 @@ export function sumExpenses<T extends Expense>(categoryMappings: CategoryMapping
   }))
 }
 
-export function generateMonthChartData(months: Month[], categories: Category[], i18n: NuxtI18nInstance): ChartData {
-  const monthValues = months.map((month) => sumExpenses(mapExpensesToCategories(toArray(month.expenses), categories)))
+export function generateMonthChartData(
+  months: Month[],
+  categories: Category[],
+  recurringExpenses: RecurringExpense[],
+  i18n: NuxtI18nInstance
+): ChartData {
+  const monthValues = months.map((month) =>
+    sumExpenses(
+      mapExpensesToCategories([...toArray(month.expenses), ...findRecurringExpensesForMonth(month, recurringExpenses)], categories)
+    )
+  )
   const datasets: ChartDataSets[] = categories.map((category) => ({
     label: i18n.t(category.name) as string,
     borderColor: category.color,
