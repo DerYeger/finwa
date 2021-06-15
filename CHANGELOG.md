@@ -1,3 +1,10 @@
+## [1.16.2](https://github.com/DerYeger/finwa/compare/v1.16.1...v1.16.2) (2021-06-15)
+
+
+### Bug Fixes
+
+* update description ([6f3d2e3](https://github.com/DerYeger/finwa/commit/6f3d2e353887e70dd86fe55a4e8ac306210f63b0))
+
 ## [1.16.1](https://github.com/DerYeger/finwa/compare/v1.16.0...v1.16.1) (2021-06-15)
 
 
