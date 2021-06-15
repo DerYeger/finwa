@@ -11,7 +11,7 @@
           <v-list-item-title>{{ $t(element.category.name) }}, {{ element.expense.value }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
-          <v-btn color="red" x-small fab depressed @click="$emit('delete-expense', element.expense)">
+          <v-btn color="error" x-small fab depressed @click="$emit('delete-expense', element.expense)">
             <v-icon v-text="'mdi-delete'" />
           </v-btn>
         </v-list-item-action>
