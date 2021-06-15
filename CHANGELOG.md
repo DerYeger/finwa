@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/DerYeger/finwa/compare/v1.12.0...v1.12.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency nuxt-i18n to v6.27.1 ([5ee1dff](https://github.com/DerYeger/finwa/commit/5ee1dff532ea8e9ac6ba4ab9327646ac095ba13b))
+
 # [1.12.0](https://github.com/DerYeger/finwa/compare/v1.11.0...v1.12.0) (2021-06-14)
 
 
