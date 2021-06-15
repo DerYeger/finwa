@@ -1,7 +1,7 @@
 {
   "name": "FinWa",
   "short_name": "FinWa",
-  "description": "FinWa visualizes monthly expenses for an easier management of personal finances.",
+  "description": "FinWa visualizes monthly expenses for easier management of personal finances.",
   "icons": [
     {
       "src": "/_nuxt/icons/icon_64x64.0623a4.png",
