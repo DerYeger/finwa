@@ -1,4 +1,11 @@
-# finwa
+# FinWa
+
+> FinWa visualizes monthly expenses for easier management of personal finances.
+
+[![CI](https://github.com/DerYeger/finwa/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/DerYeger/jan-mueller/actions/workflows/ci.yml)
+[![CD](https://github.com/DerYeger/finwa/actions/workflows/cd.yml/badge.svg)](https://github.com/DerYeger/jan-mueller/actions/workflows/cd.yml)
+
+FinWa is hosted with GitHub Pages at [finwa.yeger.eu](https://finwa.yeger.eu).
 
 ## Build Setup
 
