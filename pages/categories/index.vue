@@ -3,7 +3,7 @@
     <v-col>
       <category-list />
     </v-col>
-    <category-form-dialog />
+    <create-category-dialog />
   </v-row>
 </template>
 

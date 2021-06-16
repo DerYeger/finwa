@@ -1,33 +1,68 @@
 <template>
-  <client-only>
-    <v-list>
-      <v-list-item v-show="categories.length === 0">
-        <v-list-item-content>
-          <v-list-item-title>{{ $t('misc.empty-list') }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item v-for="category of categories" :key="category.id">
-        <v-list-item-icon>
-          <v-badge inline :color="category.color" />
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>{{ $t(category.name) }}</v-list-item-title>
-        </v-list-item-content>
-        <v-list-item-action v-if="!category.isBuiltin">
-          <v-btn color="error" x-small fab depressed @click="removeCategory(category)">
-            <v-icon v-text="'mdi-delete'" />
+  <v-card flat>
+    <v-card-title>
+      {{ $tc('category.title', 2) }}
+      <v-spacer />
+      <v-text-field v-model="search" append-icon="mdi-magnify" :label="$t('actions.search')" single-line hide-details class="mt-0 pt-0" />
+    </v-card-title>
+    <client-only>
+      <v-data-table
+        :headers="headers"
+        :items="categories"
+        :items-per-page="15"
+        :search="search"
+        :footer-props="footerProps"
+        :header-props="headerProps"
+        :no-data-text="$t('misc.no-data')"
+        :no-results-text="$t('misc.no-results')"
+      >
+        <template #item.name="{ item }">
+          {{ $t(item.name) }}
+        </template>
+        <template #item.color="{ item }">
+          <v-badge inline :color="item.color" class="mr-2" />
+        </template>
+        <template #item.actions="{ item }">
+          <edit-category-dialog :category="item" />
+          <v-btn :disabled="item.isBuiltin" small icon color="error" @click="removeCategory(item)">
+            <v-icon small v-text="'mdi-delete'" />
           </v-btn>
-        </v-list-item-action>
-      </v-list-item>
-    </v-list>
-  </client-only>
+        </template>
+        <template #footer.page-text="{ pageStart, pageStop, itemsLength }">
+          {{ $t('misc.table.page-text', [pageStart, pageStop, itemsLength]) }}
+        </template>
+      </v-data-table>
+    </client-only>
+  </v-card>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { mapActions, mapGetters } from 'vuex'
+import { translateAndCompare } from '~/utils'
 
 export default defineComponent({
+  data() {
+    return {
+      footerProps: {
+        itemsPerPageAllText: this.$i18n.t('misc.table.all'),
+        itemsPerPageText: this.$i18n.t('misc.table.items-per-page'),
+      },
+      headerProps: {
+        sortByText: this.$i18n.t('misc.table.sort-by'),
+      },
+      headers: [
+        { text: this.$i18n.t('misc.color'), value: 'color', sortable: false, filterable: false },
+        {
+          text: this.$i18n.t('misc.name'),
+          value: 'name',
+          sort: (a: string, b: string) => translateAndCompare(a, b, (it) => this.$i18n.t(it)),
+        },
+        { text: this.$i18n.t('misc.actions'), value: 'actions', sortable: false, filterable: false },
+      ],
+      search: '',
+    }
+  },
   computed: mapGetters('categories', ['categories']),
   methods: mapActions(['removeCategory']),
 })

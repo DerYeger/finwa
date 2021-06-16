@@ -29,8 +29,8 @@ export default defineComponent({
   },
   methods: {
     updateExpense(expense: OneTimeExpense | RecurringExpense, dialog: { value: boolean }) {
-      const oldExpense = this.expense
       dialog.value = false
+      const oldExpense = this.expense
       if (isRecurringExpense(expense)) {
         if (isOneTimeExpense(oldExpense)) {
           this.$store.commit('months/removeExpense', oldExpense)

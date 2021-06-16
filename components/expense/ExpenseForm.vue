@@ -76,7 +76,6 @@ export default defineComponent({
       expenseId: undefined as string | undefined,
       frequency: '1',
       isRecurring: false,
-      isEditing: false,
       monthId: this.initialMonthId,
       name: '',
       value: '10',
@@ -129,7 +128,6 @@ export default defineComponent({
       if (expense === undefined) {
         return
       }
-      this.isEditing = true
       this.categoryId = expense.categoryId
       this.expenseId = expense.id
       this.name = expense.name
@@ -143,14 +141,10 @@ export default defineComponent({
         this.monthId = expense.startingMonthId
       }
     },
-    mounted() {
-      this.loadInitialExpenseData()
-    },
     resetForm() {
       this.categoryId = builtinCategories.food.id
       this.expenseId = undefined
       this.frequency = '1'
-      this.isEditing = false
       this.isRecurring = false
       this.monthId = this.initialMonthId
       this.name = ''
