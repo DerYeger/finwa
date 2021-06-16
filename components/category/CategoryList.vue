@@ -1,5 +1,5 @@
 <template>
-  <v-card flat>
+  <v-card>
     <v-card-title>
       {{ $tc('category.title', 2) }}
       <v-spacer />
@@ -45,20 +45,20 @@ export default defineComponent({
   data() {
     return {
       footerProps: {
-        itemsPerPageAllText: this.$i18n.t('misc.table.all'),
-        itemsPerPageText: this.$i18n.t('misc.table.items-per-page'),
+        itemsPerPageAllText: this.$t('misc.table.all'),
+        itemsPerPageText: this.$t('misc.table.items-per-page'),
       },
       headerProps: {
-        sortByText: this.$i18n.t('misc.table.sort-by'),
+        sortByText: this.$t('misc.table.sort-by'),
       },
       headers: [
-        { text: this.$i18n.t('misc.color'), value: 'color', sortable: false, filterable: false },
+        { text: this.$t('misc.color'), value: 'color', sortable: false, filterable: false },
         {
-          text: this.$i18n.t('misc.name'),
+          text: this.$t('misc.name'),
           value: 'name',
-          sort: (a: string, b: string) => translateAndCompare(a, b, (it) => this.$i18n.t(it)),
+          sort: (a: string, b: string) => translateAndCompare(a, b, (it) => this.$t(it)),
         },
-        { text: this.$i18n.t('misc.actions'), value: 'actions', sortable: false, filterable: false },
+        { text: this.$t('misc.actions'), value: 'actions', sortable: false, filterable: false },
       ],
       search: '',
     }

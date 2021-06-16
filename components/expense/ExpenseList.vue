@@ -59,27 +59,27 @@ export default defineComponent({
   data() {
     return {
       footerProps: {
-        itemsPerPageAllText: this.$i18n.t('misc.table.all'),
-        itemsPerPageText: this.$i18n.t('misc.table.items-per-page'),
+        itemsPerPageAllText: this.$t('misc.table.all'),
+        itemsPerPageText: this.$t('misc.table.items-per-page'),
       },
       headerProps: {
-        sortByText: this.$i18n.t('misc.table.sort-by'),
+        sortByText: this.$t('misc.table.sort-by'),
       },
       headers: [
-        { text: this.$i18n.t('misc.name'), value: 'name' },
+        { text: this.$t('misc.name'), value: 'name' },
         {
-          text: this.$i18n.tc('category.title', 1),
+          text: this.$tc('category.title', 1),
           value: 'categoryId',
-          sort: (a: string, b: string) => translateAndCompare(a, b, (it) => this.$i18n.t(it)),
+          sort: (a: string, b: string) => translateAndCompare(a, b, (it) => this.$t(it)),
         },
-        { text: this.$i18n.t('misc.costs'), value: 'value' },
+        { text: this.$t('misc.costs'), value: 'value' },
         {
-          text: this.$i18n.tc('month.title', 1),
+          text: this.$tc('month.title', 1),
           value: 'startingMonthId',
           filterable: false,
         },
-        { text: this.$i18n.t('expense.frequency.title'), value: 'frequency' },
-        { text: this.$i18n.t('misc.actions'), value: 'actions', sortable: false, filterable: false },
+        { text: this.$t('expense.frequency.title'), value: 'frequency' },
+        { text: this.$t('misc.actions'), value: 'actions', sortable: false, filterable: false },
       ],
       search: '',
     }

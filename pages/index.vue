@@ -19,7 +19,7 @@ export default defineComponent({
     }
   },
   head() {
-    const title = (this.$t as Function)(routes.home.title)
+    const title = this.$t(routes.home.title) as string
     return {
       title,
     }

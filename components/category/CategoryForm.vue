@@ -68,7 +68,7 @@ export default defineComponent({
       this.categoryId = category.id
       this.color = category.color
       this.isBuiltin = category.isBuiltin
-      this.name = this.$i18n.t(category.name) as string
+      this.name = this.$t(category.name) as string
     },
     resetForm() {
       this.categoryId = undefined

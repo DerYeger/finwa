@@ -13,7 +13,7 @@ import { routes } from '~/model/routes'
 
 export default defineComponent({
   head() {
-    const title = this.$t(routes.categories.title) as string
+    const title = this.$tc(routes.categories.title, 2) as string
     return {
       title,
     }
