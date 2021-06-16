@@ -1,3 +1,16 @@
+# [1.17.0](https://github.com/DerYeger/finwa/compare/v1.16.2...v1.17.0) (2021-06-16)
+
+
+### Bug Fixes
+
+* use correct type for translation ([a19aa01](https://github.com/DerYeger/finwa/commit/a19aa01ff18ea6d8769e62efc7c30168b1dd815c))
+
+
+### Features
+
+* implement updating of categories ([c3a45e8](https://github.com/DerYeger/finwa/commit/c3a45e80b071834b907d37cce9c47a0289612efc))
+* implement updating of expenses ([68bbf52](https://github.com/DerYeger/finwa/commit/68bbf52cf0f07b4c5f2b6979a061ae63fad688b8))
+
 ## [1.16.2](https://github.com/DerYeger/finwa/compare/v1.16.1...v1.16.2) (2021-06-15)
 
 
