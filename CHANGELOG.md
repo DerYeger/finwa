@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/DerYeger/finwa/compare/v1.17.0...v1.17.1) (2021-06-16)
+
+
+### Bug Fixes
+
+* access translate function directly ([90e2082](https://github.com/DerYeger/finwa/commit/90e2082546025593a76f977f9af3d85cbac9135e))
+
 # [1.17.0](https://github.com/DerYeger/finwa/compare/v1.16.2...v1.17.0) (2021-06-16)
 
 
