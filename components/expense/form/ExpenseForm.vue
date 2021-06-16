@@ -4,6 +4,16 @@
       <v-card-title>{{ $tc('expense.title', 1) }}</v-card-title>
       <v-card-text>
         <v-text-field
+          v-model="name"
+          type="text"
+          :counter="20"
+          :label="$t('misc.name')"
+          :rules="nameRules"
+          class="name-input"
+          prepend-icon="mdi-pencil"
+          required
+        />
+        <v-text-field
           v-model="value"
           :rules="valueRules"
           type="number"
@@ -26,7 +36,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn text color="primary" :disabled="!valid" @click="createNewExpense()">{{ $t('actions.create') }}</v-btn>
+        <v-btn text color="primary" :disabled="!valid" @click="emitExpense()">{{ submitLabel }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-form>
@@ -37,7 +47,8 @@ import { mapGetters } from 'vuex'
 import { defineComponent } from '@nuxtjs/composition-api'
 import { builtinCategories } from '~/model/category'
 import { currentMonthId } from '~/model/month'
-import { Expense, RecurringExpense } from '~/model/expense'
+import { Expense, isOneTimeExpense, isRecurringExpense, OneTimeExpense, RecurringExpense } from '~/model/expense'
+import { frequencyRules, nameRules, valueRules } from '~/model/rules'
 
 export default defineComponent({
   props: {
@@ -45,25 +56,32 @@ export default defineComponent({
       type: String,
       default: currentMonthId(),
     },
+    initialExpenseData: {
+      type: Object as () => OneTimeExpense | RecurringExpense | undefined,
+      default: undefined,
+    },
+    submitLabel: {
+      type: String,
+      required: true,
+    },
   },
   data() {
+    const rules = {
+      frequencyRules: frequencyRules(this.$i18n),
+      nameRules: nameRules(this.$i18n),
+      valueRules: valueRules(this.$i18n),
+    }
     return {
       categoryId: builtinCategories.food.id,
+      expenseId: undefined as string | undefined,
       frequency: '1',
-      frequencyRules: [
-        (v: string) => v.length > 0 || this.$t('validations.required'),
-        (v: string) => parseFloat(v) === parseInt(v) || this.$t('validations.integer'),
-        (v: string) => parseInt(v) > 0 || this.$t('validations.positive'),
-      ],
       isRecurring: false,
+      isEditing: false,
       monthId: this.initialMonthId,
-      valid: false,
+      name: '',
       value: '10',
-      valueRules: [
-        (v: string) => v.length > 0 || this.$t('validations.required'),
-        (v: string) => parseFloat(v) === parseInt(v) || this.$t('validations.integer'),
-        (v: string) => parseInt(v) > 0 || this.$t('validations.positive'),
-      ],
+      valid: false,
+      ...rules,
     }
   },
   computed: mapGetters('categories', ['categories']),
@@ -71,39 +89,74 @@ export default defineComponent({
     initialMonthId(val: string) {
       this.monthId = val
     },
+    initialExpenseData: {
+      immediate: true,
+      handler() {
+        this.loadInitialExpenseData()
+      },
+    },
   },
   methods: {
-    createNewExpense() {
-      const expenseData: Omit<Expense, 'id'> = { categoryId: this.categoryId, value: parseInt(this.value) }
-      if (this.isRecurring) {
-        this.createNewRecurringExpense(expenseData)
-      } else {
-        this.createNewOneTimeExpense(this.monthId, expenseData)
+    emitExpense() {
+      let expenseData: Omit<Expense, 'id'> | OneTimeExpense | RecurringExpense = {
+        name: this.name,
+        categoryId: this.categoryId,
+        value: parseInt(this.value),
       }
-      this.$emit('create')
+      if (this.isRecurring) {
+        expenseData = {
+          ...expenseData,
+          startingMonthId: this.monthId,
+          frequency: parseInt(this.frequency),
+        }
+      } else {
+        expenseData = {
+          ...expenseData,
+          monthId: this.monthId,
+        }
+      }
+      if (this.expenseId !== undefined) {
+        expenseData = {
+          ...expenseData,
+          id: this.expenseId,
+        }
+      }
+      this.$emit('submit', expenseData)
       this.resetForm()
     },
-    createNewOneTimeExpense(monthId: string, expenseData: Omit<Expense, 'id'>) {
-      this.$store.dispatch('months/createExpense', {
-        monthId,
-        expenseData,
-      })
-    },
-    createNewRecurringExpense(expenseData: Omit<Expense, 'id'>) {
-      const recurringExpenseData: Omit<RecurringExpense, 'id'> = {
-        ...expenseData,
-        startingMonthId: this.monthId,
-        frequency: parseInt(this.frequency),
+    loadInitialExpenseData() {
+      const expense = this.initialExpenseData
+      if (expense === undefined) {
+        return
       }
-      this.$store.dispatch('recurringExpenses/create', recurringExpenseData)
+      this.isEditing = true
+      this.categoryId = expense.categoryId
+      this.expenseId = expense.id
+      this.name = expense.name
+      this.value = expense.value.toString()
+      if (isOneTimeExpense(expense)) {
+        this.isRecurring = false
+        this.monthId = expense.monthId
+      } else if (isRecurringExpense(expense)) {
+        this.frequency = expense.frequency.toString()
+        this.isRecurring = true
+        this.monthId = expense.startingMonthId
+      }
+    },
+    mounted() {
+      this.loadInitialExpenseData()
     },
     resetForm() {
       this.categoryId = builtinCategories.food.id
+      this.expenseId = undefined
       this.frequency = '1'
+      this.isEditing = false
       this.isRecurring = false
       this.monthId = this.initialMonthId
+      this.name = ''
       this.value = '10'
       ;(this.$refs.form as any).resetValidation()
+      this.loadInitialExpenseData()
     },
   },
 })

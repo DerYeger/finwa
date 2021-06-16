@@ -4,6 +4,8 @@ export default {
     create: 'Erstellen',
     'open-menu': 'Menü öffnen',
     reset: 'Zurücksetzen',
+    search: 'Suchen',
+    update: 'Aktualisieren',
     'use-dark-theme': 'Zum dunklen Design wechseln',
     'use-light-theme': 'Zum hellen Design wechseln',
   },

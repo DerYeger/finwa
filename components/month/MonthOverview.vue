@@ -4,7 +4,7 @@
     <v-divider class="my-4" />
     <expense-chart :expenses="expenses" />
     <v-divider class="my-4" />
-    <expense-list :expenses="expenses" @delete-expense="removeExpense($event)" />
+    <expense-list :expenses="expenses" />
   </v-card>
 </template>
 
@@ -13,7 +13,7 @@ import { defineComponent } from '@nuxtjs/composition-api'
 import { Month } from '~/model/month'
 import { toArray } from '~/utils/collections'
 import { findRecurringExpensesForMonth } from '~/model'
-import { Expense, isRecurringExpense } from '~/model/expense'
+import { Expense } from '~/model/expense'
 
 export default defineComponent({
   props: {
@@ -21,6 +21,11 @@ export default defineComponent({
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {
+      editDialogOpen: false,
+    }
   },
   computed: {
     month(): Month | undefined {
@@ -39,15 +44,6 @@ export default defineComponent({
     monthId() {
       if (this.month === undefined) {
         this.$store.dispatch('months/create', { id: this.monthId })
-      }
-    },
-  },
-  methods: {
-    removeExpense(expense: Expense) {
-      if (isRecurringExpense(expense)) {
-        this.$store.commit('recurringExpenses/remove', expense)
-      } else {
-        this.$store.commit('months/removeExpense', { month: this.month, expense })
       }
     },
   },

@@ -1,6 +1,5 @@
 import { ChartData, ChartDataSets } from 'chart.js'
-// eslint-disable-next-line import/named
-import { NuxtI18nInstance } from 'nuxt-i18n'
+import VueI18n from 'vue-i18n'
 import { Category } from '~/model/category'
 import { sum, toArray } from '~/utils/collections'
 import { Month } from '~/model/month'
@@ -36,7 +35,7 @@ export function generateMonthChartData(
   months: Month[],
   categories: Category[],
   recurringExpenses: RecurringExpense[],
-  i18n: NuxtI18nInstance
+  i18n: VueI18n
 ): ChartData {
   const monthValues = months.map((month) =>
     sumExpenses(

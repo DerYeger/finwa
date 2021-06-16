@@ -19,12 +19,12 @@ export const actions = {
     }
     commit('add', month)
   },
-  createExpense({ commit }: Committer, { monthId, expenseData }: { monthId: string; expenseData: Omit<OneTimeExpense, 'id'> }) {
+  createExpense({ commit }: Committer, expenseData: Omit<OneTimeExpense, 'id'>) {
     const expense: OneTimeExpense = {
       id: uuid(),
       ...expenseData,
     }
-    commit('addExpense', { monthId, expense })
+    commit('addExpense', expense)
   },
   reset({ commit }: Committer) {
     commit('removeAll')
@@ -56,16 +56,16 @@ export const mutations = {
   add(state: MonthsState, month: Month) {
     Vue.set(state, month.id, month)
   },
-  addExpense(state: MonthsState, { monthId, expense }: { monthId: string; expense: OneTimeExpense }) {
-    if (state[monthId] === undefined) {
-      state[monthId] = {
-        id: monthId,
+  addExpense(state: MonthsState, expense: OneTimeExpense) {
+    if (state[expense.monthId] === undefined) {
+      state[expense.monthId] = {
+        id: expense.monthId,
         expenses: {
           [expense.id]: expense,
         },
       }
     } else {
-      Vue.set(state[monthId].expenses, expense.id, expense)
+      Vue.set(state[expense.monthId].expenses, expense.id, expense)
     }
   },
   remove(state: MonthsState, month: Month) {
@@ -81,8 +81,8 @@ export const mutations = {
         .forEach((expense) => (expense.categoryId = builtinCategories.uncategorized.id))
     })
   },
-  removeExpense(state: MonthsState, { month, expense }: { month: Month; expense: OneTimeExpense }) {
-    Vue.delete(state[month.id].expenses, expense.id)
+  removeExpense(state: MonthsState, expense: OneTimeExpense) {
+    Vue.delete(state[expense.monthId].expenses, expense.id)
   },
   set(state: MonthsState, months: EntityRecord<Month>) {
     Object.assign(state, months)

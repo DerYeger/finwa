@@ -18,7 +18,7 @@
     <v-col cols="12">
       <expense-list :expenses="recurringExpenses" @delete-expense="remove($event)" />
     </v-col>
-    <expense-form-dialog :initial-month-id="selectedMonth" />
+    <create-expense-dialog :initial-month-id="selectedMonth" />
   </v-row>
 </template>
 

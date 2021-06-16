@@ -3,7 +3,7 @@
     <v-col>
       <month-overview :month-id="currentMonth" />
     </v-col>
-    <expense-form-dialog />
+    <create-expense-dialog />
   </v-row>
 </template>
 

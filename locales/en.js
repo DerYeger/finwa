@@ -4,6 +4,8 @@ export default {
     create: 'Create',
     'open-menu': 'Open menu',
     reset: 'Reset',
+    search: 'Search',
+    update: 'Update',
     'use-dark-theme': 'Switch to dark theme',
     'use-light-theme': 'Switch to light theme',
   },

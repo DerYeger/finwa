@@ -1,33 +1,37 @@
 <template>
-  <client-only>
-    <v-list>
-      <v-list-item v-show="expenses.length === 0">
-        <v-list-item-content>
-          <v-list-item-title>{{ $t('misc.empty-list') }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item v-for="expense of expenses" :key="expense.id">
-        <v-list-item-content>
-          <v-list-item-title>
-            {{ $t(byId(expense.categoryId).name) }},
-            {{ expense.value }}
-          </v-list-item-title>
-          <span v-if="isRecurringExpense(expense)">{{ frequencyDescription(expense) }}</span>
-        </v-list-item-content>
-        <v-list-item-action>
-          <v-btn color="error" x-small fab depressed @click="$emit('delete-expense', expense)">
-            <v-icon v-text="'mdi-delete'" />
-          </v-btn>
-        </v-list-item-action>
-      </v-list-item>
-    </v-list>
-  </client-only>
+  <v-card flat>
+    <v-card-title>
+      {{ $tc('expense.title', 2) }}
+      <v-spacer />
+      <v-text-field v-model="search" append-icon="mdi-magnify" :label="$t('actions.search')" single-line hide-details class="mt-0 pt-0" />
+    </v-card-title>
+    <client-only>
+      <v-data-table :headers="headers" :items="expenses" :items-per-page="5" :search="search">
+        <template #item.categoryId="{ item }">
+          <span class="d-inline-flex">
+            <v-badge inline :color="byId(item.categoryId).color" class="mr-2" />
+            {{ $t(byId(item.categoryId).name) }}
+          </span>
+        </template>
+        <template #item.startingMonthId="{ item }">
+          <span v-if="item.startingMonthId">{{ $d(new Date(item.startingMonthId), 'no-day') }}</span>
+        </template>
+        <template #item.frequency="{ item }">
+          <span v-if="item.frequency">{{ $tc('expense.frequency.hint', item.frequency) }}</span>
+        </template>
+        <template #item.actions="{ item }">
+          <edit-expense-dialog :expense="item" />
+          <v-icon small color="error" @click="deleteExpense(item)" v-text="'mdi-delete'" />
+        </template>
+      </v-data-table>
+    </client-only>
+  </v-card>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { mapGetters } from 'vuex'
-import { Expense, isRecurringExpense, RecurringExpense } from '~/model/expense'
+import { Expense, isOneTimeExpense, isRecurringExpense, OneTimeExpense, RecurringExpense } from '~/model/expense'
 
 export default defineComponent({
   props: {
@@ -35,6 +39,19 @@ export default defineComponent({
       type: Array as () => Expense[],
       required: true,
     },
+  },
+  data() {
+    return {
+      headers: [
+        { text: 'Name', value: 'name' },
+        { text: 'Category', value: 'categoryId' },
+        { text: 'Value', value: 'value' },
+        { text: 'Starting Month', value: 'startingMonthId' },
+        { text: 'Frequency', value: 'frequency' },
+        { text: 'Actions', value: 'actions', sortable: false },
+      ],
+      search: '',
+    }
   },
   computed: mapGetters('categories', ['byId']),
   methods: {
@@ -44,6 +61,13 @@ export default defineComponent({
         new Date(expense.startingMonthId),
         'no-day'
       )}`
+    },
+    deleteExpense(expense: OneTimeExpense | RecurringExpense) {
+      if (isRecurringExpense(expense)) {
+        this.$store.commit('recurringExpenses/remove', expense)
+      } else if (isOneTimeExpense(expense)) {
+        this.$store.commit('months/removeExpense', expense)
+      }
     },
   },
 })
