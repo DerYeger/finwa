@@ -1,3 +1,13 @@
+## [1.18.2](https://github.com/DerYeger/finwa/compare/v1.18.1...v1.18.2) (2021-06-17)
+
+
+### Bug Fixes
+
+* add plugin for updating pwa ([6ed03ad](https://github.com/DerYeger/finwa/commit/6ed03ad93273ecbf67926542c93f0361e11a0865))
+* add proper og-image ([6933c6d](https://github.com/DerYeger/finwa/commit/6933c6d08305368382bd9d410613fb750d1df4a2))
+* enable native ui ([3e4cafe](https://github.com/DerYeger/finwa/commit/3e4cafed56d717b2787c3ac2654dcfa79800b1e6))
+* update logo icon with new theme color ([ca25de5](https://github.com/DerYeger/finwa/commit/ca25de506bb80ee56b23fd6cd1accb897f7afc56))
+
 ## [1.18.1](https://github.com/DerYeger/finwa/compare/v1.18.0...v1.18.1) (2021-06-17)
 
 
