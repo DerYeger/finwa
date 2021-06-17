@@ -24,7 +24,7 @@
         </template>
         <template #item.actions="{ item }">
           <edit-category-dialog :category="item" />
-          <v-btn :disabled="item.isBuiltin" small icon color="error" @click="removeCategory(item)">
+          <v-btn :disabled="item.isBuiltin" small icon color="error" :aria-label="$t('actions.delete')" @click="removeCategory(item)">
             <v-icon small v-text="'mdi-delete'" />
           </v-btn>
         </template>

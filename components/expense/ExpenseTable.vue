@@ -33,7 +33,7 @@
         </template>
         <template #item.actions="{ item }">
           <edit-expense-dialog :expense="item" />
-          <v-btn small icon color="error" @click="deleteExpense(item)">
+          <v-btn small icon color="error" :aria-label="$t('actions.delete')" @click="deleteExpense(item)">
             <v-icon small v-text="'mdi-delete'" />
           </v-btn>
         </template>

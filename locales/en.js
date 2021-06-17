@@ -1,7 +1,10 @@
 export default {
   actions: {
+    'change-language': 'Change language',
     'close-menu': 'Close menu',
     create: 'Create',
+    delete: 'Delete',
+    edit: 'Edit',
     'open-menu': 'Open menu',
     reset: 'Reset',
     search: 'Search',
@@ -46,6 +49,8 @@ export default {
     history: 'History',
     name: 'Name',
     navigation: 'Navigation',
+    'new-category': 'New Category',
+    'new-expense': 'New Expense',
     'no-data': 'No data available',
     'no-results': 'No results',
     'quick-access': 'Quick Access',

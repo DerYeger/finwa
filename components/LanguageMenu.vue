@@ -1,7 +1,7 @@
 <template>
   <v-menu>
     <template #activator="{ on, attrs }">
-      <v-btn icon v-bind="attrs" v-on="on">
+      <v-btn icon v-bind="attrs" :aria-label="$t('actions.change-language')" v-on="on">
         <v-icon v-text="'mdi-translate'" />
       </v-btn>
     </template>

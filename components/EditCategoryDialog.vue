@@ -1,7 +1,7 @@
 <template>
   <v-dialog transition="dialog-bottom-transition" max-width="332" @click:outside="$refs.form.resetForm()">
     <template #activator="{ on, attrs }">
-      <v-btn color="primary" icon small v-bind="attrs" v-on="on">
+      <v-btn color="primary" icon small v-bind="attrs" :aria-label="$t('actions.edit')" v-on="on">
         <v-icon small v-text="'mdi-pencil'" />
       </v-btn>
     </template>
