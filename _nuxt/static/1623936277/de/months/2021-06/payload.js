@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/de/months/2021-06", {data:[{monthId:"2021-06"}],fetch:{},mutations:[]});
