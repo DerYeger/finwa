@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/DerYeger/finwa/compare/v1.18.0...v1.18.1) (2021-06-17)
+
+
+### Bug Fixes
+
+* improve breakpoint behavior on small displays ([c1024cc](https://github.com/DerYeger/finwa/commit/c1024cc76d8bde0b849767d9e7ab2ff3d056cf09))
+
 # [1.18.0](https://github.com/DerYeger/finwa/compare/v1.17.1...v1.18.0) (2021-06-17)
 
 
