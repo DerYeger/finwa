@@ -52,6 +52,7 @@ export default {
       theme_color: app.theme.primary,
     },
     meta: {
+      nativeUI: true,
       ogImage: `${app.host}/og-image.png`,
       ogHost: app.host,
       twitterCard: 'summary_large_image',
