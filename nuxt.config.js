@@ -52,6 +52,7 @@ export default {
       theme_color: app.theme.primary,
     },
     meta: {
+      ogImage: `${app.host}/og-image.png`,
       ogHost: app.host,
       twitterCard: 'summary_large_image',
       twitterCreator: '@DerYeger',
