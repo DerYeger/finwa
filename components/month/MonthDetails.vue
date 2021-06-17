@@ -3,14 +3,14 @@
     <v-col cols="12">
       <month-summary :month-id="monthId" />
     </v-col>
-    <v-col cols="4" style="height: 100%">
+    <v-col :cols="$vuetify.breakpoint.smAndUp ? 4 : 12" style="height: 100%">
       <v-card>
         <v-card-text>
           <expense-pie-chart :expenses="expenses" />
         </v-card-text>
       </v-card>
     </v-col>
-    <v-col cols="8">
+    <v-col :cols="$vuetify.breakpoint.smAndUp ? 8 : 12">
       <v-card>
         <v-card-text>
           <expense-bar-chart :expenses="expenses" />

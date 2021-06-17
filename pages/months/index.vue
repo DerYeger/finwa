@@ -8,8 +8,8 @@
         </v-card-text>
       </v-card>
     </v-col>
-    <v-col cols="auto">
-      <month-picker v-model="selectedMonth" />
+    <v-col :cols="$vuetify.breakpoint.smAndUp ? 'auto' : 12">
+      <month-picker v-model="selectedMonth" :full-width="$vuetify.breakpoint.xsOnly" />
     </v-col>
     <v-col>
       <month-summary :month-id="selectedMonth" show-details-link />
