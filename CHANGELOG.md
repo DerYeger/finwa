@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/DerYeger/finwa/compare/v1.17.1...v1.18.0) (2021-06-17)
+
+
+### Features
+
+* update layout ([41e8bd7](https://github.com/DerYeger/finwa/commit/41e8bd747bb5d016f6677c691b7567ef23b97b82))
+
 ## [1.17.1](https://github.com/DerYeger/finwa/compare/v1.17.0...v1.17.1) (2021-06-16)
 
 
