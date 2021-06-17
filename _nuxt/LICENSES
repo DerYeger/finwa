@@ -44,12 +44,6 @@
  */
 
 
-//! moment.js locale configuration
-
-
-//! moment.js locale configuration
-
-
 /*!
  * vue-client-only v2.0.0
  * (c) 2019-present egoist <0x142857@gmail.com>
@@ -76,3 +70,9 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
+
+
+//! moment.js locale configuration
+
+
+//! moment.js locale configuration
