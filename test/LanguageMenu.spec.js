@@ -17,6 +17,7 @@ describe('LanguageMenu', () => {
         $i18n: {
           availableLocales: [],
         },
+        $t: (string) => string,
       },
       stubs: {
         RouterLink: RouterLinkStub,
