@@ -7,14 +7,14 @@ import { CategoryMapping, HasValue } from '~/model/types'
 import { Expense, RecurringExpense } from '~/model/expense'
 import { monthsBetween } from '~/utils'
 
-export function isApplicable(month: Month, expense: RecurringExpense): boolean {
-  const monthDate = new Date(month.id)
+export function isApplicable(monthId: string, expense: RecurringExpense): boolean {
+  const monthDate = new Date(monthId)
   const startingDate = new Date(expense.startingMonthId)
   return startingDate <= monthDate && monthsBetween(monthDate, startingDate) % expense.frequency === 0
 }
 
-export function findRecurringExpensesForMonth(month: Month, expenses: RecurringExpense[]): RecurringExpense[] {
-  return expenses.filter((expense) => isApplicable(month, expense))
+export function findRecurringExpensesForMonth(monthId: string, expenses: RecurringExpense[]): RecurringExpense[] {
+  return expenses.filter((expense) => isApplicable(monthId, expense))
 }
 
 export function mapExpensesToCategories<T extends Expense>(expenses: T[], categories: Category[]): CategoryMapping<T>[] {
@@ -31,6 +31,20 @@ export function sumExpenses<T extends Expense>(categoryMappings: CategoryMapping
   }))
 }
 
+export function generateExpenseChartData(expenses: Expense[], categories: Category[], i18n: VueI18n): ChartData {
+  const categoryValues = sumExpenses(mapExpensesToCategories(expenses, categories))
+  return {
+    labels: categories.map((category) => i18n.t(category.name) as string),
+    datasets: [
+      {
+        label: i18n.tc('category.title', categories.length) as string,
+        backgroundColor: categories.map((category) => category.color),
+        data: categoryValues.map((element) => element.value),
+      },
+    ],
+  }
+}
+
 export function generateMonthChartData(
   months: Month[],
   categories: Category[],
@@ -39,7 +53,7 @@ export function generateMonthChartData(
 ): ChartData {
   const monthValues = months.map((month) =>
     sumExpenses(
-      mapExpensesToCategories([...toArray(month.expenses), ...findRecurringExpensesForMonth(month, recurringExpenses)], categories)
+      mapExpensesToCategories([...toArray(month.expenses), ...findRecurringExpensesForMonth(month.id, recurringExpenses)], categories)
     )
   )
   const datasets: ChartDataSets[] = categories.map((category) => ({

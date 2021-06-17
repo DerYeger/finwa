@@ -19,8 +19,11 @@ export default {
   expense: {
     frequency: {
       title: 'Frequency',
-      hint: 'Repeats every month | Repeats every {n} months',
+      description: 'Every month | Every {n} months',
+      hint: 'Never repeats | Repeats every month | Repeats every {n} months',
     },
+    'one-time': 'One-time Expense | One-time Expenses',
+    recurring: 'Recurring Expense | Recurring Expenses',
     title: 'Expense | Expenses',
   },
   home: {
@@ -38,9 +41,9 @@ export default {
   },
   misc: {
     actions: 'Actions',
+    spent: 'spent',
     color: 'Color',
-    costs: 'Costs',
-    'empty-list': `There's nothing to show ¯\\_(ツ)_/¯`,
+    history: 'History',
     name: 'Name',
     navigation: 'Navigation',
     'no-data': 'No data available',
@@ -48,13 +51,14 @@ export default {
     'quick-access': 'Quick Access',
     recurring: 'Recurring',
     resources: 'Resources',
-    since: 'since',
+    since: 'Since',
     table: {
       all: 'All',
       'items-per-page': 'Items per page',
       'page-text': '{0}-{1} of {2}',
       'sort-by': 'Sort by',
     },
+    value: 'Value',
   },
   month: {
     title: 'Month | Months',

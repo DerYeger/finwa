@@ -1,7 +1,7 @@
 <template>
-  <v-card flat>
-    <v-card-title>
-      {{ $tc('expense.title', 2) }}
+  <v-card>
+    <v-card-title :class="{ 'pb-0': $vuetify.breakpoint.xsOnly }">
+      {{ title || $tc('expense.title', 2) }}
       <v-spacer />
       <v-text-field v-model="search" append-icon="mdi-magnify" :label="$t('actions.search')" single-line hide-details class="mt-0 pt-0" />
     </v-card-title>
@@ -22,12 +22,14 @@
             {{ $t(byId(item.categoryId).name) }}
           </span>
         </template>
+        <template #item.monthId="{ item }">
+          <month-name v-if="item.monthId" :month-id="item.monthId" />
+        </template>
         <template #item.startingMonthId="{ item }">
-          <span v-if="item.startingMonthId">{{ $d(new Date(item.startingMonthId), 'no-day') }}</span>
-          <span v-else>{{ $d(new Date(item.monthId), 'no-day') }}</span>
+          <month-name v-if="item.startingMonthId" :month-id="item.startingMonthId" />
         </template>
         <template #item.frequency="{ item }">
-          <span v-if="item.frequency">{{ $tc('expense.frequency.hint', item.frequency) }}</span>
+          <span v-if="item.frequency">{{ $tc('expense.frequency.description', item.frequency) }}</span>
         </template>
         <template #item.actions="{ item }">
           <edit-expense-dialog :expense="item" />
@@ -46,6 +48,7 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { mapGetters } from 'vuex'
+import { DataTableHeader } from 'vuetify'
 import { Expense, isOneTimeExpense, isRecurringExpense, OneTimeExpense, RecurringExpense } from '~/model/expense'
 import { translateAndCompare } from '~/utils'
 
@@ -55,8 +58,45 @@ export default defineComponent({
       type: Array as () => Expense[],
       required: true,
     },
+    title: {
+      type: String as () => string | undefined,
+      default: undefined,
+    },
+    includeOneTimeData: {
+      type: Boolean,
+      default: false,
+    },
+    includeRecurringData: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
+    const headers: DataTableHeader[] = [
+      { text: this.$t('misc.name') as string, value: 'name' },
+      {
+        text: this.$tc('category.title', 1) as string,
+        value: 'categoryId',
+        sort: (a: string, b: string) => translateAndCompare(a, b, (it) => this.$t(it)),
+      },
+      { text: this.$t('misc.value') as string, value: 'value' },
+    ]
+    if (this.includeOneTimeData) {
+      headers.push({
+        text: this.$tc('month.title', 1) as string,
+        value: 'monthId',
+      })
+    }
+    if (this.includeRecurringData) {
+      headers.push(
+        {
+          text: this.$tc('misc.since', 1) as string,
+          value: 'startingMonthId',
+        },
+        { text: this.$t('expense.frequency.title') as string, value: 'frequency' }
+      )
+    }
+    headers.push({ text: this.$t('misc.actions') as string, value: 'actions', sortable: false, filterable: false })
     return {
       footerProps: {
         itemsPerPageAllText: this.$t('misc.table.all'),
@@ -65,34 +105,13 @@ export default defineComponent({
       headerProps: {
         sortByText: this.$t('misc.table.sort-by'),
       },
-      headers: [
-        { text: this.$t('misc.name'), value: 'name' },
-        {
-          text: this.$tc('category.title', 1),
-          value: 'categoryId',
-          sort: (a: string, b: string) => translateAndCompare(a, b, (it) => this.$t(it)),
-        },
-        { text: this.$t('misc.costs'), value: 'value' },
-        {
-          text: this.$tc('month.title', 1),
-          value: 'startingMonthId',
-          filterable: false,
-        },
-        { text: this.$t('expense.frequency.title'), value: 'frequency' },
-        { text: this.$t('misc.actions'), value: 'actions', sortable: false, filterable: false },
-      ],
+      headers,
       search: '',
     }
   },
   computed: mapGetters('categories', ['byId']),
   methods: {
     isRecurringExpense,
-    frequencyDescription(expense: RecurringExpense): string {
-      return `${this.$tc('expense.frequency.hint', expense.frequency)} ${this.$t('misc.since')} ${this.$d(
-        new Date(expense.startingMonthId),
-        'no-day'
-      )}`
-    },
     deleteExpense(expense: OneTimeExpense | RecurringExpense) {
       if (isRecurringExpense(expense)) {
         this.$store.commit('recurringExpenses/remove', expense)

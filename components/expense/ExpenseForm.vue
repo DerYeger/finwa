@@ -17,7 +17,7 @@
           v-model="value"
           :rules="valueRules"
           type="number"
-          :label="$t('misc.costs')"
+          :label="$t('misc.value')"
           prepend-icon="mdi-currency-usd"
           required
         />
@@ -30,7 +30,8 @@
           :disabled="!isRecurring"
           type="number"
           :label="$t('expense.frequency.title')"
-          :hint="$tc('expense.frequency.hint', +frequency)"
+          :hint="$tc('expense.frequency.hint', isRecurring ? +frequency : 0)"
+          :persistent-hint="true"
           prepend-icon="mdi-repeat"
         />
       </v-card-text>

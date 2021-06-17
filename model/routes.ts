@@ -10,15 +10,20 @@ export const routes: Record<string, Route> = {
     to: '/',
     icon: 'mdi-home',
   },
-  categories: {
-    title: 'category.title',
-    to: '/categories',
-    icon: 'mdi-format-list-bulleted-type',
-  },
   months: {
     title: 'month.title',
     to: '/months',
     icon: 'mdi-calendar',
+  },
+  expenses: {
+    title: 'expense.title',
+    to: '/expenses',
+    icon: 'mdi-currency-usd',
+  },
+  categories: {
+    title: 'category.title',
+    to: '/categories',
+    icon: 'mdi-format-list-bulleted-type',
   },
   settings: {
     title: 'settings.title',

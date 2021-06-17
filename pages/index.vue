@@ -1,7 +1,7 @@
 <template>
-  <v-row dense>
+  <v-row no-gutters>
     <v-col>
-      <month-overview :month-id="currentMonth" />
+      <month-details :month-id="currentMonth" />
     </v-col>
     <create-expense-dialog />
   </v-row>

@@ -1,0 +1,27 @@
+<template>
+  <v-row dense>
+    <v-col cols="12">
+      <recurring-expense-table />
+    </v-col>
+    <v-col cols="12">
+      <one-time-expense-table :expenses="oneTimeExpenses" />
+    </v-col>
+    <create-expense-dialog />
+  </v-row>
+</template>
+
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+import { mapGetters } from 'vuex'
+import { routes } from '~/model/routes'
+
+export default defineComponent({
+  head() {
+    const title = this.$tc(routes.expenses.title, 2) as string
+    return {
+      title,
+    }
+  },
+  computed: mapGetters('months', ['oneTimeExpenses']),
+})
+</script>

@@ -33,11 +33,12 @@ export const actions = {
 }
 
 export const getters = {
-  months: (state: MonthsState): Month[] => toArray(state),
   byId:
     (state: MonthsState) =>
     (id: string): Month | undefined =>
       state[id],
+  months: (state: MonthsState): Month[] => toArray(state),
+  oneTimeExpenses: (state: MonthsState): OneTimeExpense[] => toArray(state).flatMap((month: Month) => toArray(month.expenses)),
   sorted:
     (state: MonthsState) =>
     (limit: number, until: Date = new Date(currentMonthId())): Month[] => {

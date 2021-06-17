@@ -4,6 +4,7 @@ import { toArray } from '~/utils/collections'
 import { Committer } from '~/store/index'
 import { uuid } from '~/utils'
 import { RecurringExpense } from '~/model/expense'
+import { findRecurringExpensesForMonth } from '~/model'
 
 export type RecurringExpensesState = EntityRecord<RecurringExpense>
 
@@ -27,6 +28,10 @@ export const getters = {
     (state: RecurringExpensesState) =>
     (id: string): RecurringExpense | undefined =>
       state[id],
+  byMonthId:
+    (state: RecurringExpensesState) =>
+    (monthId: string): RecurringExpense[] =>
+      findRecurringExpensesForMonth(monthId, toArray(state)),
   recurringExpenses: (state: RecurringExpensesState): RecurringExpense[] => toArray(state),
 }
 

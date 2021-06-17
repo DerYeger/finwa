@@ -19,8 +19,11 @@ export default {
   expense: {
     frequency: {
       title: 'Frequenz',
-      hint: 'Wiederholt sich jeden Monat | Wiederholt sich alle {n} Monate',
+      description: 'Jeden Monat | Alle {n} Monate',
+      hint: 'Wiederholt sich nie | Wiederholt sich jeden Monat | Wiederholt sich alle {n} Monate',
     },
+    'one-time': 'Einmalige Ausgabe | Einmalige Ausgaben',
+    recurring: 'Wiederkehrende Ausgabe | Wiederkehrende Ausgaben',
     title: 'Ausgabe | Ausgaben',
   },
   home: {
@@ -34,9 +37,9 @@ export default {
   },
   misc: {
     actions: 'Aktionen',
+    spent: 'ausgegeben',
     color: 'Farbe',
-    costs: 'Kosten',
-    'empty-list': 'Es gibt nichts zu zeigen ¯\\_(ツ)_/¯',
+    history: 'Historie',
     name: 'Name',
     navigation: 'Navigation',
     'no-data': 'Keine Daten verfügbar',
@@ -44,13 +47,14 @@ export default {
     'quick-access': 'Schnellzugriff',
     recurring: 'Wiederkehrend',
     resources: 'Ressourcen',
-    since: 'seit',
+    since: 'Seit',
     table: {
       all: 'Alle',
       'items-per-page': 'Elemente pro Seite',
       'page-text': '{0}-{1} von {2}',
       'sort-by': 'Sortieren nach',
     },
+    value: 'Wert',
   },
   month: {
     title: 'Monat | Monate',

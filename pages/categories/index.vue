@@ -1,7 +1,7 @@
 <template>
   <v-row dense>
     <v-col>
-      <category-list />
+      <category-table />
     </v-col>
     <create-category-dialog />
   </v-row>

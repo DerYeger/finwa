@@ -18,6 +18,7 @@ export default defineComponent({
       const { fontColor } = chartColors(this.$vuetify)
       return {
         responsive: true,
+        maintainAspectRatio: false,
         cutoutPercentage: this.cutoutPercentage,
         legend: {
           labels: {
