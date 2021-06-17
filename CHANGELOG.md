@@ -1,3 +1,11 @@
+## [1.18.3](https://github.com/DerYeger/finwa/compare/v1.18.2...v1.18.3) (2021-06-17)
+
+
+### Bug Fixes
+
+* add aria labels to icon buttons ([2fae145](https://github.com/DerYeger/finwa/commit/2fae145962926ae465d56adfd3a4f4bdf9cbe462))
+* add title to certain icon buttons ([c32687b](https://github.com/DerYeger/finwa/commit/c32687b437d0b0ea4b5c74027ebb59f3fb9271b5))
+
 ## [1.18.2](https://github.com/DerYeger/finwa/compare/v1.18.1...v1.18.2) (2021-06-17)
 
 
