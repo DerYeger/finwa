@@ -17,7 +17,10 @@ export default {
   css: ['~/assets/styles.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/persistedState.client.js' }],
+  plugins: [
+    { src: '~/plugins/persistedState.client.ts', mode: 'client' },
+    { src: '~/plugins/pwaUpdate.client.ts', mode: 'client' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: ['~/components/', { path: '~/components/charts/' }],
