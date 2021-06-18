@@ -1,3 +1,10 @@
+## [1.18.4](https://github.com/DerYeger/finwa/compare/v1.18.3...v1.18.4) (2021-06-18)
+
+
+### Bug Fixes
+
+* add open-in-new icon to repository link ([a92beb2](https://github.com/DerYeger/finwa/commit/a92beb29c9fa3bdb1394e98348399ad45675ab0a))
+
 ## [1.18.3](https://github.com/DerYeger/finwa/compare/v1.18.2...v1.18.3) (2021-06-17)
 
 
