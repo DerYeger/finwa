@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/DerYeger/finwa/compare/v1.18.4...v2.0.0) (2021-06-18)
+
+
+### Features
+
+* implement one-time and recurring income ([cf41414](https://github.com/DerYeger/finwa/commit/cf4141440b4194f353832d3d04ae3c529e667ce7))
+
+
+### BREAKING CHANGES
+
+* add one-time income to month model
+
 ## [1.18.4](https://github.com/DerYeger/finwa/compare/v1.18.3...v1.18.4) (2021-06-18)
 
 
