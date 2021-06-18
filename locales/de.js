@@ -20,17 +20,22 @@ export default {
     uncategorized: 'Unkategorisiert',
   },
   expense: {
-    frequency: {
-      title: 'Frequenz',
-      description: 'Jeden Monat | Alle {n} Monate',
-      hint: 'Wiederholt sich nie | Wiederholt sich jeden Monat | Wiederholt sich alle {n} Monate',
-    },
     'one-time': 'Einmalige Ausgabe | Einmalige Ausgaben',
     recurring: 'Wiederkehrende Ausgabe | Wiederkehrende Ausgaben',
     title: 'Ausgabe | Ausgaben',
   },
+  frequency: {
+    title: 'Frequenz',
+    description: 'Jeden Monat | Alle {n} Monate',
+    hint: 'Wiederholt sich nie | Wiederholt sich jeden Monat | Wiederholt sich alle {n} Monate',
+  },
   home: {
     title: 'Startseite',
+  },
+  income: {
+    'one-time': 'Einmaliges Einkommen | Einmalige Einkommen',
+    recurring: 'Wiederkehrendes Einkommen | Wiederkehrende Einkommen',
+    title: 'Einkommen | Einkommen',
   },
   layout: {
     compact: 'Kompakt',
@@ -40,19 +45,21 @@ export default {
   },
   misc: {
     actions: 'Aktionen',
-    spent: 'ausgegeben',
     color: 'Farbe',
+    earned: 'verdient',
     history: 'Historie',
     name: 'Name',
     navigation: 'Navigation',
     'new-category': 'Neue Kategorie',
     'new-expense': 'Neue Ausgabe',
+    'new-income': 'Neues Einkommen',
     'no-data': 'Keine Daten verfügbar',
     'no-results': 'Keine Ergebnisse',
     'quick-access': 'Schnellzugriff',
     recurring: 'Wiederkehrend',
     resources: 'Ressourcen',
     since: 'Seit',
+    spent: 'ausgegeben',
     table: {
       all: 'Alle',
       'items-per-page': 'Elemente pro Seite',

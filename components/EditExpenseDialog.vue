@@ -18,17 +18,17 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { isOneTimeExpense, isRecurringExpense, OneTimeExpense, RecurringExpense } from '~/model/expense'
+import { Expense, isOneTimeExpense, isRecurringExpense } from '~/model/expense'
 
 export default defineComponent({
   props: {
     expense: {
-      type: Object as () => OneTimeExpense | RecurringExpense,
+      type: Object as () => Expense,
       required: true,
     },
   },
   methods: {
-    updateExpense(expense: OneTimeExpense | RecurringExpense, dialog: { value: boolean }) {
+    updateExpense(expense: Expense, dialog: { value: boolean }) {
       dialog.value = false
       const oldExpense = this.expense
       if (isRecurringExpense(expense)) {

@@ -1,17 +1,17 @@
 <template>
-  <pie-chart :chart-data="expenseChartData" :styles="pieChartStyles" />
+  <pie-chart :chart-data="incomeChartData" :styles="pieChartStyles" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { ChartData } from 'chart.js'
-import { generateExpenseChartData } from '~/model'
-import { Expense } from '~/model/expense'
+import { generateIncomeChartData } from '~/model'
+import { Income } from '~/model/income'
 
 export default defineComponent({
   props: {
-    expenses: {
-      type: Array as () => Expense[],
+    incomes: {
+      type: Array as () => Income[],
       required: true,
     },
     height: {
@@ -20,8 +20,8 @@ export default defineComponent({
     },
   },
   computed: {
-    expenseChartData(): ChartData {
-      return generateExpenseChartData(this.expenses, this.$store.getters['categories/categories'], this.$i18n)
+    incomeChartData(): ChartData {
+      return generateIncomeChartData(this.incomes, this.$i18n)
     },
     pieChartStyles(): any {
       return {

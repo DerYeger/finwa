@@ -1,9 +1,11 @@
 import { Entity } from '~/model/entity'
 import { OneTimeExpense } from '~/model/expense'
 import { EntityRecord } from '~/model/types'
+import { OneTimeIncome } from '~/model/income'
 
 export interface Month extends Entity {
   expenses: EntityRecord<OneTimeExpense>
+  incomes: EntityRecord<OneTimeIncome>
 }
 
 function monthIdFromDate(date: Date): string {
@@ -22,6 +24,6 @@ export function lastTwelveMonths(): Month[] {
   return [...Array(12).keys()].map((offset) => {
     const date = new Date()
     date.setMonth(now.getMonth() - offset)
-    return { id: monthIdFromDate(date), expenses: {} }
+    return { id: monthIdFromDate(date), expenses: {}, incomes: {} }
   })
 }

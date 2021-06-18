@@ -1,24 +1,20 @@
-import { Entity } from '~/model/entity'
+import { isOneTimeTransaction, isRecurringTransaction, OneTimeTransaction, RecurringTransaction } from '~/model/transaction'
+import { Categorized, isCategorized } from '~/model/categorized'
 
-export interface Expense extends Entity {
-  name: string
-  categoryId: string
-  value: number
+export type OneTimeExpense = Categorized & OneTimeTransaction
+
+export type RecurringExpense = Categorized & RecurringTransaction
+
+export type Expense = OneTimeExpense | RecurringExpense
+
+export function isExpense(object: any | undefined): object is Expense {
+  return isOneTimeExpense(object) || isRecurringExpense(object)
 }
 
-export interface OneTimeExpense extends Expense {
-  monthId: string
+export function isOneTimeExpense(object: any | undefined): object is OneTimeExpense {
+  return isCategorized(object) && isOneTimeTransaction(object)
 }
 
-export interface RecurringExpense extends Expense {
-  startingMonthId: string
-  frequency: number
-}
-
-export function isOneTimeExpense(expense: Expense | undefined): expense is OneTimeExpense {
-  return expense !== undefined && (expense as any).monthId !== undefined
-}
-
-export function isRecurringExpense(expense: Expense | undefined): expense is RecurringExpense {
-  return expense !== undefined && (expense as any).startingMonthId !== undefined && (expense as any).frequency !== undefined
+export function isRecurringExpense(object: any | undefined): object is RecurringExpense {
+  return isCategorized(object) && isRecurringTransaction(object)
 }

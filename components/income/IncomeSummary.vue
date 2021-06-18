@@ -1,29 +1,27 @@
 <template>
   <v-card>
     <v-card-title>
-      <month-name :month-id="monthId" />
+      {{ $tc('income.title', 2) }}
     </v-card-title>
     <v-card-text>
       <p>
-        <b>{{ totalExpenseValue }}</b> {{ $t('misc.spent') }}
-      </p>
-      <p>
         <b>{{ totalIncomeValue }}</b> {{ $t('misc.earned') }}
       </p>
+      <p>
+        <b>{{ oneTimeIncomes.length }}</b> {{ $tc('income.one-time', oneTimeIncomes.length) }}
+      </p>
+      <p>
+        <b>{{ recurringIncomes.length }}</b> {{ $tc('income.recurring', recurringIncomes.length) }}
+      </p>
     </v-card-text>
-    <v-card-actions>
-      <v-spacer />
-      <v-btn text color="primary" :to="localePath(`/months/${month.id}`)"> Details </v-btn>
-    </v-card-actions>
   </v-card>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
+import { Income, OneTimeIncome, RecurringIncome } from '~/model/income'
 import { Month } from '~/model/month'
 import { sumBy, toArray } from '~/utils/collections'
-import { Expense, OneTimeExpense, RecurringExpense } from '~/model/expense'
-import { Income, OneTimeIncome, RecurringIncome } from '~/model/income'
 
 export default defineComponent({
   props: {
@@ -40,21 +38,6 @@ export default defineComponent({
   computed: {
     month(): Month | undefined {
       return this.$store.getters['months/byId'](this.monthId)
-    },
-    oneTimeExpenses(): OneTimeExpense[] {
-      return toArray(this.month?.expenses ?? {})
-    },
-    recurringExpenses(): RecurringExpense[] {
-      if (this.month === undefined) {
-        return []
-      }
-      return this.$store.getters['recurringExpenses/byMonthId'](this.month.id)
-    },
-    expenses(): Expense[] {
-      return [...this.oneTimeExpenses, ...this.recurringExpenses]
-    },
-    totalExpenseValue(): number {
-      return sumBy(this.expenses, (expense) => expense.value)
     },
     oneTimeIncomes(): OneTimeIncome[] {
       return toArray(this.month?.incomes ?? {})

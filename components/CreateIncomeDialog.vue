@@ -8,19 +8,19 @@
         bottom
         right
         v-bind="attrs"
-        :aria-label="$t('misc.new-expense')"
-        :title="$t('misc.new-expense')"
+        :aria-label="$t('misc.new-income')"
+        :title="$t('misc.new-income')"
         v-on="on"
       >
         <v-icon v-text="'mdi-plus'" />
       </v-btn>
     </template>
     <template #default="dialog">
-      <expense-form
+      <income-form
         ref="form"
         :initial-month-id="initialMonthId"
         :submit-label="$t('actions.create')"
-        @submit="createNewExpense($event, dialog)"
+        @submit="createNewIncome($event, dialog)"
       />
     </template>
   </v-dialog>
@@ -29,7 +29,7 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { currentMonthId } from '~/model/month'
-import { Expense, isOneTimeExpense, isRecurringExpense } from '~/model/expense'
+import { Income, isOneTimeIncome, isRecurringIncome } from '~/model/income'
 
 export default defineComponent({
   props: {
@@ -39,12 +39,12 @@ export default defineComponent({
     },
   },
   methods: {
-    createNewExpense(expense: Omit<Expense, 'id'>, dialog: { value: boolean }) {
+    createNewIncome(income: Omit<Income, 'id'>, dialog: { value: boolean }) {
       dialog.value = false
-      if (isRecurringExpense({ id: '', ...expense })) {
-        this.$store.dispatch('recurringExpenses/create', expense)
-      } else if (isOneTimeExpense(expense)) {
-        this.$store.dispatch('months/createExpense', expense)
+      if (isRecurringIncome({ id: '', ...income })) {
+        this.$store.dispatch('recurringIncomes/create', income)
+      } else if (isOneTimeIncome(income)) {
+        this.$store.dispatch('months/createIncome', income)
       }
     },
   },

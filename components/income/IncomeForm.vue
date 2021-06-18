@@ -1,7 +1,7 @@
 <template>
   <v-form ref="form" v-model="valid">
     <v-card>
-      <v-card-title>{{ $tc('expense.title', 1) }}</v-card-title>
+      <v-card-title>{{ $tc('income.title', 1) }}</v-card-title>
       <v-card-text>
         <v-text-field
           v-model="name"
@@ -13,16 +13,8 @@
           prepend-icon="mdi-pencil"
           required
         />
-        <v-text-field
-          v-model="value"
-          :rules="valueRules"
-          type="number"
-          :label="$t('misc.value')"
-          prepend-icon="mdi-currency-usd"
-          required
-        />
+        <v-text-field v-model="value" :rules="valueRules" type="number" :label="$t('misc.value')" prepend-icon="mdi-cash" required />
         <month-selection v-model="monthId" />
-        <category-selection v-model="categoryId" />
         <v-checkbox v-model="isRecurring" :label="$t('misc.recurring')" hide-details />
         <v-text-field
           v-model="frequency"
@@ -37,19 +29,17 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn text color="primary" :disabled="!valid" @click="emitExpense()">{{ submitLabel }}</v-btn>
+        <v-btn text color="primary" :disabled="!valid" @click="emitIncome()">{{ submitLabel }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-form>
 </template>
 
 <script lang="ts">
-import { mapGetters } from 'vuex'
 import { defineComponent } from '@nuxtjs/composition-api'
-import { builtinCategories } from '~/model/category'
 import { currentMonthId } from '~/model/month'
-import { Expense, isOneTimeExpense, isRecurringExpense } from '~/model/expense'
 import { frequencyRules, nameRules, valueRules } from '~/model/rules'
+import { Income, isOneTimeIncome, isRecurringIncome } from '~/model/income'
 
 export default defineComponent({
   props: {
@@ -57,8 +47,8 @@ export default defineComponent({
       type: String,
       default: currentMonthId(),
     },
-    initialExpenseData: {
-      type: Object as () => Expense | undefined,
+    initialIncomeData: {
+      type: Object as () => Income | undefined,
       default: undefined,
     },
     submitLabel: {
@@ -73,8 +63,7 @@ export default defineComponent({
       valueRules: valueRules(this.$i18n),
     }
     return {
-      categoryId: builtinCategories.food.id,
-      expenseId: undefined as string | undefined,
+      incomeId: undefined as string | undefined,
       frequency: '1',
       isRecurring: false,
       monthId: this.initialMonthId,
@@ -84,74 +73,70 @@ export default defineComponent({
       ...rules,
     }
   },
-  computed: mapGetters('categories', ['categories']),
   watch: {
     initialMonthId(val: string) {
       this.monthId = val
     },
-    initialExpenseData: {
+    initialIncomeData: {
       immediate: true,
       handler() {
-        this.loadInitialExpenseData()
+        this.loadInitialIncomeData()
       },
     },
   },
   methods: {
-    emitExpense() {
-      let expenseData: Omit<Expense, 'id'> | Expense = {
+    emitIncome() {
+      let incomeData: Omit<Income, 'id'> | Income = {
         name: this.name,
-        categoryId: this.categoryId,
         value: parseInt(this.value),
       }
       if (this.isRecurring) {
-        expenseData = {
-          ...expenseData,
+        incomeData = {
+          ...incomeData,
           startingMonthId: this.monthId,
           frequency: parseInt(this.frequency),
         }
       } else {
-        expenseData = {
-          ...expenseData,
+        incomeData = {
+          ...incomeData,
           monthId: this.monthId,
         }
       }
-      if (this.expenseId !== undefined) {
-        expenseData = {
-          ...expenseData,
-          id: this.expenseId,
+      if (this.incomeId !== undefined) {
+        incomeData = {
+          ...incomeData,
+          id: this.incomeId,
         }
       }
-      this.$emit('submit', expenseData)
+      this.$emit('submit', incomeData)
       this.resetForm()
     },
-    loadInitialExpenseData() {
-      const expense = this.initialExpenseData
-      if (expense === undefined) {
+    loadInitialIncomeData() {
+      const income = this.initialIncomeData
+      if (income === undefined) {
         return
       }
-      this.categoryId = expense.categoryId
-      this.expenseId = expense.id
-      this.name = expense.name
-      this.value = expense.value.toString()
-      if (isOneTimeExpense(expense)) {
+      this.incomeId = income.id
+      this.name = income.name
+      this.value = income.value.toString()
+      if (isOneTimeIncome(income)) {
         this.isRecurring = false
-        this.monthId = expense.monthId
-      } else if (isRecurringExpense(expense)) {
-        this.frequency = expense.frequency.toString()
+        this.monthId = income.monthId
+      } else if (isRecurringIncome(income)) {
+        this.frequency = income.frequency.toString()
         this.isRecurring = true
-        this.monthId = expense.startingMonthId
+        this.monthId = income.startingMonthId
       }
     },
     resetForm() {
-      this.categoryId = builtinCategories.food.id
-      this.expenseId = undefined
+      this.incomeId = undefined
       this.frequency = '1'
       this.isRecurring = false
       this.monthId = this.initialMonthId
       this.name = ''
       this.value = '10'
       ;(this.$refs.form as any).resetValidation()
-      this.loadInitialExpenseData()
+      this.loadInitialIncomeData()
     },
   },
 })

@@ -1,16 +1,26 @@
 <template>
   <v-row dense>
-    <v-col cols="12">
-      <month-summary :month-id="monthId" />
+    <v-col :cols="isMobile ? 12 : 6">
+      <expense-summary :month-id="monthId" />
     </v-col>
-    <v-col :cols="$vuetify.breakpoint.smAndUp ? 4 : 12" style="height: 100%">
+    <v-col :cols="isMobile ? 12 : 6">
+      <income-summary :month-id="monthId" />
+    </v-col>
+    <v-col :cols="isMobile ? 12 : 8">
       <v-card>
         <v-card-text>
           <expense-pie-chart :expenses="expenses" />
         </v-card-text>
       </v-card>
     </v-col>
-    <v-col :cols="$vuetify.breakpoint.smAndUp ? 8 : 12">
+    <v-col :cols="isMobile ? 12 : 4">
+      <v-card>
+        <v-card-text>
+          <income-pie-chart :incomes="incomes" />
+        </v-card-text>
+      </v-card>
+    </v-col>
+    <v-col cols="12">
       <v-card>
         <v-card-text>
           <expense-bar-chart :expenses="expenses" />
@@ -23,14 +33,21 @@
     <v-col cols="12">
       <recurring-expense-table />
     </v-col>
+    <v-col cols="12">
+      <one-time-income-table :incomes="oneTimeIncomes" />
+    </v-col>
+    <v-col cols="12">
+      <recurring-income-table />
+    </v-col>
   </v-row>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { Month } from '~/model/month'
-import { sumBy, toArray } from '~/utils/collections'
+import { toArray } from '~/utils/collections'
 import { Expense, OneTimeExpense, RecurringExpense } from '~/model/expense'
+import { Income, OneTimeIncome, RecurringIncome } from '~/model/income'
 
 export default defineComponent({
   props: {
@@ -45,6 +62,9 @@ export default defineComponent({
     }
   },
   computed: {
+    isMobile(): boolean {
+      return this.$vuetify.breakpoint.xsOnly
+    },
     month(): Month | undefined {
       return this.$store.getters['months/byId'](this.monthId)
     },
@@ -60,8 +80,17 @@ export default defineComponent({
     expenses(): Expense[] {
       return [...this.oneTimeExpenses, ...this.recurringExpenses]
     },
-    totalExpenseValue(): number {
-      return sumBy(this.expenses, (expense) => expense.value)
+    oneTimeIncomes(): OneTimeIncome[] {
+      return toArray(this.month?.incomes ?? {})
+    },
+    recurringIncomes(): RecurringIncome[] {
+      if (this.month === undefined) {
+        return []
+      }
+      return this.$store.getters['recurringIncomes/byMonthId'](this.month.id)
+    },
+    incomes(): Income[] {
+      return [...this.oneTimeIncomes, ...this.recurringIncomes]
     },
   },
   watch: {

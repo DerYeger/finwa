@@ -6,6 +6,7 @@ import { builtinCategories, Category } from '~/model/category'
 import { Committer } from '~/store/index'
 import { uuid } from '~/utils'
 import { OneTimeExpense } from '~/model/expense'
+import { OneTimeIncome } from '~/model/income'
 
 export type MonthsState = EntityRecord<Month>
 
@@ -15,6 +16,7 @@ export const actions = {
   create({ commit }: Committer, monthData: Pick<Month, 'id'>) {
     const month: Month = {
       expenses: {},
+      incomes: {},
       ...monthData,
     }
     commit('add', month)
@@ -25,6 +27,13 @@ export const actions = {
       ...expenseData,
     }
     commit('addExpense', expense)
+  },
+  createIncome({ commit }: Committer, incomeData: Omit<OneTimeIncome, 'id'>) {
+    const income: OneTimeIncome = {
+      id: uuid(),
+      ...incomeData,
+    }
+    commit('addIncome', income)
   },
   reset({ commit }: Committer) {
     commit('removeAll')
@@ -39,6 +48,7 @@ export const getters = {
       state[id],
   months: (state: MonthsState): Month[] => toArray(state),
   oneTimeExpenses: (state: MonthsState): OneTimeExpense[] => toArray(state).flatMap((month: Month) => toArray(month.expenses)),
+  oneTimeIncomes: (state: MonthsState): OneTimeIncome[] => toArray(state).flatMap((month: Month) => toArray(month.incomes)),
   sorted:
     (state: MonthsState) =>
     (limit: number, until: Date = new Date(currentMonthId())): Month[] => {
@@ -64,9 +74,23 @@ export const mutations = {
         expenses: {
           [expense.id]: expense,
         },
+        incomes: {},
       }
     } else {
       Vue.set(state[expense.monthId].expenses, expense.id, expense)
+    }
+  },
+  addIncome(state: MonthsState, income: OneTimeExpense) {
+    if (state[income.monthId] === undefined) {
+      state[income.monthId] = {
+        id: income.monthId,
+        expenses: {},
+        incomes: {
+          [income.id]: income,
+        },
+      }
+    } else {
+      Vue.set(state[income.monthId].incomes, income.id, income)
     }
   },
   remove(state: MonthsState, month: Month) {
@@ -84,6 +108,9 @@ export const mutations = {
   },
   removeExpense(state: MonthsState, expense: OneTimeExpense) {
     Vue.delete(state[expense.monthId].expenses, expense.id)
+  },
+  removeIncome(state: MonthsState, income: OneTimeIncome) {
+    Vue.delete(state[income.monthId].incomes, income.id)
   },
   set(state: MonthsState, months: EntityRecord<Month>) {
     Object.assign(state, months)

@@ -4,7 +4,7 @@ import { toArray } from '~/utils/collections'
 import { Committer } from '~/store/index'
 import { uuid } from '~/utils'
 import { RecurringExpense } from '~/model/expense'
-import { findRecurringExpensesForMonth } from '~/model'
+import { findRecurringTransactionsForMonth } from '~/model'
 
 export type RecurringExpensesState = EntityRecord<RecurringExpense>
 
@@ -31,7 +31,7 @@ export const getters = {
   byMonthId:
     (state: RecurringExpensesState) =>
     (monthId: string): RecurringExpense[] =>
-      findRecurringExpensesForMonth(monthId, toArray(state)),
+      findRecurringTransactionsForMonth(monthId, toArray(state)),
   recurringExpenses: (state: RecurringExpensesState): RecurringExpense[] => toArray(state),
 }
 
@@ -43,6 +43,6 @@ export const mutations = {
     Vue.delete(state, expense.id)
   },
   removeAll(state: RecurringExpensesState) {
-    toArray(state).forEach((category) => Vue.delete(state, category.id))
+    toArray(state).forEach((expense) => Vue.delete(state, expense.id))
   },
 }

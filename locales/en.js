@@ -20,17 +20,22 @@ export default {
     uncategorized: 'Uncategorized',
   },
   expense: {
-    frequency: {
-      title: 'Frequency',
-      description: 'Every month | Every {n} months',
-      hint: 'Never repeats | Repeats every month | Repeats every {n} months',
-    },
     'one-time': 'One-time Expense | One-time Expenses',
     recurring: 'Recurring Expense | Recurring Expenses',
     title: 'Expense | Expenses',
   },
+  frequency: {
+    title: 'Frequency',
+    description: 'Every month | Every {n} months',
+    hint: 'Never repeats | Repeats every month | Repeats every {n} months',
+  },
   home: {
     title: 'Home',
+  },
+  income: {
+    'one-time': 'One-time Income | One-time Incomes',
+    recurring: 'Recurring Income | Recurring Incomes',
+    title: 'Income | Incomes',
   },
   layout: {
     compact: 'Compact',
@@ -46,11 +51,13 @@ export default {
     actions: 'Actions',
     spent: 'spent',
     color: 'Color',
+    earned: 'earned',
     history: 'History',
     name: 'Name',
     navigation: 'Navigation',
     'new-category': 'New Category',
     'new-expense': 'New Expense',
+    'new-income': 'New Income',
     'no-data': 'No data available',
     'no-results': 'No results',
     'quick-access': 'Quick Access',

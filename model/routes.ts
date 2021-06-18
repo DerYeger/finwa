@@ -20,6 +20,11 @@ export const routes: Record<string, Route> = {
     to: '/expenses',
     icon: 'mdi-currency-usd',
   },
+  income: {
+    title: 'income.title',
+    to: '/incomes',
+    icon: 'mdi-cash',
+  },
   categories: {
     title: 'category.title',
     to: '/categories',
