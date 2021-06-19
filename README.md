@@ -5,13 +5,13 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/DerYeger/jan-mueller/actions/workflows/ci.yml">
+  <a href="https://github.com/DerYeger/finwa/actions/workflows/ci.yml">
     <img alt="CI" src="https://github.com/DerYeger/finwa/actions/workflows/ci.yml/badge.svg?event=push">
   </a>
-  <a href="https://github.com/DerYeger/jan-mueller/actions/workflows/cd.yml">
+  <a href="https://github.com/DerYeger/finwa/actions/workflows/cd.yml">
     <img alt="CD" src="https://github.com/DerYeger/finwa/actions/workflows/cd.yml/badge.svg">
   </a>
-  <a href="https://github.com/DerYeger/jan-mueller/actions/workflows/maintenance.yml">
+  <a href="https://github.com/DerYeger/finwa/actions/workflows/maintenance.yml">
     <img alt="Maintenance" src="https://github.com/DerYeger/finwa/actions/workflows/maintenance.yml/badge.svg">
   </a>
 </p>
