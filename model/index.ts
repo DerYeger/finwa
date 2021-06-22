@@ -8,7 +8,13 @@ import { RecurringTransaction } from '~/model/transaction'
 export function isApplicable(monthId: string, transaction: RecurringTransaction): boolean {
   const monthDate = new Date(monthId)
   const startingDate = new Date(transaction.startingMonthId)
-  return startingDate <= monthDate && monthsBetween(monthDate, startingDate) % transaction.frequency === 0
+  if (monthDate < startingDate) {
+    return false
+  }
+  if (transaction.endingMonthId !== undefined && new Date(transaction.endingMonthId) < monthDate) {
+    return false
+  }
+  return monthsBetween(monthDate, startingDate) % transaction.frequency === 0
 }
 
 export function findRecurringTransactionsForMonth<T extends RecurringTransaction>(monthId: string, transaction: T[]): T[] {

@@ -1,7 +1,6 @@
 <template>
   <v-dialog
     :value="value"
-    persistent
     transition="dialog-bottom-transition"
     max-width="600"
     @input="$emit('input', $event)"

@@ -25,11 +25,14 @@
         <template #item.monthId="{ item }">
           <month-name v-if="item.monthId" :month-id="item.monthId" />
         </template>
+        <template #item.frequency="{ item }">
+          <span v-if="item.frequency">{{ $tc('frequency.description', item.frequency) }}</span>
+        </template>
         <template #item.startingMonthId="{ item }">
           <month-name v-if="item.startingMonthId" :month-id="item.startingMonthId" />
         </template>
-        <template #item.frequency="{ item }">
-          <span v-if="item.frequency">{{ $tc('frequency.description', item.frequency) }}</span>
+        <template #item.endingMonthId="{ item }">
+          <month-name v-if="item.endingMonthId" :month-id="item.endingMonthId" />
         </template>
         <template #item.actions="{ item }">
           <edit-expense-dialog :expense="item" />
@@ -89,11 +92,15 @@ export default defineComponent({
     }
     if (this.includeRecurringData) {
       headers.push(
+        { text: this.$t('frequency.title') as string, value: 'frequency' },
         {
-          text: this.$tc('misc.since', 1) as string,
+          text: this.$t('misc.since') as string,
           value: 'startingMonthId',
         },
-        { text: this.$t('frequency.title') as string, value: 'frequency' }
+        {
+          text: this.$t('misc.until') as string,
+          value: 'endingMonthId',
+        }
       )
     }
     headers.push({ text: this.$t('misc.actions') as string, value: 'actions', sortable: false, filterable: false })

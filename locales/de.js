@@ -68,6 +68,7 @@ export default {
       'page-text': '{0}-{1} von {2}',
       'sort-by': 'Sortieren nach',
     },
+    until: 'Bis',
     value: 'Wert',
   },
   month: {

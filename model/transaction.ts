@@ -11,6 +11,7 @@ export interface OneTimeTransaction extends Transaction {
 
 export interface RecurringTransaction extends Transaction {
   startingMonthId: string
+  endingMonthId?: string
   frequency: number
 }
 

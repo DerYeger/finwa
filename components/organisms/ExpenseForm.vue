@@ -34,6 +34,7 @@
           :persistent-hint="true"
           prepend-icon="mdi-repeat"
         />
+        <month-selection v-model="endingMonthId" :allow-no-selection="true" :disabled="!isRecurring" :label="$t('misc.until')" />
       </v-card-text>
       <v-card-actions>
         <v-spacer />
@@ -74,6 +75,7 @@ export default defineComponent({
     }
     return {
       categoryId: builtinCategories.food.id,
+      endingMonthId: undefined as string | undefined,
       expenseId: undefined as string | undefined,
       frequency: '1',
       isRecurring: false,
@@ -106,8 +108,9 @@ export default defineComponent({
       if (this.isRecurring) {
         expenseData = {
           ...expenseData,
-          startingMonthId: this.monthId,
+          endingMonthId: this.endingMonthId,
           frequency: parseInt(this.frequency),
+          startingMonthId: this.monthId,
         }
       } else {
         expenseData = {
@@ -137,6 +140,7 @@ export default defineComponent({
         this.isRecurring = false
         this.monthId = expense.monthId
       } else if (isRecurringExpense(expense)) {
+        this.endingMonthId = expense.endingMonthId
         this.frequency = expense.frequency.toString()
         this.isRecurring = true
         this.monthId = expense.startingMonthId
@@ -144,6 +148,7 @@ export default defineComponent({
     },
     resetForm() {
       this.categoryId = builtinCategories.food.id
+      this.endingMonthId = undefined
       this.expenseId = undefined
       this.frequency = '1'
       this.isRecurring = false

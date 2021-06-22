@@ -26,6 +26,7 @@
           :persistent-hint="true"
           prepend-icon="mdi-repeat"
         />
+        <month-selection v-model="endingMonthId" :allow-no-selection="true" :disabled="!isRecurring" :label="$t('misc.until')" />
       </v-card-text>
       <v-card-actions>
         <v-spacer />
@@ -63,8 +64,9 @@ export default defineComponent({
       valueRules: valueRules(this.$i18n),
     }
     return {
-      incomeId: undefined as string | undefined,
+      endingMonthId: undefined as string | undefined,
       frequency: '1',
+      incomeId: undefined as string | undefined,
       isRecurring: false,
       monthId: this.initialMonthId,
       name: '',
@@ -93,8 +95,9 @@ export default defineComponent({
       if (this.isRecurring) {
         incomeData = {
           ...incomeData,
-          startingMonthId: this.monthId,
+          endingMonthId: this.endingMonthId,
           frequency: parseInt(this.frequency),
+          startingMonthId: this.monthId,
         }
       } else {
         incomeData = {
@@ -123,6 +126,7 @@ export default defineComponent({
         this.isRecurring = false
         this.monthId = income.monthId
       } else if (isRecurringIncome(income)) {
+        this.endingMonthId = income.endingMonthId
         this.frequency = income.frequency.toString()
         this.isRecurring = true
         this.monthId = income.startingMonthId
@@ -130,6 +134,7 @@ export default defineComponent({
     },
     resetForm() {
       this.incomeId = undefined
+      this.endingMonthId = undefined
       this.frequency = '1'
       this.isRecurring = false
       this.monthId = this.initialMonthId

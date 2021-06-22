@@ -72,6 +72,7 @@ export default {
       'page-text': '{0}-{1} of {2}',
       'sort-by': 'Sort by',
     },
+    until: 'Until',
     value: 'Value',
   },
   month: {
