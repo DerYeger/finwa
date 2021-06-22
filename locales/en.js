@@ -51,6 +51,7 @@ export default {
     actions: 'Actions',
     spent: 'spent',
     color: 'Color',
+    details: 'Details',
     earned: 'earned',
     history: 'History',
     name: 'Name',

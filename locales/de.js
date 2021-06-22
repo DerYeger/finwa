@@ -46,6 +46,7 @@ export default {
   misc: {
     actions: 'Aktionen',
     color: 'Farbe',
+    details: 'Details',
     earned: 'verdient',
     history: 'Historie',
     name: 'Name',
