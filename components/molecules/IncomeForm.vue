@@ -26,7 +26,13 @@
           :persistent-hint="true"
           prepend-icon="mdi-repeat"
         />
-        <month-selection v-model="endingMonthId" :allow-no-selection="true" :disabled="!isRecurring" :label="$t('misc.until')" />
+        <month-selection
+          v-model="endingMonthId"
+          :allow-no-selection="true"
+          :disabled="!isRecurring"
+          :min="monthId"
+          :label="$t('misc.until')"
+        />
       </v-card-text>
       <v-card-actions>
         <v-spacer />
@@ -85,6 +91,12 @@ export default defineComponent({
         this.loadInitialIncomeData()
       },
     },
+    monthId() {
+      this.normalizeEndingMonth()
+    },
+    endingMonthId() {
+      this.normalizeEndingMonth()
+    },
   },
   methods: {
     emitIncome() {
@@ -142,6 +154,12 @@ export default defineComponent({
       this.value = '10'
       ;(this.$refs.form as any).resetValidation()
       this.loadInitialIncomeData()
+    },
+    normalizeEndingMonth() {
+      if (this.endingMonthId === undefined || this.monthId < this.endingMonthId) {
+        return
+      }
+      this.endingMonthId = this.monthId
     },
   },
 })

@@ -13,7 +13,7 @@
         v-on="on"
       />
     </template>
-    <month-picker :value="value" @input="updateMonthId" />
+    <month-picker :value="value" :min="min" :max="max" @input="updateMonthId" />
   </v-menu>
 </template>
 
@@ -24,7 +24,7 @@ export default defineComponent({
   props: {
     value: {
       type: String as PropType<string | undefined>,
-      required: true,
+      default: undefined,
     },
     allowNoSelection: {
       type: Boolean,
@@ -33,6 +33,14 @@ export default defineComponent({
     disabled: {
       type: Boolean,
       default: false,
+    },
+    min: {
+      type: String,
+      default: '1900-01',
+    },
+    max: {
+      type: String,
+      default: '9999-12',
     },
     label: {
       type: String as PropType<string | undefined>,
