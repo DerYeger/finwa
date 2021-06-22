@@ -65,7 +65,7 @@ export function generateIncomeChartData(income: Income[], i18n: VueI18n): ChartD
     datasets: [
       {
         label: i18n.tc('income.title', 2) as string,
-        backgroundColor: ['#FF1B0A', '#2196f3'],
+        backgroundColor: ['#2EB232', '#2196f3'],
         data: [sumBy(oneTimeIncome, (income) => income.value), sumBy(recurringIncome, (income) => income.value)],
       },
     ],
