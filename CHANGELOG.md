@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/DerYeger/finwa/compare/v2.3.2...v2.3.3) (2021-06-22)
+
+
+### Bug Fixes
+
+* include recurring incomes when resetting data ([ce2dc2f](https://github.com/DerYeger/finwa/commit/ce2dc2fabe5be6b5a525074b6a73c539f7f38028))
+
 ## [2.3.2](https://github.com/DerYeger/finwa/compare/v2.3.1...v2.3.2) (2021-06-22)
 
 
