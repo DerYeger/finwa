@@ -6,6 +6,8 @@
     color="red"
     header-color="primary"
     elevation="2"
+    min="1900-01"
+    max="9999-12"
     @input="$emit('input', $event)"
   />
 </template>

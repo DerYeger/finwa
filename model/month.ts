@@ -27,3 +27,20 @@ export function lastTwelveMonths(): Month[] {
     return { id: monthIdFromDate(date), expenses: {}, incomes: {} }
   })
 }
+
+export function isMonthId(id: string): boolean {
+  const parts = id.split('-')
+  if (parts.length !== 2) {
+    return false
+  }
+  const [year, month] = parts
+  return isYear(year) && isMonth(month)
+}
+
+function isYear(year: string): boolean {
+  return year.length === 4 && !isNaN(+year) && +year >= 1900 && +year <= 9999
+}
+
+function isMonth(month: string): boolean {
+  return month.length === 2 && !isNaN(+month) && +month >= 1 && +month <= 12
+}
