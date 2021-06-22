@@ -20,7 +20,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { Income, OneTimeIncome, RecurringIncome } from '~/model/income'
-import { Month } from '~/model/month'
 import { sumBy } from '~/utils/collections'
 
 export default defineComponent({
@@ -34,15 +33,7 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
-    return {
-      editDialogOpen: false,
-    }
-  },
   computed: {
-    month(): Month | undefined {
-      return this.$store.getters['months/byId'](this.monthId)
-    },
     incomes(): Income[] {
       return [...this.oneTimeIncomes, ...this.recurringIncomes]
     },

@@ -3,7 +3,7 @@
     <v-navigation-drawer v-model="drawerOpen" fixed app :permanent="$vuetify.breakpoint.lgAndUp" :clipped="true">
       <app-sidebar />
     </v-navigation-drawer>
-    <app-header :drawer-open="drawerOpen" :on-nav-icon-clicked="toggleDrawer" />
+    <app-header v-model="drawerOpen" />
     <v-main>
       <v-container class="page-container" :class="{ 'bound-width': layout === 'compact', 'unbound-width': layout === 'fill' }">
         <nuxt />
@@ -36,13 +36,6 @@ export default defineComponent({
       ],
     }
   },
-  computed: {
-    ...mapState('settings', ['layout']),
-  },
-  methods: {
-    toggleDrawer() {
-      this.drawerOpen = !this.drawerOpen
-    },
-  },
+  computed: mapState('settings', ['layout']),
 })
 </script>

@@ -19,7 +19,6 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import { Month } from '~/model/month'
 import { sumBy } from '~/utils/collections'
 import { Expense, OneTimeExpense, RecurringExpense } from '~/model/expense'
 
@@ -34,15 +33,7 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
-    return {
-      editDialogOpen: false,
-    }
-  },
   computed: {
-    month(): Month | undefined {
-      return this.$store.getters['months/byId'](this.monthId)
-    },
     expenses(): Expense[] {
       return [...this.oneTimeExpenses, ...this.recurringExpenses]
     },

@@ -2,9 +2,9 @@
   <v-app-bar app dark dense fixed color="primary" :clipped-left="true">
     <v-app-bar-nav-icon
       v-show="$vuetify.breakpoint.mdAndDown"
-      :aria-label="$t(drawerOpen ? 'actions.close-menu' : 'actions.open-menu')"
+      :aria-label="$t(value ? 'actions.close-menu' : 'actions.open-menu')"
       class="ml-n4"
-      @click.stop="onNavIconClicked()"
+      @click="$emit('input', !value)"
     />
     <logo :class="{ 'ml-n2': $vuetify.breakpoint.lgAndUp }" />
     <v-spacer />
@@ -19,12 +19,8 @@ import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
-    drawerOpen: {
+    value: {
       type: Boolean,
-      required: true,
-    },
-    onNavIconClicked: {
-      type: Function,
       required: true,
     },
   },

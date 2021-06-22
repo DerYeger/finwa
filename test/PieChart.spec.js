@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import Vuetify from 'vuetify'
-import PieChart from '~/components/charts/PieChart.vue'
+import PieChart from '~/components/atoms/PieChart.vue'
 
 describe('PieChart', () => {
   let vuetify
