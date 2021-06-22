@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/DerYeger/finwa/compare/v2.0.2...v2.1.0) (2021-06-22)
+
+
+### Features
+
+* add speed dial ([766d148](https://github.com/DerYeger/finwa/commit/766d148e46c5efd27e5c266af74f911078f0669d))
+
 ## [2.0.2](https://github.com/DerYeger/finwa/compare/v2.0.1...v2.0.2) (2021-06-22)
 
 
