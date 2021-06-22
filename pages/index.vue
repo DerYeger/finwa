@@ -3,7 +3,7 @@
     <v-col>
       <month-details :month-id="currentMonth" />
     </v-col>
-    <create-expense-dialog />
+    <speed-dial />
   </v-row>
 </template>
 

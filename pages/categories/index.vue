@@ -3,7 +3,7 @@
     <v-col>
       <category-table />
     </v-col>
-    <create-category-dialog />
+    <speed-dial />
   </v-row>
 </template>
 

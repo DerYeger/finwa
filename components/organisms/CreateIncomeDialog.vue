@@ -1,18 +1,8 @@
 <template>
   <v-dialog transition="dialog-bottom-transition" max-width="600" @click:outside="$refs.form.resetForm()">
     <template #activator="{ on, attrs }">
-      <v-btn
-        color="primary"
-        fab
-        fixed
-        bottom
-        right
-        v-bind="attrs"
-        :aria-label="$t('misc.new-income')"
-        :title="$t('misc.new-income')"
-        v-on="on"
-      >
-        <v-icon v-text="'mdi-plus'" />
+      <v-btn dark fab small v-bind="attrs" color="green" :aria-label="$t('misc.new-income')" :title="$t('misc.new-income')" v-on="on">
+        <v-icon v-text="'mdi-cash'" />
       </v-btn>
     </template>
     <template #default="dialog">

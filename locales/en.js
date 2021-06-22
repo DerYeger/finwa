@@ -57,6 +57,7 @@ export default {
     name: 'Name',
     navigation: 'Navigation',
     'new-category': 'New Category',
+    'new-entity': 'New Entity',
     'new-expense': 'New Expense',
     'new-income': 'New Income',
     'no-data': 'No data available',

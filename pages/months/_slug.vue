@@ -3,7 +3,7 @@
     <v-col>
       <month-details :month-id="monthId" />
     </v-col>
-    <create-expense-dialog :initial-month-id="monthId" />
+    <speed-dial :active-month-id="monthId" />
   </v-row>
 </template>
 

@@ -6,7 +6,7 @@
     <v-col cols="12">
       <one-time-income-table :one-time-incomes="oneTimeIncomes" />
     </v-col>
-    <create-income-dialog />
+    <speed-dial />
   </v-row>
 </template>
 

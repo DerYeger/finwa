@@ -9,12 +9,12 @@
       </v-card>
     </v-col>
     <v-col :cols="$vuetify.breakpoint.smAndUp ? 'auto' : 12">
-      <month-picker v-model="selectedMonth" :full-width="$vuetify.breakpoint.xsOnly" />
+      <month-picker v-model="selectedMonthId" :full-width="$vuetify.breakpoint.xsOnly" />
     </v-col>
     <v-col>
-      <month-summary :month-id="selectedMonth" show-details-link />
+      <month-summary :month-id="selectedMonthId" show-details-link />
     </v-col>
-    <create-expense-dialog :initial-month-id="selectedMonth" />
+    <speed-dial :active-month-id="selectedMonthId" />
   </v-row>
 </template>
 
@@ -26,7 +26,7 @@ import { currentMonthId } from '~/model/month'
 export default defineComponent({
   data() {
     return {
-      selectedMonth: currentMonthId(),
+      selectedMonthId: currentMonthId(),
     }
   },
   head() {

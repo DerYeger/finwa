@@ -6,7 +6,7 @@
     <v-col cols="12">
       <one-time-expense-table :one-time-expenses="oneTimeExpenses" />
     </v-col>
-    <create-expense-dialog />
+    <speed-dial />
   </v-row>
 </template>
 
