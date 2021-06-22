@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/DerYeger/finwa/compare/v2.1.0...v2.1.1) (2021-06-22)
+
+
+### Bug Fixes
+
+* prevent automatic close of speed dial ([6b7af23](https://github.com/DerYeger/finwa/commit/6b7af232916e9ffbcd817fc94bda0ed0a0cfe891))
+
 # [2.1.0](https://github.com/DerYeger/finwa/compare/v2.0.2...v2.1.0) (2021-06-22)
 
 
