@@ -1,10 +1,10 @@
 <template>
   <v-row dense>
     <v-col cols="12">
-      <recurring-expense-table />
+      <recurring-expense-table :recurring-expenses="recurringExpenses" />
     </v-col>
     <v-col cols="12">
-      <one-time-expense-table :expenses="oneTimeExpenses" />
+      <one-time-expense-table :one-time-expenses="oneTimeExpenses" />
     </v-col>
     <create-expense-dialog />
   </v-row>
@@ -22,6 +22,9 @@ export default defineComponent({
       title,
     }
   },
-  computed: mapGetters('months', ['oneTimeExpenses']),
+  computed: {
+    ...mapGetters('months', ['oneTimeExpenses']),
+    ...mapGetters('recurringExpenses', ['recurringExpenses']),
+  },
 })
 </script>

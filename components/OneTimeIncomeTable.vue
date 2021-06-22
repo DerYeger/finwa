@@ -1,5 +1,5 @@
 <template>
-  <income-table :incomes="incomes" :title="$tc('income.one-time', 2)" include-one-time-data />
+  <income-table :incomes="oneTimeIncomes" :title="$tc('income.one-time', 2)" include-one-time-data />
 </template>
 
 <script lang="ts">
@@ -8,7 +8,7 @@ import { OneTimeIncome } from '~/model/income'
 
 export default defineComponent({
   props: {
-    incomes: {
+    oneTimeIncomes: {
       type: Array as () => OneTimeIncome[],
       required: true,
     },

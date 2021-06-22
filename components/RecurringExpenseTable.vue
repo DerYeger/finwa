@@ -3,10 +3,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
-import { mapGetters } from 'vuex'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import { RecurringExpense } from '~/model/expense'
 
 export default defineComponent({
-  computed: mapGetters('recurringExpenses', ['recurringExpenses']),
+  props: {
+    recurringExpenses: {
+      type: Array as PropType<RecurringExpense[]>,
+      default: undefined,
+    },
+  },
 })
 </script>

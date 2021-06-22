@@ -20,13 +20,17 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { Month } from '~/model/month'
-import { sumBy, toArray } from '~/utils/collections'
+import { sumBy } from '~/utils/collections'
 import { Expense, OneTimeExpense, RecurringExpense } from '~/model/expense'
 
 export default defineComponent({
   props: {
-    monthId: {
-      type: String,
+    oneTimeExpenses: {
+      type: Array as () => OneTimeExpense[],
+      required: true,
+    },
+    recurringExpenses: {
+      type: Array as () => RecurringExpense[],
       required: true,
     },
   },
@@ -39,27 +43,11 @@ export default defineComponent({
     month(): Month | undefined {
       return this.$store.getters['months/byId'](this.monthId)
     },
-    oneTimeExpenses(): OneTimeExpense[] {
-      return toArray(this.month?.expenses ?? {})
-    },
-    recurringExpenses(): RecurringExpense[] {
-      if (this.month === undefined) {
-        return []
-      }
-      return this.$store.getters['recurringExpenses/byMonthId'](this.month.id)
-    },
     expenses(): Expense[] {
       return [...this.oneTimeExpenses, ...this.recurringExpenses]
     },
     totalExpenseValue(): number {
       return sumBy(this.expenses, (expense) => expense.value)
-    },
-  },
-  watch: {
-    monthId() {
-      if (this.month === undefined) {
-        this.$store.dispatch('months/create', { id: this.monthId })
-      }
     },
   },
 })

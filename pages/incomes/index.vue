@@ -1,10 +1,10 @@
 <template>
   <v-row dense>
     <v-col cols="12">
-      <recurring-income-table />
+      <recurring-income-table :recurring-incomes="recurringIncomes" />
     </v-col>
     <v-col cols="12">
-      <one-time-income-table :incomes="oneTimeIncomes" />
+      <one-time-income-table :one-time-incomes="oneTimeIncomes" />
     </v-col>
     <create-income-dialog />
   </v-row>
@@ -22,6 +22,9 @@ export default defineComponent({
       title,
     }
   },
-  computed: mapGetters('months', ['oneTimeIncomes']),
+  computed: {
+    ...mapGetters('months', ['oneTimeIncomes']),
+    ...mapGetters('recurringIncomes', ['recurringIncomes']),
+  },
 })
 </script>

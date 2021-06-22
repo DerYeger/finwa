@@ -1,10 +1,10 @@
 <template>
   <v-row dense>
     <v-col :cols="isMobile ? 12 : 6">
-      <expense-summary :month-id="monthId" />
+      <expense-summary :one-time-expenses="oneTimeExpenses" :recurring-expenses="recurringExpenses" />
     </v-col>
     <v-col :cols="isMobile ? 12 : 6">
-      <income-summary :month-id="monthId" />
+      <income-summary :one-time-incomes="oneTimeIncomes" :recurring-incomes="recurringIncomes" />
     </v-col>
     <v-col :cols="isMobile ? 12 : 8">
       <v-card>
@@ -28,16 +28,16 @@
       </v-card>
     </v-col>
     <v-col cols="12">
-      <one-time-expense-table :expenses="oneTimeExpenses" />
+      <one-time-expense-table :one-time-expenses="oneTimeExpenses" />
     </v-col>
     <v-col cols="12">
-      <recurring-expense-table />
+      <recurring-expense-table :recurring-expenses="recurringExpenses" />
     </v-col>
     <v-col cols="12">
-      <one-time-income-table :incomes="oneTimeIncomes" />
+      <one-time-income-table :one-time-incomes="oneTimeIncomes" />
     </v-col>
     <v-col cols="12">
-      <recurring-income-table />
+      <recurring-income-table :recurring-incomes="recurringIncomes" />
     </v-col>
   </v-row>
 </template>

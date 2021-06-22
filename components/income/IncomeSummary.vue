@@ -21,12 +21,16 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 import { Income, OneTimeIncome, RecurringIncome } from '~/model/income'
 import { Month } from '~/model/month'
-import { sumBy, toArray } from '~/utils/collections'
+import { sumBy } from '~/utils/collections'
 
 export default defineComponent({
   props: {
-    monthId: {
-      type: String,
+    oneTimeIncomes: {
+      type: Array as () => OneTimeIncome[],
+      required: true,
+    },
+    recurringIncomes: {
+      type: Array as () => RecurringIncome[],
       required: true,
     },
   },
@@ -39,27 +43,11 @@ export default defineComponent({
     month(): Month | undefined {
       return this.$store.getters['months/byId'](this.monthId)
     },
-    oneTimeIncomes(): OneTimeIncome[] {
-      return toArray(this.month?.incomes ?? {})
-    },
-    recurringIncomes(): RecurringIncome[] {
-      if (this.month === undefined) {
-        return []
-      }
-      return this.$store.getters['recurringIncomes/byMonthId'](this.month.id)
-    },
     incomes(): Income[] {
       return [...this.oneTimeIncomes, ...this.recurringIncomes]
     },
     totalIncomeValue(): number {
       return sumBy(this.incomes, (income) => income.value)
-    },
-  },
-  watch: {
-    monthId() {
-      if (this.month === undefined) {
-        this.$store.dispatch('months/create', { id: this.monthId })
-      }
     },
   },
 })
