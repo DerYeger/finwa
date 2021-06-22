@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/DerYeger/finwa/compare/v2.2.0...v2.2.1) (2021-06-22)
+
+
+### Bug Fixes
+
+* ensure slug of month page is valid month id ([611b010](https://github.com/DerYeger/finwa/commit/611b010997ec3a435ba2bbf04d4837b455281a2b))
+
 # [2.2.0](https://github.com/DerYeger/finwa/compare/v2.1.1...v2.2.0) (2021-06-22)
 
 
