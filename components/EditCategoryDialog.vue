@@ -17,13 +17,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { Category } from '~/model/category'
 
 export default defineComponent({
   props: {
     category: {
-      type: Object as () => Category,
+      type: Object as PropType<Category>,
       required: true,
     },
   },

@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { Month } from '~/model/month'
 import { sumBy } from '~/utils/collections'
 import { Expense, OneTimeExpense, RecurringExpense } from '~/model/expense'
@@ -26,11 +26,11 @@ import { Expense, OneTimeExpense, RecurringExpense } from '~/model/expense'
 export default defineComponent({
   props: {
     oneTimeExpenses: {
-      type: Array as () => OneTimeExpense[],
+      type: Array as PropType<OneTimeExpense[]>,
       required: true,
     },
     recurringExpenses: {
-      type: Array as () => RecurringExpense[],
+      type: Array as PropType<RecurringExpense[]>,
       required: true,
     },
   },

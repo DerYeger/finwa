@@ -15,14 +15,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { Category } from '~/model/category'
 import { nameRules } from '~/model/rules'
 
 export default defineComponent({
   props: {
     initialCategoryData: {
-      type: Object as () => Category | undefined,
+      type: Object as PropType<Category | undefined>,
       default: undefined,
     },
     submitLabel: {

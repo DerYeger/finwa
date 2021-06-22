@@ -45,7 +45,7 @@
 
 <script lang="ts">
 import { mapGetters } from 'vuex'
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { builtinCategories } from '~/model/category'
 import { currentMonthId } from '~/model/month'
 import { Expense, isOneTimeExpense, isRecurringExpense } from '~/model/expense'
@@ -58,7 +58,7 @@ export default defineComponent({
       default: currentMonthId(),
     },
     initialExpenseData: {
-      type: Object as () => Expense | undefined,
+      type: Object as PropType<Expense | undefined>,
       default: undefined,
     },
     submitLabel: {

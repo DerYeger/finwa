@@ -12,13 +12,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { Income, isOneTimeIncome, isRecurringIncome } from '~/model/income'
 
 export default defineComponent({
   props: {
     income: {
-      type: Object as () => Income,
+      type: Object as PropType<Income>,
       required: true,
     },
   },

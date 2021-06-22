@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { currentMonthId } from '~/model/month'
 import { frequencyRules, nameRules, valueRules } from '~/model/rules'
 import { Income, isOneTimeIncome, isRecurringIncome } from '~/model/income'
@@ -48,7 +48,7 @@ export default defineComponent({
       default: currentMonthId(),
     },
     initialIncomeData: {
-      type: Object as () => Income | undefined,
+      type: Object as PropType<Income | undefined>,
       default: undefined,
     },
     submitLabel: {

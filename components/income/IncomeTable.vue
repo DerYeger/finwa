@@ -40,18 +40,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { DataTableHeader } from 'vuetify'
 import { Income, isOneTimeIncome, isRecurringIncome } from '~/model/income'
 
 export default defineComponent({
   props: {
     incomes: {
-      type: Array as () => Income[],
+      type: Array as PropType<Income[]>,
       required: true,
     },
     title: {
-      type: String as () => string | undefined,
+      type: String as PropType<string | undefined>,
       default: undefined,
     },
     includeOneTimeData: {

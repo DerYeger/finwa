@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { mapGetters } from 'vuex'
 import { DataTableHeader } from 'vuetify'
 import { Expense, isOneTimeExpense, isRecurringExpense } from '~/model/expense'
@@ -55,11 +55,11 @@ import { translateAndCompare } from '~/utils'
 export default defineComponent({
   props: {
     expenses: {
-      type: Array as () => Expense[],
+      type: Array as PropType<Expense[]>,
       required: true,
     },
     title: {
-      type: String as () => string | undefined,
+      type: String as PropType<string | undefined>,
       default: undefined,
     },
     includeOneTimeData: {

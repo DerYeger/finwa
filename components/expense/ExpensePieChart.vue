@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { ChartData } from 'chart.js'
 import { Expense } from '~/model/expense'
 import { generateExpenseChartData } from '~/model/chart-data'
@@ -11,7 +11,7 @@ import { generateExpenseChartData } from '~/model/chart-data'
 export default defineComponent({
   props: {
     expenses: {
-      type: Array as () => Expense[],
+      type: Array as PropType<Expense[]>,
       required: true,
     },
     height: {

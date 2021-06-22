@@ -3,13 +3,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { OneTimeIncome } from '~/model/income'
 
 export default defineComponent({
   props: {
     oneTimeIncomes: {
-      type: Array as () => OneTimeIncome[],
+      type: Array as PropType<OneTimeIncome[]>,
       required: true,
     },
   },
