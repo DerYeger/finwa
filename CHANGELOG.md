@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/DerYeger/finwa/compare/v2.1.1...v2.2.0) (2021-06-22)
+
+
+### Features
+
+* filter empty chart data ([a1e320d](https://github.com/DerYeger/finwa/commit/a1e320d1e4d2537532d35aacb4dfac580cfa0d25))
+
 ## [2.1.1](https://github.com/DerYeger/finwa/compare/v2.1.0...v2.1.1) (2021-06-22)
 
 
