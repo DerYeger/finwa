@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/DerYeger/finwa/compare/v2.2.1...v2.3.0) (2021-06-22)
+
+
+### Features
+
+* add ending month field to recurring transactions ([173075b](https://github.com/DerYeger/finwa/commit/173075b6aa47ed867b9de55cbca471d0b863b9d2))
+
 ## [2.2.1](https://github.com/DerYeger/finwa/compare/v2.2.0...v2.2.1) (2021-06-22)
 
 
