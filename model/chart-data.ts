@@ -8,14 +8,14 @@ import { Month } from '~/model/month'
 import { findRecurringTransactionsForMonth, mapExpensesToCategories, sumExpenses } from '~/model/index'
 
 export function generateExpenseChartData(expenses: Expense[], categories: Category[], i18n: VueI18n): ChartData {
-  const categoryValues = sumExpenses(mapExpensesToCategories(expenses, categories))
+  const data = sumExpenses(mapExpensesToCategories(expenses, categories)).filter((mapping) => mapping.value > 0)
   return {
-    labels: categories.map((category) => i18n.t(category.name) as string),
+    labels: data.map((mapping) => i18n.t(mapping.category.name) as string),
     datasets: [
       {
         label: i18n.tc('category.title', categories.length) as string,
-        backgroundColor: categories.map((category) => category.color),
-        data: categoryValues.map((element) => element.value),
+        backgroundColor: data.map((element) => element.category.color),
+        data: data.map((element) => element.value),
       },
     ],
   }
@@ -34,13 +34,25 @@ export function generateIncomeChartData(income: Income[], i18n: VueI18n): ChartD
     },
     [[] as OneTimeIncome[], [] as RecurringIncome[]]
   )
+  const data = [
+    {
+      label: i18n.tc('income.one-time', oneTimeIncome.length) as string,
+      backGroundColor: '#2EB232',
+      value: sumBy(oneTimeIncome, (income) => income.value),
+    },
+    {
+      label: i18n.tc('income.recurring', recurringIncome.length) as string,
+      backGroundColor: '#2196f3',
+      value: sumBy(recurringIncome, (income) => income.value),
+    },
+  ].filter((income) => income.value > 0)
   return {
-    labels: [i18n.tc('income.one-time', oneTimeIncome.length) as string, i18n.tc('income.recurring', recurringIncome.length) as string],
+    labels: data.map((element) => element.label),
     datasets: [
       {
         label: i18n.tc('income.title', 2) as string,
-        backgroundColor: ['#2EB232', '#2196f3'],
-        data: [sumBy(oneTimeIncome, (income) => income.value), sumBy(recurringIncome, (income) => income.value)],
+        backgroundColor: data.map((element) => element.backGroundColor),
+        data: data.map((element) => element.value),
       },
     ],
   }

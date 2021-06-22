@@ -1,5 +1,8 @@
 <template>
-  <bar-chart :chart-data="expenseChartData" :styles="barChartStyles" />
+  <client-only>
+    <bar-chart v-if="expenseChartData.labels.length > 0" :chart-data="expenseChartData" :styles="barChartStyles" />
+    <div v-else style="text-align: center">{{ $t('misc.no-data') }}</div>
+  </client-only>
 </template>
 
 <script lang="ts">

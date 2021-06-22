@@ -8,14 +8,14 @@
         <income-summary :one-time-incomes="oneTimeIncomes" :recurring-incomes="recurringIncomes" />
       </v-col>
       <v-col :cols="isMobile ? 12 : 8">
-        <v-card>
+        <v-card height="100%" style="display: flex; align-items: center">
           <v-card-text>
             <expense-pie-chart :expenses="expenses" />
           </v-card-text>
         </v-card>
       </v-col>
       <v-col :cols="isMobile ? 12 : 4">
-        <v-card>
+        <v-card height="100%" style="display: flex; align-items: center">
           <v-card-text>
             <income-pie-chart :incomes="incomes" />
           </v-card-text>

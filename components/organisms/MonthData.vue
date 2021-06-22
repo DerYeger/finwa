@@ -28,11 +28,6 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
-    return {
-      editDialogOpen: false,
-    }
-  },
   computed: {
     month(): Month | undefined {
       return this.$store.getters['months/byId'](this.monthId)
@@ -69,10 +64,13 @@ export default defineComponent({
     },
   },
   watch: {
-    monthId() {
-      if (this.month === undefined) {
-        this.$store.dispatch('months/create', { id: this.monthId })
-      }
+    monthId: {
+      immediate: true,
+      handler() {
+        if (this.month === undefined) {
+          this.$store.dispatch('months/create', { id: this.monthId })
+        }
+      },
     },
   },
 })

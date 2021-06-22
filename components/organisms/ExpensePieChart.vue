@@ -1,12 +1,15 @@
 <template>
-  <pie-chart :chart-data="expenseChartData" :styles="pieChartStyles" />
+  <client-only>
+    <pie-chart v-if="expenseChartData.labels.length > 0" :chart-data="expenseChartData" :styles="pieChartStyles" />
+    <div v-else style="text-align: center">{{ $t('misc.no-data') }}</div>
+  </client-only>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { ChartData } from 'chart.js'
-import { Expense } from '~/model/expense'
 import { generateExpenseChartData } from '~/model/chart-data'
+import { Expense } from '~/model/expense'
 
 export default defineComponent({
   props: {

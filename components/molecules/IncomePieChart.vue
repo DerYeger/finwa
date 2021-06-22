@@ -1,5 +1,8 @@
 <template>
-  <pie-chart :chart-data="incomeChartData" :styles="pieChartStyles" />
+  <client-only>
+    <pie-chart v-if="incomeChartData.labels.length > 0" :chart-data="incomeChartData" :styles="pieChartStyles" />
+    <div v-else style="text-align: center">{{ $t('misc.no-data') }}</div>
+  </client-only>
 </template>
 
 <script lang="ts">
