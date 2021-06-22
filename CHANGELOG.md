@@ -1,3 +1,15 @@
+## [2.0.2](https://github.com/DerYeger/finwa/compare/v2.0.1...v2.0.2) (2021-06-22)
+
+
+### Bug Fixes
+
+* change color of one-time income in graphs ([a3c71d6](https://github.com/DerYeger/finwa/commit/a3c71d6c70ed39d2ce012d0f28d040e017d529d7))
+
+
+### Performance Improvements
+
+* pass data as props instead of fetching multiple times ([24d3d86](https://github.com/DerYeger/finwa/commit/24d3d86addc0d890f2714d0e5de465aa4d36ac5a))
+
 ## [2.0.1](https://github.com/DerYeger/finwa/compare/v2.0.0...v2.0.1) (2021-06-20)
 
 
