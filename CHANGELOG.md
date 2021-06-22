@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/DerYeger/finwa/compare/v2.3.0...v2.3.1) (2021-06-22)
+
+
+### Bug Fixes
+
+* limit ending month range in month picker ([750f5d2](https://github.com/DerYeger/finwa/commit/750f5d2e5bdbf3eee364640fecdbfbf15a97ad88))
+
 # [2.3.0](https://github.com/DerYeger/finwa/compare/v2.2.1...v2.3.0) (2021-06-22)
 
 
