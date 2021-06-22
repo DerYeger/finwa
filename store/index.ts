@@ -17,6 +17,7 @@ export const actions = {
     dispatch('categories/reset')
     dispatch('months/reset')
     dispatch('recurringExpenses/reset')
+    dispatch('recurringIncomes/reset')
     dispatch('settings/reset')
   },
 }
