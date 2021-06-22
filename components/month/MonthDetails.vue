@@ -96,6 +96,7 @@ export default defineComponent({
   watch: {
     monthId() {
       if (this.month === undefined) {
+        console.log('month-not-found')
         this.$store.dispatch('months/create', { id: this.monthId })
       }
     },

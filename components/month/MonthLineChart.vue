@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { ChartData } from 'chart.js'
-import { generateMonthChartData } from '~/model'
+import { generateMonthChartData } from '~/model/chart-data'
 
 export default defineComponent({
   computed: {

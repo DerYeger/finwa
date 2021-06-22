@@ -5,8 +5,8 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { ChartData } from 'chart.js'
-import { generateExpenseChartData } from '~/model'
 import { Expense } from '~/model/expense'
+import { generateExpenseChartData } from '~/model/chart-data'
 
 export default defineComponent({
   props: {
