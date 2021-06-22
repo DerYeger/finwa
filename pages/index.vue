@@ -3,7 +3,7 @@
     <v-col>
       <month-details :month-id="currentMonth" />
     </v-col>
-    <speed-dial />
+    <create-entity-speed-dial />
   </v-row>
 </template>
 

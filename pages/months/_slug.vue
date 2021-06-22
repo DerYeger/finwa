@@ -3,7 +3,7 @@
     <v-col>
       <month-details :month-id="monthId" />
     </v-col>
-    <speed-dial :active-month-id="monthId" />
+    <create-entity-speed-dial :active-month-id="monthId" />
   </v-row>
 </template>
 

@@ -1,10 +1,11 @@
 <template>
-  <v-dialog transition="dialog-bottom-transition" max-width="332" @click:outside="$refs.form.resetForm()">
-    <template #activator="{ on, attrs }">
-      <v-btn fab small v-bind="attrs" color="primary" :aria-label="$t('misc.new-category')" :title="$t('misc.new-category')" v-on="on">
-        <v-icon v-text="'mdi-format-list-bulleted-type'" />
-      </v-btn>
-    </template>
+  <v-dialog
+    :value="value"
+    transition="dialog-bottom-transition"
+    max-width="332"
+    @input="$emit('input', $event)"
+    @click:outside="$refs.form.resetForm()"
+  >
     <template #default="dialog">
       <category-form ref="form" :submit-label="$t('actions.create')" @submit="createNewCategory($event, dialog)" />
     </template>
@@ -16,6 +17,12 @@ import { defineComponent } from '@nuxtjs/composition-api'
 import { Category } from '~/model/category'
 
 export default defineComponent({
+  props: {
+    value: {
+      type: Boolean,
+      required: true,
+    },
+  },
   methods: {
     createNewCategory(category: Omit<Category, 'id'>, dialog: { value: boolean }) {
       dialog.value = false

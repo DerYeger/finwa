@@ -14,7 +14,7 @@
     <v-col>
       <month-summary :month-id="selectedMonthId" show-details-link />
     </v-col>
-    <speed-dial :active-month-id="selectedMonthId" />
+    <create-entity-speed-dial :active-month-id="selectedMonthId" />
   </v-row>
 </template>
 

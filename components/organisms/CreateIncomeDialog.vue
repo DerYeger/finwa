@@ -1,10 +1,11 @@
 <template>
-  <v-dialog transition="dialog-bottom-transition" max-width="600" @click:outside="$refs.form.resetForm()">
-    <template #activator="{ on, attrs }">
-      <v-btn dark fab small v-bind="attrs" color="green" :aria-label="$t('misc.new-income')" :title="$t('misc.new-income')" v-on="on">
-        <v-icon v-text="'mdi-cash'" />
-      </v-btn>
-    </template>
+  <v-dialog
+    :value="value"
+    transition="dialog-bottom-transition"
+    max-width="600"
+    @input="$emit('input', $event)"
+    @click:outside="$refs.form.resetForm()"
+  >
     <template #default="dialog">
       <income-form
         ref="form"
@@ -23,6 +24,10 @@ import { Income, isOneTimeIncome, isRecurringIncome } from '~/model/income'
 
 export default defineComponent({
   props: {
+    value: {
+      type: Boolean,
+      required: true,
+    },
     initialMonthId: {
       type: String,
       default: currentMonthId(),

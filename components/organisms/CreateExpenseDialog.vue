@@ -1,10 +1,12 @@
 <template>
-  <v-dialog transition="dialog-bottom-transition" max-width="600" @click:outside="$refs.form.resetForm()">
-    <template #activator="{ on, attrs }">
-      <v-btn dark fab small v-bind="attrs" color="red" :aria-label="$t('misc.new-expense')" :title="$t('misc.new-expense')" v-on="on">
-        <v-icon v-text="'mdi-currency-usd'" />
-      </v-btn>
-    </template>
+  <v-dialog
+    :value="value"
+    persistent
+    transition="dialog-bottom-transition"
+    max-width="600"
+    @input="$emit('input', $event)"
+    @click:outside="$refs.form.resetForm()"
+  >
     <template #default="dialog">
       <expense-form
         ref="form"
@@ -23,6 +25,10 @@ import { Expense, isOneTimeExpense, isRecurringExpense } from '~/model/expense'
 
 export default defineComponent({
   props: {
+    value: {
+      type: Boolean,
+      required: true,
+    },
     initialMonthId: {
       type: String,
       default: currentMonthId(),
