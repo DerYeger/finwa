@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/DerYeger/finwa/compare/v2.3.3...v2.4.0) (2021-06-23)
+
+
+### Features
+
+* add profit data ([8920b6f](https://github.com/DerYeger/finwa/commit/8920b6f1cc0e4957595f1144ad75962bdf93a56d))
+
 ## [2.3.3](https://github.com/DerYeger/finwa/compare/v2.3.2...v2.3.3) (2021-06-22)
 
 
