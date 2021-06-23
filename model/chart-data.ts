@@ -15,6 +15,7 @@ export function generateExpenseChartData(expenses: Expense[], categories: Catego
       {
         label: i18n.tc('category.title', categories.length) as string,
         backgroundColor: data.map((element) => element.category.color),
+        borderColor: '#00000000',
         data: data.map((element) => element.value),
       },
     ],
@@ -38,11 +39,13 @@ export function generateIncomeChartData(income: Income[], i18n: VueI18n): ChartD
     {
       label: i18n.tc('income.one-time', oneTimeIncome.length) as string,
       backGroundColor: '#2EB232',
+      borderColor: '#00000000',
       value: sumBy(oneTimeIncome, (income) => income.value),
     },
     {
       label: i18n.tc('income.recurring', recurringIncome.length) as string,
       backGroundColor: '#2196f3',
+      borderColor: '#00000000',
       value: sumBy(recurringIncome, (income) => income.value),
     },
   ].filter((income) => income.value > 0)
@@ -52,6 +55,7 @@ export function generateIncomeChartData(income: Income[], i18n: VueI18n): ChartD
       {
         label: i18n.tc('income.title', 2) as string,
         backgroundColor: data.map((element) => element.backGroundColor),
+        borderColor: data.map((element) => element.borderColor),
         data: data.map((element) => element.value),
       },
     ],
@@ -69,14 +73,55 @@ export function generateMonthChartData(
       mapExpensesToCategories([...toArray(month.expenses), ...findRecurringTransactionsForMonth(month.id, recurringExpenses)], categories)
     )
   )
-  const datasets: ChartDataSets[] = categories.map((category) => ({
-    label: i18n.t(category.name) as string,
-    borderColor: category.color,
-    backgroundColor: `${category.color}10`,
-    data: monthValues.flatMap((mappings) => mappings.filter((mapping) => mapping.category.id === category.id))?.map((value) => value.value),
-  }))
+  const datasets: ChartDataSets[] = categories
+    .map((category) => ({
+      label: i18n.t(category.name) as string,
+      borderColor: category.color,
+      backgroundColor: `${category.color}10`,
+      data: monthValues
+        .flatMap((mappings) => mappings.filter((mapping) => mapping.category.id === category.id))
+        ?.map((value) => value.value),
+    }))
+    .filter((dataset) => dataset.data.some((value) => value > 0))
   return {
     labels: months.map((month) => i18n.d(new Date(month.id), 'month')),
     datasets,
+  }
+}
+
+export function generateProfitChartData(
+  months: Month[],
+  recurringExpenses: RecurringExpense[],
+  recurringIncomes: RecurringIncome[],
+  i18n: VueI18n
+): ChartData {
+  const monthlyExpenses = months.map((month) =>
+    sumBy([...toArray(month.expenses), ...findRecurringTransactionsForMonth(month.id, recurringExpenses)], (expense) => expense.value)
+  )
+  const monthlyIncomes = months.map((month) =>
+    sumBy([...toArray(month.incomes), ...findRecurringTransactionsForMonth(month.id, recurringIncomes)], (income) => income.value)
+  )
+  const monthlyProfits = monthlyExpenses.map((monthlyExpense, index) => monthlyIncomes[index] - monthlyExpense)
+  const expensesDataSet = {
+    label: i18n.tc('expense.title', 2),
+    backgroundColor: '#F4433610',
+    borderColor: '#F44336',
+    data: monthlyExpenses,
+  }
+  const incomesDataSet = {
+    label: i18n.tc('income.title', 1),
+    backgroundColor: '#2196F310',
+    borderColor: '#2196F3',
+    data: monthlyIncomes,
+  }
+  const profitsDataSet = {
+    label: i18n.tc('misc.profit', 1),
+    backgroundColor: '#4CAF5010',
+    borderColor: '#4CAF50',
+    data: monthlyProfits,
+  }
+  return {
+    labels: months.map((month) => i18n.d(new Date(month.id), 'month')),
+    datasets: [expensesDataSet, incomesDataSet, profitsDataSet],
   }
 }

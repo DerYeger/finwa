@@ -10,6 +10,7 @@
       :one-time-incomes="oneTimeIncomes"
       :recurring-incomes="recurringIncomes"
       :total-income-value="totalIncomeValue"
+      :profit="profit"
     />
   </div>
 </template>
@@ -61,6 +62,9 @@ export default defineComponent({
     },
     totalIncomeValue(): number {
       return sumBy(this.incomes, (income) => income.value)
+    },
+    profit(): number {
+      return this.totalIncomeValue - this.totalExpenseValue
     },
   },
   watch: {

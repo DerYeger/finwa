@@ -39,7 +39,9 @@ export default defineComponent({
           ],
         },
         legend: {
-          display: false,
+          labels: {
+            fontColor,
+          },
         },
         tooltips: {
           displayColors: false,

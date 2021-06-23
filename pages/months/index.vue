@@ -2,6 +2,14 @@
   <v-row dense>
     <v-col cols="12">
       <v-card>
+        <v-card-title>{{ $t('misc.finances') }}</v-card-title>
+        <v-card-text>
+          <profit-line-chart />
+        </v-card-text>
+      </v-card>
+    </v-col>
+    <v-col cols="12">
+      <v-card>
         <v-card-title>{{ $t('misc.history') }}</v-card-title>
         <v-card-text>
           <month-line-chart />

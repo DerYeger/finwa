@@ -1,8 +1,9 @@
 <template>
-  <month-data v-slot="{ totalExpenseValue, totalIncomeValue }" :month-id="monthId">
+  <month-data v-slot="{ totalExpenseValue, totalIncomeValue, profit }" :month-id="monthId">
     <v-card>
       <v-card-title>
         <month-name :month-id="monthId" />
+        <profit-icon :profit="totalIncomeValue - totalExpenseValue" class="ml-2" />
       </v-card-title>
       <v-card-text>
         <p>
@@ -10,6 +11,10 @@
         </p>
         <p>
           <b>{{ totalIncomeValue }}</b> {{ $t('misc.earned') }}
+        </p>
+        <p>
+          <b>{{ Math.abs(profit) }}</b>
+          {{ $t(profit >= 0 ? 'misc.gained' : 'misc.lost') }}
         </p>
       </v-card-text>
       <v-card-actions>
