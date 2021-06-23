@@ -1,6 +1,6 @@
 <template>
-  <month-data v-slot="{ totalExpenseValue, totalIncomeValue, profit }" :month-id="monthId">
-    <v-card>
+  <month-data v-slot="{ totalExpenseValue, totalIncomeValue, profit }" style="height: 100%" :month-id="monthId">
+    <v-card height="100%">
       <v-card-title>
         <month-name :month-id="monthId" />
         <profit-icon :profit="totalIncomeValue - totalExpenseValue" class="ml-2" />
@@ -17,7 +17,7 @@
           {{ $t(profit >= 0 ? 'misc.gained' : 'misc.lost') }}
         </p>
       </v-card-text>
-      <v-card-actions>
+      <v-card-actions class="month-summary-card-actions">
         <v-spacer />
         <v-btn text color="primary" :to="localePath(`/months/${monthId}`)">
           {{ $t('misc.details') }}
@@ -39,3 +39,12 @@ export default defineComponent({
   },
 })
 </script>
+
+<style>
+.month-summary-card-actions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+</style>

@@ -1,3 +1,4 @@
+import colors from 'vuetify/es5/util/colors'
 import VueI18n from 'vue-i18n'
 import { ChartData, ChartDataSets } from 'chart.js'
 import { Expense, RecurringExpense } from '~/model/expense'
@@ -7,6 +8,10 @@ import { sumBy, toArray } from '~/utils/collections'
 import { Month } from '~/model/month'
 import { findRecurringTransactionsForMonth, mapExpensesToCategories, sumExpenses } from '~/model/index'
 
+function withTransparency(color: string): string {
+  return `${color}10`
+}
+
 export function generateExpenseChartData(expenses: Expense[], categories: Category[], i18n: VueI18n): ChartData {
   const data = sumExpenses(mapExpensesToCategories(expenses, categories)).filter((mapping) => mapping.value > 0)
   return {
@@ -15,7 +20,7 @@ export function generateExpenseChartData(expenses: Expense[], categories: Catego
       {
         label: i18n.tc('category.title', categories.length) as string,
         backgroundColor: data.map((element) => element.category.color),
-        borderColor: '#00000000',
+        borderColor: colors.shades.transparent,
         data: data.map((element) => element.value),
       },
     ],
@@ -38,14 +43,14 @@ export function generateIncomeChartData(income: Income[], i18n: VueI18n): ChartD
   const data = [
     {
       label: i18n.tc('income.one-time', oneTimeIncome.length) as string,
-      backGroundColor: '#2EB232',
-      borderColor: '#00000000',
+      backGroundColor: colors.green.base,
+      borderColor: colors.shades.transparent,
       value: sumBy(oneTimeIncome, (income) => income.value),
     },
     {
       label: i18n.tc('income.recurring', recurringIncome.length) as string,
-      backGroundColor: '#2196f3',
-      borderColor: '#00000000',
+      backGroundColor: colors.blue.base,
+      borderColor: colors.shades.transparent,
       value: sumBy(recurringIncome, (income) => income.value),
     },
   ].filter((income) => income.value > 0)
@@ -62,7 +67,7 @@ export function generateIncomeChartData(income: Income[], i18n: VueI18n): ChartD
   }
 }
 
-export function generateMonthChartData(
+export function generateMonthlyExpensesChartData(
   months: Month[],
   categories: Category[],
   recurringExpenses: RecurringExpense[],
@@ -89,6 +94,29 @@ export function generateMonthChartData(
   }
 }
 
+export function generateMonthlyIncomesChartData(months: Month[], recurringIncomes: RecurringIncome[], i18n: VueI18n): ChartData {
+  const monthlyOneTimeIncomes = months.map((month) => sumBy(toArray(month.incomes), (income) => income.value))
+  const monthlyRecurringIncomes = months.map((month) =>
+    sumBy(findRecurringTransactionsForMonth(month.id, recurringIncomes), (income) => income.value)
+  )
+  const oneTimeIncomesDataSet = {
+    label: i18n.tc('income.one-time', 2),
+    backgroundColor: withTransparency(colors.green.base),
+    borderColor: colors.green.base,
+    data: monthlyOneTimeIncomes,
+  }
+  const recurringIncomesDataSet = {
+    label: i18n.tc('income.recurring', 2),
+    backgroundColor: withTransparency(colors.blue.base),
+    borderColor: colors.blue.base,
+    data: monthlyRecurringIncomes,
+  }
+  return {
+    labels: months.map((month) => i18n.d(new Date(month.id), 'month')),
+    datasets: [oneTimeIncomesDataSet, recurringIncomesDataSet],
+  }
+}
+
 export function generateProfitChartData(
   months: Month[],
   recurringExpenses: RecurringExpense[],
@@ -104,20 +132,20 @@ export function generateProfitChartData(
   const monthlyProfits = monthlyExpenses.map((monthlyExpense, index) => monthlyIncomes[index] - monthlyExpense)
   const expensesDataSet = {
     label: i18n.tc('expense.title', 2),
-    backgroundColor: '#F4433610',
-    borderColor: '#F44336',
+    backgroundColor: withTransparency(colors.red.base),
+    borderColor: colors.red.base,
     data: monthlyExpenses,
   }
   const incomesDataSet = {
     label: i18n.tc('income.title', 1),
-    backgroundColor: '#2196F310',
-    borderColor: '#2196F3',
+    backgroundColor: withTransparency(colors.blue.base),
+    borderColor: colors.blue.base,
     data: monthlyIncomes,
   }
   const profitsDataSet = {
     label: i18n.tc('misc.profit', 1),
-    backgroundColor: '#4CAF5010',
-    borderColor: '#4CAF50',
+    backgroundColor: withTransparency(colors.green.base),
+    borderColor: colors.green.base,
     data: monthlyProfits,
   }
   return {

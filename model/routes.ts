@@ -10,6 +10,11 @@ export const routes: Record<string, Route> = {
     to: '/',
     icon: 'mdi-home',
   },
+  finances: {
+    title: 'misc.finances',
+    to: '/finances',
+    icon: 'mdi-trending-up',
+  },
   months: {
     title: 'month.title',
     to: '/months',

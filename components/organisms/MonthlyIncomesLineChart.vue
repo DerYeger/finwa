@@ -1,11 +1,11 @@
 <template>
-  <line-chart :chart-data="monthChartData" :styles="lineChartStyles" />
+  <line-chart :chart-data="monthlyIncomesChartData" :styles="lineChartStyles" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { ChartData } from 'chart.js'
-import { generateMonthChartData } from '~/model/chart-data'
+import { generateMonthlyIncomesChartData } from '~/model/chart-data'
 
 export default defineComponent({
   props: {
@@ -15,12 +15,11 @@ export default defineComponent({
     },
   },
   computed: {
-    monthChartData(): ChartData {
+    monthlyIncomesChartData(): ChartData {
       const getters = this.$store.getters
       const months = getters['months/sorted'](12)
-      const recurringExpenses = getters['recurringExpenses/recurringExpenses']
-      const categories = getters['categories/categories']
-      return generateMonthChartData(months, categories, recurringExpenses, this.$i18n)
+      const recurringIncomes = getters['recurringIncomes/recurringIncomes']
+      return generateMonthlyIncomesChartData(months, recurringIncomes, this.$i18n)
     },
     lineChartStyles(): any {
       return {
