@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/DerYeger/finwa/compare/v2.4.1...v2.5.0) (2021-06-23)
+
+
+### Features
+
+* move monthly data to new finances page ([2da5358](https://github.com/DerYeger/finwa/commit/2da53584e0fa324fdbad58abe40c68f42ead0915))
+
 ## [2.4.1](https://github.com/DerYeger/finwa/compare/v2.4.0...v2.4.1) (2021-06-23)
 
 
