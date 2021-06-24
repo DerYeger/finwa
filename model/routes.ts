@@ -1,5 +1,6 @@
 export interface Route {
   title: string
+  navTitle?: string
   to: string
   icon?: string
 }
@@ -12,11 +13,13 @@ export const routes: Record<string, Route> = {
   },
   finances: {
     title: 'misc.finances',
+    navTitle: 'misc.overview',
     to: '/finances',
     icon: 'mdi-trending-up',
   },
   months: {
     title: 'month.title',
+    navTitle: 'misc.overview',
     to: '/months',
     icon: 'mdi-calendar',
   },
@@ -25,7 +28,7 @@ export const routes: Record<string, Route> = {
     to: '/expenses',
     icon: 'mdi-currency-usd',
   },
-  income: {
+  incomes: {
     title: 'income.title',
     to: '/incomes',
     icon: 'mdi-cash',

@@ -65,8 +65,10 @@ export default {
     'new-income': 'New Income',
     'no-data': 'No data available',
     'no-results': 'No results',
+    overview: 'Overview',
     profit: 'Profit | Profits',
     'quick-access': 'Quick Access',
+    recent: 'Recent',
     recurring: 'Recurring',
     resources: 'Resources',
     since: 'Since',
@@ -77,6 +79,7 @@ export default {
       'sort-by': 'Sort by',
     },
     until: 'Until',
+    upcoming: 'Upcoming',
     value: 'Value',
   },
   month: {

@@ -9,6 +9,7 @@
         <nuxt />
       </v-container>
     </v-main>
+    <app-footer />
   </v-app>
 </template>
 

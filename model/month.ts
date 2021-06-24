@@ -19,13 +19,26 @@ export function currentMonthId(): string {
   return monthIdFromDate(new Date())
 }
 
-export function lastTwelveMonths(): Month[] {
+export function upcomingMonths(amount: number, offset: number = 0): Month[] {
   const now = new Date()
-  return [...Array(12).keys()].map((offset) => {
+  return [...Array(amount).keys()].map((index) => {
     const date = new Date()
-    date.setMonth(now.getMonth() - offset)
+    date.setMonth(now.getMonth() + index + offset)
     return { id: monthIdFromDate(date), expenses: {}, incomes: {} }
   })
+}
+
+export function recentMonths(amount: number, offset: number = 0): Month[] {
+  const now = new Date()
+  return [...Array(amount).keys()].map((index) => {
+    const date = new Date()
+    date.setMonth(now.getMonth() - index + offset)
+    return { id: monthIdFromDate(date), expenses: {}, incomes: {} }
+  })
+}
+
+export function lastTwelveMonths(): Month[] {
+  return recentMonths(12)
 }
 
 export function isMonthId(id: string): boolean {

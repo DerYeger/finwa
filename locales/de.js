@@ -60,8 +60,10 @@ export default {
     'new-income': 'Neues Einkommen',
     'no-data': 'Keine Daten verfügbar',
     'no-results': 'Keine Ergebnisse',
+    overview: 'Übersicht',
     profit: 'Profit | Profite',
     'quick-access': 'Schnellzugriff',
+    recent: 'Kürzlich',
     recurring: 'Wiederkehrend',
     resources: 'Ressourcen',
     since: 'Seit',
@@ -73,6 +75,7 @@ export default {
       'sort-by': 'Sortieren nach',
     },
     until: 'Bis',
+    upcoming: 'Kommend',
     value: 'Wert',
   },
   month: {

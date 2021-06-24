@@ -19,7 +19,7 @@
       </v-card-text>
       <v-card-actions class="month-summary-card-actions">
         <v-spacer />
-        <v-btn text color="primary" :to="localePath(`/months/${monthId}`)">
+        <v-btn text color="primary" :to="localePath(`${monthsRoute.to}/${monthId}`)">
           {{ $t('misc.details') }}
         </v-btn>
       </v-card-actions>
@@ -29,6 +29,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
+import { routes } from '~/model/routes'
 
 export default defineComponent({
   props: {
@@ -36,6 +37,11 @@ export default defineComponent({
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {
+      monthsRoute: routes.months,
+    }
   },
 })
 </script>

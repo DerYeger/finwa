@@ -17,7 +17,7 @@ import { routes } from '~/model/routes'
 
 export default defineComponent({
   head() {
-    const title = this.$tc(routes.income.title, 2) as string
+    const title = this.$tc(routes.incomes.title, 2) as string
     return {
       title,
     }
