@@ -32,9 +32,15 @@ export default defineComponent({
   data() {
     return {
       monthsRoute: routes.months,
-      recentMonthRoutes: this.monthsToRoutes(recentMonths(3, -1)).reverse(),
-      upcomingMonthRoutes: this.monthsToRoutes(upcomingMonths(3, 1)),
     }
+  },
+  computed: {
+    recentMonthRoutes(): Route[] {
+      return this.monthsToRoutes(recentMonths(3, -1)).reverse()
+    },
+    upcomingMonthRoutes(): Route[] {
+      return this.monthsToRoutes(upcomingMonths(3, 1))
+    },
   },
   methods: {
     monthsToRoutes(months: Month[]): Route[] {
