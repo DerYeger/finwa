@@ -1,3 +1,15 @@
+# [2.6.0](https://github.com/DerYeger/finwa/compare/v2.5.0...v2.6.0) (2021-06-24)
+
+
+### Bug Fixes
+
+* remove method access from data ([980b67c](https://github.com/DerYeger/finwa/commit/980b67c422678bf728c98d7a1f824eca9b45594c))
+
+
+### Features
+
+* restructure navigation ([aa1e729](https://github.com/DerYeger/finwa/commit/aa1e7297334df865d6c905d21a4f2e11f0d19689))
+
 # [2.5.0](https://github.com/DerYeger/finwa/compare/v2.4.1...v2.5.0) (2021-06-23)
 
 
