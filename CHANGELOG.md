@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/DerYeger/finwa/compare/v2.6.1...v2.6.2) (2021-06-25)
+
+
+### Bug Fixes
+
+* change color of GitHub icon ([a26b0d6](https://github.com/DerYeger/finwa/commit/a26b0d60f317b7ced6d93bd5e064979904fa1e0d))
+
 ## [2.6.1](https://github.com/DerYeger/finwa/compare/v2.6.0...v2.6.1) (2021-06-24)
 
 
