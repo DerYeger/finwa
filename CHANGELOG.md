@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/DerYeger/finwa/compare/v2.7.0...v2.7.1) (2021-07-18)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency vue to 2.6.14 ([07881ae](https://github.com/DerYeger/finwa/commit/07881aee0ef7593d746d2ef3f6983bae2e6e76fa))
+
 # [2.7.0](https://github.com/DerYeger/finwa/compare/v2.6.7...v2.7.0) (2021-07-18)
 
 
