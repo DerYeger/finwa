@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/DerYeger/finwa/compare/v2.6.7...v2.7.0) (2021-07-18)
+
+
+### Features
+
+* add persistent storage button ([570878a](https://github.com/DerYeger/finwa/commit/570878a2f0c50588f4c379f9a334eba7f5fa92fd))
+
 ## [2.6.7](https://github.com/DerYeger/finwa/compare/v2.6.6...v2.6.7) (2021-07-12)
 
 
