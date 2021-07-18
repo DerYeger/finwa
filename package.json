@@ -12,7 +12,7 @@
     "lint:style": "stylelint \"**/*.{vue,css,ts}\" --ignore-path .gitignore",
     "lint": "yarn lint:es && yarn lint:style",
     "test": "jest",
-    "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,yml}\""
+    "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,vue,yml}\""
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
@@ -37,6 +37,7 @@
     "secure-ls": "1.2.6",
     "uuid": "8.3.2",
     "vue-chartjs": "3.5.1",
+    "vue-persistent-storage-manager": "2.0.2",
     "vuex": "3.6.2",
     "vuex-persistedstate": "4.0.0-beta.3"
   },

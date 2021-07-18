@@ -86,8 +86,10 @@ export default {
     title: 'Month | Months',
   },
   settings: {
-    advanced: 'Advanced options',
     appearance: 'Appearance',
+    'persistence-granted': 'Persistence granted',
+    'request-persistence': 'Request persistence',
+    storage: 'Storage',
     title: 'Settings',
   },
   validations: {

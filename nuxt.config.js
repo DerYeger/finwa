@@ -18,8 +18,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/persistedState.client.ts', mode: 'client' },
-    { src: '~/plugins/pwaUpdate.client.ts', mode: 'client' },
+    { src: '~/plugins/persistedState.client.ts' },
+    { src: '~/plugins/pwaUpdate.client.ts' },
+    { src: '~/plugins/storageManager.ts' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
