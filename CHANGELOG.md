@@ -1,3 +1,10 @@
+## [2.7.2](https://github.com/DerYeger/finwa/compare/v2.7.1...v2.7.2) (2021-07-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vuex-persistedstate to v4.0.0 ([df34929](https://github.com/DerYeger/finwa/commit/df34929930f6dea1803bb71587393be3012b4b7d))
+
 ## [2.7.1](https://github.com/DerYeger/finwa/compare/v2.7.0...v2.7.1) (2021-07-18)
 
 
