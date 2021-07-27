@@ -38,9 +38,6 @@ PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
 
-//! moment.js locale configuration
-
-
 /*!
   * vue-router v3.5.2
   * (c) 2021 Evan You
@@ -73,6 +70,12 @@ PERFORMANCE OF THIS SOFTWARE.
  * (c) 2021 Evan You
  * @license MIT
  */
+
+
+//! moment.js locale configuration
+
+
+//! moment.js locale configuration
 
 
 //! moment.js locale configuration
