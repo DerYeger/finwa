@@ -1,12 +1,12 @@
 <template>
-  <v-app-bar app dark dense fixed color="primary" :clipped-left="true">
+  <v-app-bar :clipped-left="true" app color="primary" dark dense fixed>
     <v-app-bar-nav-icon
       v-show="$vuetify.breakpoint.mdAndDown"
       :aria-label="$t(value ? 'actions.close-menu' : 'actions.open-menu')"
       class="ml-n4"
       @click="$emit('input', !value)"
     />
-    <logo :class="{ 'ml-n2': $vuetify.breakpoint.lgAndUp }" />
+    <logo class="ml-lg-n2" />
     <v-spacer />
     <v-divider vertical />
     <theme-toggle />

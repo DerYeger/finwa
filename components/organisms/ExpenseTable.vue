@@ -1,24 +1,24 @@
 <template>
   <v-card>
-    <v-card-title :class="{ 'pb-0': $vuetify.breakpoint.xsOnly }">
+    <v-card-title class="pb-0 pb-sm-4">
       {{ title || $tc('expense.title', 2) }}
       <v-spacer />
-      <v-text-field v-model="search" append-icon="mdi-magnify" :label="$t('actions.search')" single-line hide-details class="mt-0 pt-0" />
+      <v-text-field v-model="search" :label="$t('actions.search')" append-icon="mdi-magnify" class="mt-0 pt-0" hide-details single-line />
     </v-card-title>
     <client-only>
       <v-data-table
+        :footer-props="footerProps"
+        :header-props="headerProps"
         :headers="headers"
         :items="expenses"
         :items-per-page="15"
-        :search="search"
-        :footer-props="footerProps"
-        :header-props="headerProps"
         :no-data-text="$t('misc.no-data')"
         :no-results-text="$t('misc.no-results')"
+        :search="search"
       >
         <template #item.categoryId="{ item }">
           <span class="d-inline-flex">
-            <v-badge inline :color="byId(item.categoryId).color" class="mr-2" />
+            <v-badge :color="byId(item.categoryId).color" class="mr-2" inline />
             {{ $t(byId(item.categoryId).name) }}
           </span>
         </template>
@@ -36,7 +36,7 @@
         </template>
         <template #item.actions="{ item }">
           <edit-expense-dialog :expense="item" />
-          <v-btn small icon color="error" :aria-label="$t('actions.delete')" :title="$t('actions.delete')" @click="deleteExpense(item)">
+          <v-btn :aria-label="$t('actions.delete')" :title="$t('actions.delete')" color="error" icon small @click="deleteExpense(item)">
             <v-icon small v-text="'mdi-delete'" />
           </v-btn>
         </template>

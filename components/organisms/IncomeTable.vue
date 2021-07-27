@@ -1,20 +1,20 @@
 <template>
   <v-card>
-    <v-card-title :class="{ 'pb-0': $vuetify.breakpoint.xsOnly }">
+    <v-card-title class="pb-0 pb-sm-4">
       {{ title || $tc('income.title', 2) }}
       <v-spacer />
-      <v-text-field v-model="search" append-icon="mdi-magnify" :label="$t('actions.search')" single-line hide-details class="mt-0 pt-0" />
+      <v-text-field v-model="search" :label="$t('actions.search')" append-icon="mdi-magnify" class="mt-0 pt-0" hide-details single-line />
     </v-card-title>
     <client-only>
       <v-data-table
+        :footer-props="footerProps"
+        :header-props="headerProps"
         :headers="headers"
         :items="incomes"
         :items-per-page="15"
-        :search="search"
-        :footer-props="footerProps"
-        :header-props="headerProps"
         :no-data-text="$t('misc.no-data')"
         :no-results-text="$t('misc.no-results')"
+        :search="search"
       >
         <template #item.monthId="{ item }">
           <month-name v-if="item.monthId" :month-id="item.monthId" />
@@ -30,7 +30,7 @@
         </template>
         <template #item.actions="{ item }">
           <edit-income-dialog :income="item" />
-          <v-btn small icon color="error" :aria-label="$t('actions.delete')" :title="$t('actions.delete')" @click="deleteIncome(item)">
+          <v-btn :aria-label="$t('actions.delete')" :title="$t('actions.delete')" color="error" icon small @click="deleteIncome(item)">
             <v-icon small v-text="'mdi-delete'" />
           </v-btn>
         </template>
