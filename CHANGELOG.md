@@ -1,3 +1,10 @@
+## [2.7.7](https://github.com/DerYeger/finwa/compare/v2.7.6...v2.7.7) (2021-07-27)
+
+
+### Bug Fixes
+
+* use utility classes instead of breakpoint service ([64a8e9e](https://github.com/DerYeger/finwa/commit/64a8e9e526569abb9ffd5ee270daa92d386824aa))
+
 ## [2.7.6](https://github.com/DerYeger/finwa/compare/v2.7.5...v2.7.6) (2021-07-27)
 
 
