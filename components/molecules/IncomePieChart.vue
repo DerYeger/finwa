@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <pie-chart v-if="incomeChartData.labels.length > 0" :chart-data="incomeChartData" :styles="pieChartStyles" />
+    <pie-chart v-if="incomeChartData.labels.length > 0" :chart-data="incomeChartData" :style="`height: ${height};`" />
     <div v-else style="text-align: center">{{ $t('misc.no-data') }}</div>
   </client-only>
 </template>
@@ -25,14 +25,6 @@ export default defineComponent({
   computed: {
     incomeChartData(): ChartData {
       return generateIncomeChartData(this.incomes, this.$i18n)
-    },
-    pieChartStyles(): any {
-      return {
-        margin: 'auto',
-        position: 'relative',
-        width: '99%',
-        height: this.height,
-      }
     },
   },
 })

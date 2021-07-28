@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <bar-chart v-if="expenseChartData.labels.length > 0" :chart-data="expenseChartData" :styles="barChartStyles" />
+    <bar-chart v-if="expenseChartData.labels.length > 0" :chart-data="expenseChartData" />
     <div v-else style="text-align: center">{{ $t('misc.no-data') }}</div>
   </client-only>
 </template>
@@ -21,13 +21,6 @@ export default defineComponent({
   computed: {
     expenseChartData(): ChartData {
       return generateExpenseChartData(this.expenses, this.$store.getters['categories/categories'], this.$i18n)
-    },
-    barChartStyles(): any {
-      return {
-        margin: 'auto',
-        position: 'relative',
-        width: '99%',
-      }
     },
   },
 })

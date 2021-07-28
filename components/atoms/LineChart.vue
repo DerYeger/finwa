@@ -1,72 +1,61 @@
+<template>
+  <line-chart :chart-data="chartData" :options="options" :width="100" class="responsive-graph" />
+</template>
+
 <script lang="ts">
-import { Line, mixins } from 'vue-chartjs'
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { ChartData, ChartOptions } from 'chart.js'
-import { chartColors, lineChartTooltipLabel, lineChartTooltipTitle } from '~/utils/charts'
+import { LineChart } from 'vue-chart-3'
+import { chartColors } from '~/utils/charts'
 
 export default defineComponent({
-  extends: Line,
-  mixins: [mixins.reactiveProp],
+  components: { LineChart },
+  props: {
+    chartData: {
+      type: Object as PropType<ChartData>,
+      required: true,
+    },
+  },
   computed: {
-    chartOptions(): ChartOptions {
+    options(): ChartOptions<'line'> {
       const { fontColor, gridColor } = chartColors(this.$vuetify)
       return {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          xAxes: [
-            {
-              gridLines: {
-                display: false,
-              },
-              ticks: {
-                fontColor,
-              },
+          x: {
+            grid: {
+              display: false,
+              borderColor: 'rgb(0, 0, 0, 0)',
             },
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                display: true,
-                color: gridColor,
-                zeroLineColor: gridColor,
-              },
-              ticks: {
-                beginAtZero: true,
-                fontColor,
-              },
+            ticks: {
+              color: fontColor,
             },
-          ],
-        },
-        legend: {
-          labels: {
-            fontColor,
+          },
+          y: {
+            grace: '10%',
+            grid: {
+              borderColor: gridColor,
+              color: gridColor,
+            },
+            ticks: {
+              color: fontColor,
+            },
           },
         },
-        tooltips: {
-          displayColors: false,
-          enabled: true,
-          mode: 'single',
-          callbacks: {
-            title: lineChartTooltipTitle,
-            label: lineChartTooltipLabel,
+        plugins: {
+          legend: {
+            labels: {
+              color: fontColor,
+            },
+          },
+          tooltip: {
+            displayColors: false,
+            enabled: true,
+            mode: 'x',
           },
         },
       }
-    },
-  },
-  watch: {
-    chartOptions(chartOptions: ChartOptions) {
-      this.render(chartOptions)
-    },
-  },
-  mounted() {
-    this.render(this.chartOptions)
-  },
-  methods: {
-    render(chartOptions: ChartOptions) {
-      const chartRef = this as unknown as Line
-      chartRef.renderChart(this.chartData as ChartData, chartOptions)
     },
   },
 })

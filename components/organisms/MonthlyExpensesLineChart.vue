@@ -1,5 +1,7 @@
 <template>
-  <line-chart :chart-data="monthlyExpensesChartData" :styles="lineChartStyles" />
+  <client-only>
+    <line-chart :chart-data="monthlyExpensesChartData" :style="`height: ${height};`" />
+  </client-only>
 </template>
 
 <script lang="ts">
@@ -21,14 +23,6 @@ export default defineComponent({
       const recurringExpenses = getters['recurringExpenses/recurringExpenses']
       const categories = getters['categories/categories']
       return generateMonthlyExpensesChartData(months, categories, recurringExpenses, this.$i18n)
-    },
-    lineChartStyles(): any {
-      return {
-        margin: 'auto',
-        position: 'relative',
-        width: '99%',
-        height: this.height,
-      }
     },
   },
 })

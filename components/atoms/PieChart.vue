@@ -1,54 +1,44 @@
+<template>
+  <doughnut-chart :chart-data="chartData" :options="options" :width="100" class="responsive-graph" />
+</template>
+
 <script lang="ts">
-import { Pie, mixins } from 'vue-chartjs'
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { ChartData, ChartOptions } from 'chart.js'
-import { chartColors, pieChartTooltipLabel, pieChartTooltipTitle } from '~/utils/charts'
+import { DoughnutChart } from 'vue-chart-3'
+import { chartColors } from '~/utils/charts'
 
 export default defineComponent({
-  extends: Pie,
-  mixins: [mixins.reactiveProp],
+  components: { DoughnutChart },
   props: {
+    chartData: {
+      type: Object as PropType<ChartData>,
+      required: true,
+    },
     cutoutPercentage: {
       type: Number,
       default: 50,
     },
   },
   computed: {
-    chartOptions(): ChartOptions {
+    options(): ChartOptions<'doughnut'> {
       const { fontColor } = chartColors(this.$vuetify)
       return {
         responsive: true,
         maintainAspectRatio: false,
-        cutoutPercentage: this.cutoutPercentage,
-        legend: {
-          labels: {
-            fontColor,
+        cutout: `${this.cutoutPercentage}%`,
+        plugins: {
+          legend: {
+            labels: {
+              color: fontColor,
+            },
           },
-        },
-        tooltips: {
-          displayColors: false,
-          enabled: true,
-          mode: 'single',
-          callbacks: {
-            title: pieChartTooltipTitle,
-            label: pieChartTooltipLabel,
+          tooltip: {
+            displayColors: false,
+            enabled: true,
           },
         },
       }
-    },
-  },
-  watch: {
-    chartOptions(chartOptions: ChartOptions) {
-      this.render(chartOptions)
-    },
-  },
-  mounted() {
-    this.render(this.chartOptions)
-  },
-  methods: {
-    render(chartOptions: ChartOptions) {
-      const chartRef = this as unknown as Pie
-      chartRef.renderChart(this.chartData as ChartData, chartOptions)
     },
   },
 })

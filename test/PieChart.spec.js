@@ -2,6 +2,24 @@ import { mount } from '@vue/test-utils'
 import Vuetify from 'vuetify'
 import PieChart from '~/components/atoms/PieChart.vue'
 
+const TestComponent = {
+  components: { PieChart },
+  template: '<div><pie-chart :chart-data="chartData" /></div>',
+  data() {
+    return {
+      chartData: {
+        labels: ['First', 'Second'],
+        datasets: [
+          {
+            label: 'Test',
+            data: [0, 1],
+          },
+        ],
+      },
+    }
+  },
+}
+
 describe('PieChart', () => {
   let vuetify
 
@@ -10,21 +28,10 @@ describe('PieChart', () => {
   })
 
   test('is a Vue instance', () => {
-    const wrapper = mount(PieChart, {
+    const wrapper = mount(TestComponent, {
       vuetify,
-      propsData: {
-        chartData: {
-          labels: ['First', 'Second'],
-          datasets: [
-            {
-              label: 'Test',
-              data: [0, 1],
-            },
-          ],
-        },
-      },
     })
     expect(wrapper.vm).toBeTruthy()
-    expect(wrapper.vm.$el.querySelector('.pie-charts')).not.toBe(undefined)
+    expect(wrapper.vm.$el.querySelector('#doughnut-chart')).not.toBeNull()
   })
 })

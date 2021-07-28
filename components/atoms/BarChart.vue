@@ -1,69 +1,68 @@
+<template>
+  <bar-chart :chart-data="chartData" :options="options" :width="100" class="responsive-graph" />
+</template>
+
 <script lang="ts">
-import { Bar, mixins } from 'vue-chartjs'
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { ChartData, ChartOptions } from 'chart.js'
-import { barChartTooltipLabel, chartColors } from '~/utils/charts'
+import { BarChart } from 'vue-chart-3'
+import { chartColors } from '~/utils/charts'
 
 export default defineComponent({
-  extends: Bar,
-  mixins: [mixins.reactiveProp],
+  components: { BarChart },
+  props: {
+    chartData: {
+      type: Object as PropType<ChartData>,
+      required: true,
+    },
+  },
   computed: {
-    chartOptions(): ChartOptions {
+    options(): ChartOptions<'bar'> {
       const { fontColor, gridColor } = chartColors(this.$vuetify)
       return {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          xAxes: [
-            {
-              gridLines: {
-                display: false,
+          x: {
+            grid: {
+              display: false,
+              borderColor: 'rgb(0, 0, 0, 0)',
+            },
+            ticks: {
+              color: fontColor,
+            },
+          },
+          y: {
+            grace: '10%',
+            grid: {
+              borderColor: gridColor,
+              color: gridColor,
+            },
+            ticks: {
+              color: fontColor,
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            displayColors: false,
+            enabled: true,
+            mode: 'index',
+            callbacks: {
+              title(): string {
+                return ''
               },
-              ticks: {
-                fontColor,
+              label(): string {
+                const data = this.dataPoints[0]
+                return `${data.label}: ${data.formattedValue}`
               },
             },
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                display: true,
-                color: gridColor,
-                zeroLineColor: gridColor,
-              },
-              ticks: {
-                beginAtZero: true,
-                fontColor,
-              },
-            },
-          ],
-        },
-        legend: {
-          display: false,
-        },
-        tooltips: {
-          displayColors: false,
-          enabled: true,
-          mode: 'single',
-          callbacks: {
-            label: barChartTooltipLabel,
           },
         },
       }
-    },
-  },
-  watch: {
-    chartOptions(chartOptions: ChartOptions) {
-      this.render(chartOptions)
-    },
-  },
-  mounted() {
-    this.render(this.chartOptions)
-  },
-  methods: {
-    render(chartOptions: ChartOptions) {
-      const chartRef = this as unknown as Bar
-      chartRef.renderChart(this.chartData as ChartData, chartOptions)
     },
   },
 })
