@@ -1,3 +1,10 @@
+## [2.8.1](https://github.com/DerYeger/finwa/compare/v2.8.0...v2.8.1) (2021-07-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @nuxtjs/composition-api to v0.26.0 ([97d4fc3](https://github.com/DerYeger/finwa/commit/97d4fc3c0dbec989e37db8865041d03ed7a53c85))
+
 # [2.8.0](https://github.com/DerYeger/finwa/compare/v2.7.7...v2.8.0) (2021-07-28)
 
 
