@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/DerYeger/finwa/compare/v2.7.7...v2.8.0) (2021-07-28)
+
+
+### Features
+
+* migrate to chart.js v3 ([3dde1c3](https://github.com/DerYeger/finwa/commit/3dde1c3f20f5246294ba2e7c3d2a704813280e0d))
+
 ## [2.7.7](https://github.com/DerYeger/finwa/compare/v2.7.6...v2.7.7) (2021-07-27)
 
 
