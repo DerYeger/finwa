@@ -1,14 +1,9 @@
 /*!
- * Chart.js v2.9.4
+ * Chart.js v3.5.0
  * https://www.chartjs.org
- * (c) 2020 Chart.js Contributors
+ * (c) 2021 Chart.js Contributors
  * Released under the MIT License
  */
-
-//! moment.js
-
-//! moment.js locale configuration
-
 
 /*!
  * vue-client-only v0.0.0-semantic-release
@@ -36,6 +31,13 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
+
+
+/*!
+ * Vue.js v2.6.14
+ * (c) 2014-2021 Evan You
+ * Released under the MIT License.
+ */
 
 
 /*!
@@ -70,12 +72,3 @@ PERFORMANCE OF THIS SOFTWARE.
  * (c) 2021 Evan You
  * @license MIT
  */
-
-
-//! moment.js locale configuration
-
-
-//! moment.js locale configuration
-
-
-//! moment.js locale configuration
