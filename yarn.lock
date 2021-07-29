@@ -11934,26 +11934,26 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-chart-3@0.4.11:
-  version "0.4.11"
-  resolved "https://registry.yarnpkg.com/vue-chart-3/-/vue-chart-3-0.4.11.tgz#5296d0d518de2a650369d120497e352ac2248661"
-  integrity sha512-TaqxETO+UbLVwo6POn20h7qiHz8hBeyRdlO7HXgCP2X1Nv6ycdSweYWZxIrAf8wVHlV9H7csf3B+dK+xbHlEdQ==
+vue-chart-3@0.4.12:
+  version "0.4.12"
+  resolved "https://registry.yarnpkg.com/vue-chart-3/-/vue-chart-3-0.4.12.tgz#2059ef3dfeed585d33f6ed8160f9b49034b2e719"
+  integrity sha512-79FP7lJ+CNrnfE0fKL90xKYHnbY5Cs4t18Xl08Myy1AYxo45R7Gx4vaQTWQSCQOHkXOqjo81sKGk7Te6Duho0Q==
   dependencies:
     "@vue/runtime-core" latest
     "@vue/runtime-dom" latest
     csstype latest
     lodash latest
-    vue-demi latest
+    vue-demi "^0.10.1"
 
 vue-client-only@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-client-only/-/vue-client-only-2.1.0.tgz#1a67a47b8ecacfa86d75830173fffee3bf8a4ee3"
   integrity sha512-vKl1skEKn8EK9f8P2ZzhRnuaRHLHrlt1sbRmazlvsx6EiC3A8oWF8YCBrMJzoN+W3OnElwIGbVjsx6/xelY1AA==
 
-vue-demi@latest:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.11.2.tgz#faa06da53887c493a695b997f4fcb4784a667990"
-  integrity sha512-J+X8Au6BhQdcej6LY4O986634hZLu55L0ewU2j8my7WIKlu8cK0dqmdUxqVHHMd/cMrKKZ9SywB/id6aLhwCtA==
+vue-demi@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.10.1.tgz#229b81395510f02f4ee255344557a12cc0120930"
+  integrity sha512-L6Oi+BvmMv6YXvqv5rJNCFHEKSVu7llpWWJczqmAQYOdmPPw5PNYoz1KKS//Fxhi+4QP64dsPjtmvnYGo1jemA==
 
 vue-eslint-parser@^7.1.1, vue-eslint-parser@^7.9.0:
   version "7.10.0"
