@@ -32,6 +32,9 @@ describe('PieChart', () => {
       vuetify,
     })
     expect(wrapper.vm).toBeTruthy()
-    expect(wrapper.vm.$el.querySelector('#doughnut-chart')).not.toBeNull()
+    const graphContainer = wrapper.vm.$el.querySelector('.responsive-graph')
+    expect(graphContainer).not.toBeNull()
+    const graph = graphContainer.querySelector('canvas')
+    expect(graph).not.toBeNull()
   })
 })
