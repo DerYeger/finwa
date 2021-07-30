@@ -17,6 +17,12 @@
 </p>
 
 <p align="center">
+  <a href="https://lgtm.com/projects/g/DerYeger/finwa">
+    <img alt="LGTM Grade" src="https://img.shields.io/lgtm/grade/javascript/github/DerYeger/finwa?logo=lgtm">
+  </a>
+</p>
+
+<p align="center">
    <a href="https://finwa.yeger.eu/">
     finwa.yeger.eu
   </a>
@@ -28,7 +34,7 @@
 
 - 💰 **Expenses**: Keep track of one-time and recurring expenses
 - 📃 **Categories**: Group expenses by (customizable) categories
-- 💹 **Visualization**: Various charts provide insights on finances 
+- 💹 **Visualization**: Various charts provide insights on finances
 - 🔒 **Privacy**: Data is only stored locally
 - 📱/💻 **Responsive**: Optimized for screens of all sizes
 - 📶 **PWA**: FinWa is installable and does not require an internet connection
