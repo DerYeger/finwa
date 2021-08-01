@@ -1,3 +1,10 @@
+## [2.8.6](https://github.com/DerYeger/finwa/compare/v2.8.5...v2.8.6) (2021-08-01)
+
+
+### Bug Fixes
+
+* **deps:** move jest-canvas-mock to devDependencies ([1464a49](https://github.com/DerYeger/finwa/commit/1464a49628ef29c8135ee9b2c930d2dd30bd3472))
+
 ## [2.8.5](https://github.com/DerYeger/finwa/compare/v2.8.4...v2.8.5) (2021-07-30)
 
 
