@@ -1,3 +1,10 @@
+## [2.8.7](https://github.com/DerYeger/finwa/compare/v2.8.6...v2.8.7) (2021-08-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vue-chart-3 to v0.5.7 ([54afbaf](https://github.com/DerYeger/finwa/commit/54afbaf3fb7749bf1d03bfc18453d69db08ae6ac))
+
 ## [2.8.6](https://github.com/DerYeger/finwa/compare/v2.8.5...v2.8.6) (2021-08-01)
 
 
