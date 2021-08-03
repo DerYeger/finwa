@@ -1,3 +1,10 @@
+## [2.8.8](https://github.com/DerYeger/finwa/compare/v2.8.7...v2.8.8) (2021-08-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency nuxt-i18n to v6.28.1 ([ae7f2d3](https://github.com/DerYeger/finwa/commit/ae7f2d3303cc061e39cf1f2018464eaa9da276ef))
+
 ## [2.8.7](https://github.com/DerYeger/finwa/compare/v2.8.6...v2.8.7) (2021-08-02)
 
 
