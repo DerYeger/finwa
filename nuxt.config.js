@@ -36,11 +36,12 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/composition-api/module',
-    'nuxt-i18n',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://i18n.nuxtjs.org/
+    '@nuxtjs/i18n',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
@@ -83,16 +84,19 @@ export default {
   },
 
   i18n: {
+    baseUrl: app.host,
     defaultLocale: 'en',
     noPrefixDefaultLocale: false,
     locales: [
       {
         code: 'en',
         name: 'English',
+        iso: 'en-US',
       },
       {
         code: 'de',
         name: 'Deutsch',
+        iso: 'de-DE',
       },
     ],
     vueI18n: i18nConfiguration,
