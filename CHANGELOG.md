@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/DerYeger/finwa/compare/v2.8.9...v2.9.0) (2021-08-12)
+
+
+### Features
+
+* **i18n:** migrate to @nuxtjs/i18n ([7a630b5](https://github.com/DerYeger/finwa/commit/7a630b5d716d77097b0451ecc0c69d28a82a1827))
+
 ## [2.8.9](https://github.com/DerYeger/finwa/compare/v2.8.8...v2.8.9) (2021-08-08)
 
 
