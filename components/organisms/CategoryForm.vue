@@ -3,12 +3,31 @@
     <v-card>
       <v-card-title>{{ $tc('category.title', 1) }}</v-card-title>
       <v-card-text>
-        <v-text-field v-model="name" type="text" :counter="20" :label="$t('misc.name')" :rules="nameRules" class="name-input" required />
-        <v-color-picker v-model="color" dot-size="24" hide-inputs elevation="2" />
+        <v-text-field
+          v-model="name"
+          type="text"
+          :counter="20"
+          :label="$t('misc.name')"
+          :rules="nameRules"
+          class="name-input"
+          required
+        />
+        <v-color-picker
+          v-model="color"
+          dot-size="24"
+          hide-inputs
+          elevation="2"
+        />
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn text color="primary" :disabled="!valid" @click="emitCategory()">{{ submitLabel }}</v-btn>
+        <v-btn
+          text
+          color="primary"
+          :disabled="!valid"
+          @click="emitCategory()"
+          >{{ submitLabel }}</v-btn
+        >
       </v-card-actions>
     </v-card>
   </v-form>
@@ -50,7 +69,11 @@ export default defineComponent({
   },
   methods: {
     emitCategory() {
-      let categoryData: Omit<Category, 'id'> | Category = { name: this.name, isBuiltin: this.isBuiltin, color: this.color }
+      let categoryData: Omit<Category, 'id'> | Category = {
+        name: this.name,
+        isBuiltin: this.isBuiltin,
+        color: this.color,
+      }
       if (this.categoryId !== undefined) {
         categoryData = {
           ...categoryData,

@@ -1,14 +1,28 @@
 <template>
   <month-data
-    v-slot="{ expenses, oneTimeExpenses, recurringExpenses, incomes, oneTimeIncomes, recurringIncomes, profit }"
+    v-slot="{
+      expenses,
+      oneTimeExpenses,
+      recurringExpenses,
+      incomes,
+      oneTimeIncomes,
+      recurringIncomes,
+      profit,
+    }"
     :month-id="monthId"
   >
     <v-row dense>
       <v-col cols="12" sm="5">
-        <expense-summary :one-time-expenses="oneTimeExpenses" :recurring-expenses="recurringExpenses" />
+        <expense-summary
+          :one-time-expenses="oneTimeExpenses"
+          :recurring-expenses="recurringExpenses"
+        />
       </v-col>
       <v-col cols="12" sm="4">
-        <income-summary :one-time-incomes="oneTimeIncomes" :recurring-incomes="recurringIncomes" />
+        <income-summary
+          :one-time-incomes="oneTimeIncomes"
+          :recurring-incomes="recurringIncomes"
+        />
       </v-col>
       <v-col cols="12" sm="3">
         <profit-summary :profit="profit" />

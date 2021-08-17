@@ -8,10 +8,12 @@
         <b>{{ totalIncomeValue }}</b> {{ $t('misc.earned') }}
       </p>
       <p>
-        <b>{{ oneTimeIncomes.length }}</b> {{ $tc('income.one-time', oneTimeIncomes.length) }}
+        <b>{{ oneTimeIncomes.length }}</b>
+        {{ $tc('income.one-time', oneTimeIncomes.length) }}
       </p>
       <p>
-        <b>{{ recurringIncomes.length }}</b> {{ $tc('income.recurring', recurringIncomes.length) }}
+        <b>{{ recurringIncomes.length }}</b>
+        {{ $tc('income.recurring', recurringIncomes.length) }}
       </p>
     </v-card-text>
   </v-card>

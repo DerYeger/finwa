@@ -17,10 +17,13 @@
             <persistent-storage-button />
           </v-list-item>
           <v-list-item>
-            {{ ($storageEstimate.usage / 1000000).toFixed(2) }}MB / {{ ($storageEstimate.quota / 1000000).toFixed(0) }}MB
+            {{ ($storageEstimate.usage / 1000000).toFixed(2) }}MB /
+            {{ ($storageEstimate.quota / 1000000).toFixed(0) }}MB
           </v-list-item>
           <v-list-item>
-            <v-btn color="error" @click="reset()">{{ $t('actions.reset') }}</v-btn>
+            <v-btn color="error" @click="reset()">{{
+              $t('actions.reset')
+            }}</v-btn>
           </v-list-item>
         </v-card-text>
       </v-card>

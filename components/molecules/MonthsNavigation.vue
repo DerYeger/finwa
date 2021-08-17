@@ -9,7 +9,11 @@
         </v-list-item-icon>
         <v-list-item-title>{{ $t('misc.recent') }}</v-list-item-title>
       </template>
-      <route-list-item v-for="(route, i) of recentMonthRoutes" :key="i" :route="route" />
+      <route-list-item
+        v-for="(route, i) of recentMonthRoutes"
+        :key="i"
+        :route="route"
+      />
     </v-list-group>
     <v-list-group color="info">
       <template #activator>
@@ -18,7 +22,11 @@
         </v-list-item-icon>
         <v-list-item-title>{{ $t('misc.upcoming') }}</v-list-item-title>
       </template>
-      <route-list-item v-for="(route, i) of upcomingMonthRoutes" :key="i" :route="route" />
+      <route-list-item
+        v-for="(route, i) of upcomingMonthRoutes"
+        :key="i"
+        :route="route"
+      />
     </v-list-group>
   </v-list-item-group>
 </template>

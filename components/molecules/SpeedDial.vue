@@ -30,9 +30,11 @@ export default {
   },
   mounted() {
     // Apply a @click.stop to the .v-speed-dial__list that wraps the default slot
-    this.$el.querySelector('.v-speed-dial__list').addEventListener('click', (e) => {
-      e.stopPropagation()
-    })
+    this.$el
+      .querySelector('.v-speed-dial__list')
+      .addEventListener('click', (e) => {
+        e.stopPropagation()
+      })
   },
 }
 </script>

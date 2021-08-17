@@ -1,4 +1,9 @@
-import { isOneTimeTransaction, isRecurringTransaction, OneTimeTransaction, RecurringTransaction } from '~/model/transaction'
+import {
+  isOneTimeTransaction,
+  isRecurringTransaction,
+  OneTimeTransaction,
+  RecurringTransaction,
+} from '~/model/transaction'
 
 export type OneTimeIncome = OneTimeTransaction
 
@@ -10,10 +15,14 @@ export function isIncome(object: any | undefined): object is Income {
   return isOneTimeIncome(object) || isRecurringIncome(object)
 }
 
-export function isOneTimeIncome(object: any | undefined): object is OneTimeIncome {
+export function isOneTimeIncome(
+  object: any | undefined
+): object is OneTimeIncome {
   return isOneTimeTransaction(object)
 }
 
-export function isRecurringIncome(object: any | undefined): object is RecurringIncome {
+export function isRecurringIncome(
+  object: any | undefined
+): object is RecurringIncome {
   return isRecurringTransaction(object)
 }

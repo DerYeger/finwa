@@ -1,9 +1,16 @@
 <template>
-  <month-data v-slot="{ totalExpenseValue, totalIncomeValue, profit }" style="height: 100%" :month-id="monthId">
+  <month-data
+    v-slot="{ totalExpenseValue, totalIncomeValue, profit }"
+    style="height: 100%"
+    :month-id="monthId"
+  >
     <v-card height="100%">
       <v-card-title>
         <month-name :month-id="monthId" />
-        <profit-icon :profit="totalIncomeValue - totalExpenseValue" class="ml-2" />
+        <profit-icon
+          :profit="totalIncomeValue - totalExpenseValue"
+          class="ml-2"
+        />
       </v-card-title>
       <v-card-text>
         <p>
@@ -19,7 +26,11 @@
       </v-card-text>
       <v-card-actions class="month-summary-card-actions">
         <v-spacer />
-        <v-btn text color="primary" :to="localePath(`${monthsRoute.to}/${monthId}`)">
+        <v-btn
+          text
+          color="primary"
+          :to="localePath(`${monthsRoute.to}/${monthId}`)"
+        >
           {{ $t('misc.details') }}
         </v-btn>
       </v-card-actions>

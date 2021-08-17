@@ -7,9 +7,17 @@ export function uuid(): string {
 
 export function monthsBetween(first: Date, second: Date): number {
   const [dateTo, dateFrom] = first > second ? [first, second] : [second, first]
-  return dateTo.getMonth() - dateFrom.getMonth() + 12 * (dateTo.getFullYear() - dateFrom.getFullYear())
+  return (
+    dateTo.getMonth() -
+    dateFrom.getMonth() +
+    12 * (dateTo.getFullYear() - dateFrom.getFullYear())
+  )
 }
 
-export function translateAndCompare(first: string, second: string, transform: (val: string) => VueI18n.TranslateResult): number {
+export function translateAndCompare(
+  first: string,
+  second: string,
+  transform: (val: string) => VueI18n.TranslateResult
+): number {
   return (transform(first) as string).localeCompare(transform(second) as string)
 }

@@ -2,7 +2,14 @@
   <div>
     <speed-dial v-model="open" fixed bottom right>
       <template #activator>
-        <v-btn v-model="open" color="blue darken-2" dark fab :aria-label="$t('misc.new-entity')" :title="$t('misc.new-entity')">
+        <v-btn
+          v-model="open"
+          color="blue darken-2"
+          dark
+          fab
+          :aria-label="$t('misc.new-entity')"
+          :title="$t('misc.new-entity')"
+        >
           <v-icon v-if="open" v-text="'mdi-close'" />
           <v-icon v-else v-text="'mdi-plus'" />
         </v-btn>
@@ -40,8 +47,14 @@
         <v-icon v-text="'mdi-format-list-bulleted-type'" />
       </v-btn>
     </speed-dial>
-    <create-income-dialog v-model="incomeDialogOpen" :initial-month-id="activeMonthId" />
-    <create-expense-dialog v-model="expenseDialogOpen" :initial-month-id="activeMonthId" />
+    <create-income-dialog
+      v-model="incomeDialogOpen"
+      :initial-month-id="activeMonthId"
+    />
+    <create-expense-dialog
+      v-model="expenseDialogOpen"
+      :initial-month-id="activeMonthId"
+    />
     <create-category-dialog v-model="categoryDialogOpen" />
   </div>
 </template>

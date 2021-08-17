@@ -1,5 +1,10 @@
 <template>
-  <v-menu v-model="monthPickerOpen" :close-on-content-click="false" transition="scale-transition" min-width="auto">
+  <v-menu
+    v-model="monthPickerOpen"
+    :close-on-content-click="false"
+    transition="scale-transition"
+    min-width="auto"
+  >
     <template #activator="{ on, attrs }">
       <v-text-field
         :value="value !== undefined ? $d(new Date(value), 'no-day') : undefined"

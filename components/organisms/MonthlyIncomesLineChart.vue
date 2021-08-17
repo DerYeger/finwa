@@ -1,6 +1,9 @@
 <template>
   <client-only>
-    <line-chart :chart-data="monthlyIncomesChartData" :style="`height: ${height};`" />
+    <line-chart
+      :chart-data="monthlyIncomesChartData"
+      :style="`height: ${height};`"
+    />
   </client-only>
 </template>
 
@@ -21,7 +24,11 @@ export default defineComponent({
       const getters = this.$store.getters
       const months = getters['months/sorted'](12)
       const recurringIncomes = getters['recurringIncomes/recurringIncomes']
-      return generateMonthlyIncomesChartData(months, recurringIncomes, this.$i18n)
+      return generateMonthlyIncomesChartData(
+        months,
+        recurringIncomes,
+        this.$i18n
+      )
     },
   },
 })

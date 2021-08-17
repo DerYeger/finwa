@@ -3,7 +3,14 @@
     <v-card-title class="pb-0 pb-sm-4">
       {{ title || $tc('income.title', 2) }}
       <v-spacer />
-      <v-text-field v-model="search" :label="$t('actions.search')" append-icon="mdi-magnify" class="mt-0 pt-0" hide-details single-line />
+      <v-text-field
+        v-model="search"
+        :label="$t('actions.search')"
+        append-icon="mdi-magnify"
+        class="mt-0 pt-0"
+        hide-details
+        single-line
+      />
     </v-card-title>
     <client-only>
       <v-data-table
@@ -20,17 +27,32 @@
           <month-name v-if="item.monthId" :month-id="item.monthId" />
         </template>
         <template #item.frequency="{ item }">
-          <span v-if="item.frequency">{{ $tc('frequency.description', item.frequency) }}</span>
+          <span v-if="item.frequency">{{
+            $tc('frequency.description', item.frequency)
+          }}</span>
         </template>
         <template #item.startingMonthId="{ item }">
-          <month-name v-if="item.startingMonthId" :month-id="item.startingMonthId" />
+          <month-name
+            v-if="item.startingMonthId"
+            :month-id="item.startingMonthId"
+          />
         </template>
         <template #item.endingMonthId="{ item }">
-          <month-name v-if="item.endingMonthId" :month-id="item.endingMonthId" />
+          <month-name
+            v-if="item.endingMonthId"
+            :month-id="item.endingMonthId"
+          />
         </template>
         <template #item.actions="{ item }">
           <edit-income-dialog :income="item" />
-          <v-btn :aria-label="$t('actions.delete')" :title="$t('actions.delete')" color="error" icon small @click="deleteIncome(item)">
+          <v-btn
+            :aria-label="$t('actions.delete')"
+            :title="$t('actions.delete')"
+            color="error"
+            icon
+            small
+            @click="deleteIncome(item)"
+          >
             <v-icon small v-text="'mdi-delete'" />
           </v-btn>
         </template>
@@ -90,7 +112,12 @@ export default defineComponent({
         }
       )
     }
-    headers.push({ text: this.$t('misc.actions') as string, value: 'actions', sortable: false, filterable: false })
+    headers.push({
+      text: this.$t('misc.actions') as string,
+      value: 'actions',
+      sortable: false,
+      filterable: false,
+    })
     return {
       footerProps: {
         itemsPerPageAllText: this.$t('misc.table.all'),

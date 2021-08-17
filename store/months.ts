@@ -21,7 +21,10 @@ export const actions = {
     }
     commit('add', month)
   },
-  createExpense({ commit }: Committer, expenseData: Omit<OneTimeExpense, 'id'>) {
+  createExpense(
+    { commit }: Committer,
+    expenseData: Omit<OneTimeExpense, 'id'>
+  ) {
     const expense: OneTimeExpense = {
       id: uuid(),
       ...expenseData,
@@ -47,8 +50,10 @@ export const getters = {
     (id: string): Month | undefined =>
       state[id],
   months: (state: MonthsState): Month[] => toArray(state),
-  oneTimeExpenses: (state: MonthsState): OneTimeExpense[] => toArray(state).flatMap((month: Month) => toArray(month.expenses)),
-  oneTimeIncomes: (state: MonthsState): OneTimeIncome[] => toArray(state).flatMap((month: Month) => toArray(month.incomes)),
+  oneTimeExpenses: (state: MonthsState): OneTimeExpense[] =>
+    toArray(state).flatMap((month: Month) => toArray(month.expenses)),
+  oneTimeIncomes: (state: MonthsState): OneTimeIncome[] =>
+    toArray(state).flatMap((month: Month) => toArray(month.incomes)),
   sorted:
     (state: MonthsState) =>
     (limit: number, until: Date = new Date(currentMonthId())): Month[] => {
@@ -103,7 +108,9 @@ export const mutations = {
     toArray(state).forEach((month) => {
       toArray(month.expenses)
         .filter((expenses) => expenses.categoryId === category.id)
-        .forEach((expense) => (expense.categoryId = builtinCategories.uncategorized.id))
+        .forEach(
+          (expense) => (expense.categoryId = builtinCategories.uncategorized.id)
+        )
     })
   },
   removeExpense(state: MonthsState, expense: OneTimeExpense) {

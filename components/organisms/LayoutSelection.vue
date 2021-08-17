@@ -1,5 +1,10 @@
 <template>
-  <v-select v-model="layout" :items="layoutOptions" :label="$t('layout.title')" dense>
+  <v-select
+    v-model="layout"
+    :items="layoutOptions"
+    :label="$t('layout.title')"
+    dense
+  >
     <template #selection="{ item }">
       {{ $t(`layout.${item}`) }}
     </template>

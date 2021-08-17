@@ -3,7 +3,14 @@
     <v-card-title>
       {{ $tc('category.title', 2) }}
       <v-spacer />
-      <v-text-field v-model="search" append-icon="mdi-magnify" :label="$t('actions.search')" single-line hide-details class="mt-0 pt-0" />
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        :label="$t('actions.search')"
+        single-line
+        hide-details
+        class="mt-0 pt-0"
+      />
     </v-card-title>
     <client-only>
       <v-data-table
@@ -60,13 +67,24 @@ export default defineComponent({
         sortByText: this.$t('misc.table.sort-by'),
       },
       headers: [
-        { text: this.$t('misc.color'), value: 'color', sortable: false, filterable: false },
+        {
+          text: this.$t('misc.color'),
+          value: 'color',
+          sortable: false,
+          filterable: false,
+        },
         {
           text: this.$t('misc.name'),
           value: 'name',
-          sort: (a: string, b: string) => translateAndCompare(a, b, (it) => this.$t(it)),
+          sort: (a: string, b: string) =>
+            translateAndCompare(a, b, (it) => this.$t(it)),
         },
-        { text: this.$t('misc.actions'), value: 'actions', sortable: false, filterable: false },
+        {
+          text: this.$t('misc.actions'),
+          value: 'actions',
+          sortable: false,
+          filterable: false,
+        },
       ],
       search: '',
     }

@@ -1,5 +1,9 @@
 <template>
-  <income-table :incomes="recurringIncomes" :title="$tc('income.recurring', 2)" include-recurring-data />
+  <income-table
+    :incomes="recurringIncomes"
+    :title="$tc('income.recurring', 2)"
+    include-recurring-data
+  />
 </template>
 
 <script lang="ts">

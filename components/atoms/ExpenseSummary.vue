@@ -8,10 +8,12 @@
         <b>{{ totalExpenseValue }}</b> {{ $t('misc.spent') }}
       </p>
       <p>
-        <b>{{ oneTimeExpenses.length }}</b> {{ $tc('expense.one-time', oneTimeExpenses.length) }}
+        <b>{{ oneTimeExpenses.length }}</b>
+        {{ $tc('expense.one-time', oneTimeExpenses.length) }}
       </p>
       <p>
-        <b>{{ recurringExpenses.length }}</b> {{ $tc('expense.recurring', recurringExpenses.length) }}
+        <b>{{ recurringExpenses.length }}</b>
+        {{ $tc('expense.recurring', recurringExpenses.length) }}
       </p>
     </v-card-text>
   </v-card>

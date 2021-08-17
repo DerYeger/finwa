@@ -6,7 +6,8 @@
     </v-card-title>
     <v-card-text>
       <p>
-        <b>{{ Math.abs(profit) }}</b> {{ $t(profit >= 0 ? 'misc.gained' : 'misc.lost') }}
+        <b>{{ Math.abs(profit) }}</b>
+        {{ $t(profit >= 0 ? 'misc.gained' : 'misc.lost') }}
       </p>
     </v-card-text>
   </v-card>

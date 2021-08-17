@@ -5,46 +5,52 @@
       <v-card-text>
         <v-text-field
           v-model="name"
-          type="text"
           :counter="20"
           :label="$t('misc.name')"
           :rules="nameRules"
           class="name-input"
           prepend-icon="mdi-pencil"
           required
+          type="text"
         />
         <v-text-field
           v-model="value"
-          :rules="valueRules"
-          type="number"
           :label="$t('misc.value')"
+          :rules="valueRules"
           prepend-icon="mdi-currency-usd"
           required
+          type="number"
         />
         <month-selection v-model="monthId" />
         <category-selection v-model="categoryId" />
-        <v-checkbox v-model="isRecurring" :label="$t('misc.recurring')" hide-details />
+        <v-checkbox
+          v-model="isRecurring"
+          :label="$t('misc.recurring')"
+          hide-details
+        />
         <v-text-field
           v-model="frequency"
-          :rules="frequencyRules"
           :disabled="!isRecurring"
-          type="number"
-          :label="$t('frequency.title')"
           :hint="$tc('frequency.hint', isRecurring ? +frequency : 0)"
+          :label="$t('frequency.title')"
           :persistent-hint="true"
+          :rules="frequencyRules"
           prepend-icon="mdi-repeat"
+          type="number"
         />
         <month-selection
           v-model="endingMonthId"
           :allow-no-selection="true"
           :disabled="!isRecurring"
-          :min="monthId"
           :label="$t('misc.until')"
+          :min="monthId"
         />
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn text color="primary" :disabled="!valid" @click="emitExpense()">{{ submitLabel }}</v-btn>
+        <v-btn :disabled="!valid" color="primary" text @click="emitExpense()">
+          {{ submitLabel }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-form>
@@ -171,7 +177,10 @@ export default defineComponent({
       this.loadInitialExpenseData()
     },
     normalizeEndingMonth() {
-      if (this.endingMonthId === undefined || this.monthId < this.endingMonthId) {
+      if (
+        this.endingMonthId === undefined ||
+        this.monthId < this.endingMonthId
+      ) {
         return
       }
       this.endingMonthId = this.monthId

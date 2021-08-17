@@ -1,5 +1,10 @@
 <template>
-  <line-chart :chart-data="chartData" :options="options" :width="100" class="responsive-graph" />
+  <line-chart
+    :chart-data="chartData"
+    :options="options"
+    :width="100"
+    class="responsive-graph"
+  />
 </template>
 
 <script lang="ts">

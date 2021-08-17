@@ -16,13 +16,29 @@ export interface RecurringTransaction extends Transaction {
 }
 
 export function isTransaction(object: any | undefined): object is Transaction {
-  return object !== undefined && (object as any).name !== undefined && (object as any).value !== undefined
+  return (
+    object !== undefined &&
+    (object as any).name !== undefined &&
+    (object as any).value !== undefined
+  )
 }
 
-export function isOneTimeTransaction(object: any | undefined): object is OneTimeTransaction {
-  return isTransaction(object) && object !== undefined && (object as any).monthId !== undefined
+export function isOneTimeTransaction(
+  object: any | undefined
+): object is OneTimeTransaction {
+  return (
+    isTransaction(object) &&
+    object !== undefined &&
+    (object as any).monthId !== undefined
+  )
 }
 
-export function isRecurringTransaction(object: any | undefined): object is RecurringTransaction {
-  return isTransaction(object) && (object as any).startingMonthId !== undefined && (object as any).frequency !== undefined
+export function isRecurringTransaction(
+  object: any | undefined
+): object is RecurringTransaction {
+  return (
+    isTransaction(object) &&
+    (object as any).startingMonthId !== undefined &&
+    (object as any).frequency !== undefined
+  )
 }

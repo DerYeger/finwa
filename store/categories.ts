@@ -10,7 +10,10 @@ export type CategoriesState = EntityRecord<Category>
 export const state: () => CategoriesState = () => builtinCategories
 
 export const actions = {
-  create({ commit }: Committer, categoryData: Omit<Category, 'id' | 'isBuiltin'>) {
+  create(
+    { commit }: Committer,
+    categoryData: Omit<Category, 'id' | 'isBuiltin'>
+  ) {
     const category: Category = {
       id: uuid(),
       isBuiltin: false,

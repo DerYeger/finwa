@@ -7,7 +7,11 @@
     @click:outside="$refs.form.resetForm()"
   >
     <template #default="dialog">
-      <category-form ref="form" :submit-label="$t('actions.create')" @submit="createNewCategory($event, dialog)" />
+      <category-form
+        ref="form"
+        :submit-label="$t('actions.create')"
+        @submit="createNewCategory($event, dialog)"
+      />
     </template>
   </v-dialog>
 </template>
@@ -24,7 +28,10 @@ export default defineComponent({
     },
   },
   methods: {
-    createNewCategory(category: Omit<Category, 'id'>, dialog: { value: boolean }) {
+    createNewCategory(
+      category: Omit<Category, 'id'>,
+      dialog: { value: boolean }
+    ) {
       dialog.value = false
       this.$store.dispatch('categories/create', category)
     },

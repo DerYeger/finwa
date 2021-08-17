@@ -12,7 +12,8 @@ export function nameRules(i18n: VueI18n): Rule[] {
 export function valueRules(i18n: VueI18n): Rule[] {
   return [
     (v: string) => v.length > 0 || i18n.t('validations.required'),
-    (v: string) => parseFloat(v) === parseInt(v) || i18n.t('validations.integer'),
+    (v: string) =>
+      parseFloat(v) === parseInt(v) || i18n.t('validations.integer'),
     (v: string) => parseInt(v) > 0 || i18n.t('validations.positive'),
   ]
 }
@@ -20,7 +21,8 @@ export function valueRules(i18n: VueI18n): Rule[] {
 export function frequencyRules(i18n: VueI18n): Rule[] {
   return [
     (v: string) => v.length > 0 || i18n.t('validations.required'),
-    (v: string) => parseFloat(v) === parseInt(v) || i18n.t('validations.integer'),
+    (v: string) =>
+      parseFloat(v) === parseInt(v) || i18n.t('validations.integer'),
     (v: string) => parseInt(v) > 0 || i18n.t('validations.positive'),
   ]
 }

@@ -1,7 +1,19 @@
 <template>
-  <v-dialog transition="dialog-bottom-transition" max-width="600" @click:outside="$refs.form.resetForm()">
+  <v-dialog
+    transition="dialog-bottom-transition"
+    max-width="600"
+    @click:outside="$refs.form.resetForm()"
+  >
     <template #activator="{ on, attrs }">
-      <v-btn color="primary" icon small v-bind="attrs" :aria-label="$t('actions.edit')" :title="$t('actions.edit')" v-on="on">
+      <v-btn
+        color="primary"
+        icon
+        small
+        v-bind="attrs"
+        :aria-label="$t('actions.edit')"
+        :title="$t('actions.edit')"
+        v-on="on"
+      >
         <v-icon small v-text="'mdi-pencil'" />
       </v-btn>
     </template>
@@ -39,7 +51,10 @@ export default defineComponent({
       } else if (isOneTimeExpense(expense)) {
         if (isRecurringExpense(oldExpense)) {
           this.$store.commit('recurringExpenses/remove', oldExpense)
-        } else if (isOneTimeExpense(oldExpense) && oldExpense.monthId !== expense.monthId) {
+        } else if (
+          isOneTimeExpense(oldExpense) &&
+          oldExpense.monthId !== expense.monthId
+        ) {
           this.$store.commit('months/removeExpense', oldExpense)
         }
         this.$store.commit('months/addExpense', expense)

@@ -1,5 +1,9 @@
 <template>
-  <income-table :incomes="oneTimeIncomes" :title="$tc('income.one-time', 2)" include-one-time-data />
+  <income-table
+    :incomes="oneTimeIncomes"
+    :title="$tc('income.one-time', 2)"
+    include-one-time-data
+  />
 </template>
 
 <script lang="ts">

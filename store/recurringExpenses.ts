@@ -32,7 +32,8 @@ export const getters = {
     (state: RecurringExpensesState) =>
     (monthId: string): RecurringExpense[] =>
       findRecurringTransactionsForMonth(monthId, toArray(state)),
-  recurringExpenses: (state: RecurringExpensesState): RecurringExpense[] => toArray(state),
+  recurringExpenses: (state: RecurringExpensesState): RecurringExpense[] =>
+    toArray(state),
 }
 
 export const mutations = {

@@ -1,5 +1,11 @@
 <template>
-  <v-btn :aria-label="$t(useDarkTheme ? 'actions.use-light-theme' : 'actions.use-dark-theme')" icon @click="toggleTheme()">
+  <v-btn
+    :aria-label="
+      $t(useDarkTheme ? 'actions.use-light-theme' : 'actions.use-dark-theme')
+    "
+    icon
+    @click="toggleTheme()"
+  >
     <v-icon v-text="useDarkTheme ? 'mdi-brightness-5' : 'mdi-brightness-2'" />
   </v-btn>
 </template>

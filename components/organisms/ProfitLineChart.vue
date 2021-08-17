@@ -22,7 +22,12 @@ export default defineComponent({
       const months = getters['months/sorted'](100)
       const recurringExpenses = getters['recurringExpenses/recurringExpenses']
       const recurringIncomes = getters['recurringIncomes/recurringIncomes']
-      return generateProfitChartData(months, recurringExpenses, recurringIncomes, this.$i18n)
+      return generateProfitChartData(
+        months,
+        recurringExpenses,
+        recurringIncomes,
+        this.$i18n
+      )
     },
   },
 })

@@ -4,7 +4,10 @@
       <month-summary :month-id="selectedMonthId" show-details-link />
     </v-col>
     <v-col cols="12" sm="auto">
-      <month-picker v-model="selectedMonthId" :full-width="$vuetify.breakpoint.xsOnly" />
+      <month-picker
+        v-model="selectedMonthId"
+        :full-width="$vuetify.breakpoint.xsOnly"
+      />
     </v-col>
     <create-entity-speed-dial :active-month-id="selectedMonthId" />
   </v-row>
