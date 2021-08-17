@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/DerYeger/finwa/compare/v2.9.0...v2.10.0) (2021-08-17)
+
+
+### Features
+
+* use nuxt-color-mode ([4046e34](https://github.com/DerYeger/finwa/commit/4046e348f9cb3837e4642b3dcc6311c7aa0a683f))
+
 # [2.9.0](https://github.com/DerYeger/finwa/compare/v2.8.9...v2.9.0) (2021-08-12)
 
 
