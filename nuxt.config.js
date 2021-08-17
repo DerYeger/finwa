@@ -45,7 +45,14 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
+    // https://color-mode.nuxtjs.org/
+    '@nuxtjs/color-mode',
   ],
+
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

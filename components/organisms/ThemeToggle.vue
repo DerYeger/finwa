@@ -1,27 +1,30 @@
 <template>
-  <v-btn icon :aria-label="$t(useDarkTheme ? 'actions.use-light-theme' : 'actions.use-dark-theme')" @click="toggleTheme()">
+  <v-btn :aria-label="$t(useDarkTheme ? 'actions.use-light-theme' : 'actions.use-dark-theme')" icon @click="toggleTheme()">
     <v-icon v-text="useDarkTheme ? 'mdi-brightness-5' : 'mdi-brightness-2'" />
   </v-btn>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { mapMutations, mapState } from 'vuex'
 
 export default defineComponent({
-  computed: mapState('settings', ['useDarkTheme']),
-  watch: {
-    useDarkTheme(val) {
-      this.$vuetify.theme.dark = val
+  computed: {
+    useDarkTheme(): boolean {
+      return this.$colorMode.value === 'dark' || this.$colorMode.unknown
     },
   },
-  mounted() {
-    const currentTheme = this.$vuetify.theme.dark
-    const newTheme = this.$store.state.settings.useDarkTheme
-    if (currentTheme !== newTheme) {
-      this.$vuetify.theme.dark = newTheme
-    }
+  watch: {
+    useDarkTheme: {
+      handler(value: boolean) {
+        this.$vuetify.theme.dark = value
+      },
+      immediate: true,
+    },
   },
-  methods: mapMutations('settings', ['toggleTheme']),
+  methods: {
+    toggleTheme() {
+      this.$colorMode.preference = this.useDarkTheme ? 'light' : 'dark'
+    },
+  },
 })
 </script>

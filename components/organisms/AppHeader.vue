@@ -8,7 +8,6 @@
     />
     <logo class="ml-lg-n2" />
     <v-spacer />
-    <v-divider vertical />
     <theme-toggle />
     <language-menu />
   </v-app-bar>
