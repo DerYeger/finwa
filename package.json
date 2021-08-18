@@ -30,7 +30,7 @@
     "@nuxtjs/pwa": "3.3.5",
     "@nuxtjs/sitemap": "2.4.0",
     "@types/uuid": "8.3.1",
-    "chart.js": "3.5.0",
+    "chart.js": "3.5.1",
     "core-js": "3.16.2",
     "nuxt": "2.15.8",
     "secure-ls": "1.2.6",
