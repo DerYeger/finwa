@@ -1,3 +1,10 @@
+## [2.10.4](https://github.com/DerYeger/finwa/compare/v2.10.3...v2.10.4) (2021-08-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.16.3 ([c00d64b](https://github.com/DerYeger/finwa/commit/c00d64b469ffe00e14ea64a373bb6b8ebe1e2da3))
+
 ## [2.10.3](https://github.com/DerYeger/finwa/compare/v2.10.2...v2.10.3) (2021-08-21)
 
 
