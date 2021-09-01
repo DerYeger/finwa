@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@nuxtjs/composition-api": "0.27.0",
-    "@nuxtjs/i18n": "7.0.2",
+    "@nuxtjs/i18n": "7.0.3",
     "@nuxtjs/pwa": "3.3.5",
     "@nuxtjs/sitemap": "2.4.0",
     "@types/uuid": "8.3.1",
