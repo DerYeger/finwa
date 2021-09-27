@@ -37,7 +37,7 @@
     "uuid": "8.3.2",
     "vue": "2.6.14",
     "vue-chart-3": "0.5.8",
-    "vue-persistent-storage-manager": "2.0.3",
+    "vue-persistent-storage-manager": "2.0.4",
     "vuex": "3.6.2",
     "vuex-persistedstate": "4.1.0"
   },
