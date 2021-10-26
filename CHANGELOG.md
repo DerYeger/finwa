@@ -1,3 +1,10 @@
+## [2.10.26](https://github.com/DerYeger/finwa/compare/v2.10.25...v2.10.26) (2021-10-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vue-chart-3 to v0.5.10 ([9e297ed](https://github.com/DerYeger/finwa/commit/9e297edc364b8e3babdb466c7011e0bfc69cdaa8))
+
 ## [2.10.25](https://github.com/DerYeger/finwa/compare/v2.10.24...v2.10.25) (2021-10-24)
 
 
