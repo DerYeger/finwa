@@ -1,3 +1,10 @@
+## [2.10.31](https://github.com/DerYeger/finwa/compare/v2.10.30...v2.10.31) (2021-11-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @nuxtjs/i18n to v7.2.0 ([8822714](https://github.com/DerYeger/finwa/commit/88227146d7dfb588d777234c68401e62bec8196f))
+
 ## [2.10.30](https://github.com/DerYeger/finwa/compare/v2.10.29...v2.10.30) (2021-11-03)
 
 
