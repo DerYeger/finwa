@@ -1,4 +1,4 @@
-.nuxt
+# Ignore artifacts
 coverage
 dist
 node_modules
