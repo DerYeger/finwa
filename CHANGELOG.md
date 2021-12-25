@@ -1,3 +1,10 @@
+## [2.10.48](https://github.com/DerYeger/finwa/compare/v2.10.47...v2.10.48) (2021-12-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chart.js to v3.7.0 ([4b811b6](https://github.com/DerYeger/finwa/commit/4b811b6dec0cfe522df3f3b493ce1dd2373362b2))
+
 ## [2.10.47](https://github.com/DerYeger/finwa/compare/v2.10.46...v2.10.47) (2021-12-24)
 
 
