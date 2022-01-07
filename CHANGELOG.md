@@ -1,3 +1,10 @@
+## [2.10.51](https://github.com/DerYeger/finwa/compare/v2.10.50...v2.10.51) (2022-01-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/uuid to v8.3.4 ([9a50888](https://github.com/DerYeger/finwa/commit/9a50888102d13ed5b5e044a25e8463fd576999a1))
+
 ## [2.10.50](https://github.com/DerYeger/finwa/compare/v2.10.49...v2.10.50) (2022-01-02)
 
 
