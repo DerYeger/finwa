@@ -1,3 +1,10 @@
+## [2.10.56](https://github.com/DerYeger/finwa/compare/v2.10.55...v2.10.56) (2022-01-27)
+
+
+### Bug Fixes
+
+* package.json & yarn.lock to reduce vulnerabilities ([19d68ef](https://github.com/DerYeger/finwa/commit/19d68efd1699ba6ad2094486ab2d23e73040ba1b))
+
 ## [2.10.55](https://github.com/DerYeger/finwa/compare/v2.10.54...v2.10.55) (2022-01-25)
 
 
