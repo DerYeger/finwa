@@ -1,3 +1,10 @@
+## [2.10.59](https://github.com/DerYeger/finwa/compare/v2.10.58...v2.10.59) (2022-02-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vue-persistent-storage-manager to v2.0.21 ([7ee5618](https://github.com/DerYeger/finwa/commit/7ee56187047ba1f3af6d63c397255e84dbce7e26))
+
 ## [2.10.58](https://github.com/DerYeger/finwa/compare/v2.10.57...v2.10.58) (2022-02-02)
 
 
