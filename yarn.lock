@@ -12028,10 +12028,10 @@ vue-no-ssr@^1.1.1:
   resolved "https://registry.yarnpkg.com/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz#875f3be6fb0ae41568a837f3ac1a80eaa137b998"
   integrity sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g==
 
-vue-persistent-storage-manager@2.0.25:
-  version "2.0.25"
-  resolved "https://registry.yarnpkg.com/vue-persistent-storage-manager/-/vue-persistent-storage-manager-2.0.25.tgz#af0b10b7f6be89d16c676403267bbdcd587329c4"
-  integrity sha512-zTIAD0kw/gEXyUlU8sb7Zdt9KzZX1uThZ67+WF7y1aWOvvJVVvKs2V6/1Cm3ruA8B0dyHAvP9ltc+V+C7rXOyA==
+vue-persistent-storage-manager@2.0.26:
+  version "2.0.26"
+  resolved "https://registry.yarnpkg.com/vue-persistent-storage-manager/-/vue-persistent-storage-manager-2.0.26.tgz#4ed82a0b5463abb9c26f6265a4cb092ce474d169"
+  integrity sha512-yvE4JahuS3LA+iPeiro9+DMtIqnB2tEMjmFQ8FdJ6sMq7BTC7OcyujpmegaS0/1ZKln3xBDYPVzZ0VD2ZT9pPw==
 
 vue-router@^3.5.1:
   version "3.5.3"
