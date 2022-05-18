@@ -15,6 +15,7 @@ module.exports = {
   rules: {
     'import/no-unresolved': 'error',
     'vue/multi-word-component-names': 'off',
+    'vue/no-v-text-v-html-on-component': 'off',
   },
   settings: {
     'import/parsers': {
