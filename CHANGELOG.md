@@ -1,3 +1,10 @@
+## [2.10.92](https://github.com/DerYeger/finwa/compare/v2.10.91...v2.10.92) (2022-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.23.1 ([61684d9](https://github.com/DerYeger/finwa/commit/61684d98e3cd4896de7d70d79a8fe08f0ab1214d))
+
 ## [2.10.91](https://github.com/DerYeger/finwa/compare/v2.10.90...v2.10.91) (2022-06-14)
 
 
