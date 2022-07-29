@@ -4342,10 +4342,10 @@ core-js-compat@^3.12.1, core-js-compat@^3.21.0, core-js-compat@^3.22.1:
     browserslist "^4.21.0"
     semver "7.0.0"
 
-core-js@3.24.0:
-  version "3.24.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.24.0.tgz#4928d4e99c593a234eb1a1f9abd3122b04d3ac57"
-  integrity sha512-IeOyT8A6iK37Ep4kZDD423mpi6JfPRoPUdQwEWYiGolvn4o6j2diaRzNfDfpTdu3a5qMbrGUzKUpYpRY8jXCkQ==
+core-js@3.24.1:
+  version "3.24.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.24.1.tgz#cf7724d41724154010a6576b7b57d94c5d66e64f"
+  integrity sha512-0QTBSYSUZ6Gq21utGzkfITDylE8jWC9Ne1D2MrhvlsZBI1x39OdDIVbzSqtgMndIy6BlHxBXpMGqzZmnztg2rg==
 
 core-js@^2.4.0, core-js@^2.6.5:
   version "2.6.12"
@@ -12299,10 +12299,10 @@ vuetify-loader@^1.7.3:
     file-loader "^6.2.0"
     loader-utils "^2.0.0"
 
-vuetify@2.6.7:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.6.7.tgz#9c6fb7d20e1c4b07417084cbe5996c2dadf099df"
-  integrity sha512-1XxCv6mt1UsKaW7rqow0hF/jOw1ijT/fHH9euWLHgSVIcPAx8D2AY5ihTCBbMmV53Hj/YD0DUvzyk6cM/OGHvw==
+vuetify@2.6.8:
+  version "2.6.8"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.6.8.tgz#3f4cfa56b7eff4bad1818cd1812b47f6754e140a"
+  integrity sha512-CbJsIGfye++an5/I5ypmYgf74vxt5j0NJ/7UUIDXRYXZsM9YuEpnqo97Ob4LD6QEli1gJa6WXWS8pXLWk0ArPQ==
 
 vuetify@^2.6:
   version "2.6.6"
