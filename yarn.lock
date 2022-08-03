@@ -4007,10 +4007,10 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-chart.js@3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.9.0.tgz#9ad30ec53e53d2ddfe58c11cf306a77d285d8ad9"
-  integrity sha512-SHOC6eCTe3dXe6owLHnO56xTLBbVeMHskkAlgPPVkd6xa0mv3EPhH5azRLg1cucYFsp4UloH/4NjSG0oOIFJtw==
+chart.js@3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.9.1.tgz#3abf2c775169c4c71217a107163ac708515924b8"
+  integrity sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w==
 
 "chokidar@>=3.0.0 <4.0.0", chokidar@^3.4.1, chokidar@^3.4.2, chokidar@^3.5.1, chokidar@^3.5.2:
   version "3.5.3"
@@ -12369,10 +12369,10 @@ vue-no-ssr@^1.1.1:
   resolved "https://registry.yarnpkg.com/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz#875f3be6fb0ae41568a837f3ac1a80eaa137b998"
   integrity sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g==
 
-vue-persistent-storage-manager@2.0.43:
-  version "2.0.43"
-  resolved "https://registry.yarnpkg.com/vue-persistent-storage-manager/-/vue-persistent-storage-manager-2.0.43.tgz#a079be254879df7c126e694ab7816c28d8223fba"
-  integrity sha512-51Pu54zC2xbvVFRQiHV9m7aDXSNv2WDywnkMFl83qpqZ2P/LWsSY9Pyhb/28WRluMMNgag/UASqy5T4+8vmV3Q==
+vue-persistent-storage-manager@2.0.44:
+  version "2.0.44"
+  resolved "https://registry.yarnpkg.com/vue-persistent-storage-manager/-/vue-persistent-storage-manager-2.0.44.tgz#a3feea5f264dbe9bd5f6cbb8d97e692868339fc6"
+  integrity sha512-YPZ489gpvUzOuRq23ZHgD6nM2jM4oDWjw8bUdwvbKZZDgXgt4GVv4qbO0SguJ5n3fl0GYqWEwgxh7Pd3pKb19Q==
 
 vue-router@^3.5.1:
   version "3.5.4"
