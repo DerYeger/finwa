@@ -1,3 +1,10 @@
+## [2.10.105](https://github.com/DerYeger/finwa/compare/v2.10.104...v2.10.105) (2022-08-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @typescript-eslint/parser to v5.33.1 ([799cbbd](https://github.com/DerYeger/finwa/commit/799cbbd1a2a9e642ee1dab37e64754ee251d9b8c))
+
 ## [2.10.104](https://github.com/DerYeger/finwa/compare/v2.10.103...v2.10.104) (2022-08-14)
 
 
