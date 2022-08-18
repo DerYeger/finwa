@@ -1,3 +1,10 @@
+## [2.10.107](https://github.com/DerYeger/finwa/compare/v2.10.106...v2.10.107) (2022-08-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-import-resolver-typescript to v3.4.2 ([691283f](https://github.com/DerYeger/finwa/commit/691283f2e3eb3ba5cd25755803e9beda19fbbe8d))
+
 ## [2.10.106](https://github.com/DerYeger/finwa/compare/v2.10.105...v2.10.106) (2022-08-17)
 
 
