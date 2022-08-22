@@ -1,3 +1,10 @@
+## [2.10.108](https://github.com/DerYeger/finwa/compare/v2.10.107...v2.10.108) (2022-08-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency stylelint to v14.11.0 ([df8224f](https://github.com/DerYeger/finwa/commit/df8224f8adec42586abb3d2740b7d8bfede2b532))
+
 ## [2.10.107](https://github.com/DerYeger/finwa/compare/v2.10.106...v2.10.107) (2022-08-18)
 
 
