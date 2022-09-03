@@ -1,3 +1,10 @@
+## [2.10.116](https://github.com/DerYeger/finwa/compare/v2.10.115...v2.10.116) (2022-09-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @nuxtjs/eslint-config-typescript to v11 ([df7aa1b](https://github.com/DerYeger/finwa/commit/df7aa1b10eb5e64505c65773cb4cc67013aba28b))
+
 ## [2.10.115](https://github.com/DerYeger/finwa/compare/v2.10.114...v2.10.115) (2022-09-03)
 
 
