@@ -1,3 +1,10 @@
+## [2.10.115](https://github.com/DerYeger/finwa/compare/v2.10.114...v2.10.115) (2022-09-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-nuxt to v4 ([c2b9731](https://github.com/DerYeger/finwa/commit/c2b9731e6ad65ce94c7fa73bcb1eea57314305e5))
+
 ## [2.10.114](https://github.com/DerYeger/finwa/compare/v2.10.113...v2.10.114) (2022-09-03)
 
 
