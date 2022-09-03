@@ -1,3 +1,10 @@
+## [2.10.114](https://github.com/DerYeger/finwa/compare/v2.10.113...v2.10.114) (2022-09-03)
+
+
+### Bug Fixes
+
+* **deps:** update commitlint monorepo ([c078c9c](https://github.com/DerYeger/finwa/commit/c078c9cef73236a496b40cefda7222851d7d0543))
+
 ## [2.10.113](https://github.com/DerYeger/finwa/compare/v2.10.112...v2.10.113) (2022-08-25)
 
 
