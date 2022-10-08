@@ -32,13 +32,13 @@
     "@nuxtjs/sitemap": "2.4.0",
     "@types/uuid": "8.3.4",
     "chart.js": "3.9.1",
-    "core-js": "3.25.3",
+    "core-js": "3.25.5",
     "nuxt": "2.15.8",
     "secure-ls": "1.2.6",
     "uuid": "9.0.0",
     "vue": "2.6.14",
     "vue-chart-3": "2.0.6",
-    "vue-persistent-storage-manager": "2.0.59",
+    "vue-persistent-storage-manager": "2.0.62",
     "vuex": "3.6.2",
     "vuex-persistedstate": "4.1.0"
   },
@@ -57,13 +57,13 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.1.0",
     "babel-jest": "27.5.1",
-    "eslint": "8.24.0",
+    "eslint": "8.25.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-typescript": "3.5.1",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-nuxt": "4.0.0",
     "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-vue": "9.5.1",
+    "eslint-plugin-vue": "9.6.0",
     "eslint-plugin-vuetify": "1.1.0",
     "husky": "8.0.1",
     "jest": "27.5.1",
@@ -78,6 +78,6 @@
     "stylelint-scss": "4.3.0",
     "ts-jest": "27.1.5",
     "vue-jest": "3.0.7",
-    "vuetify": "2.6.10"
+    "vuetify": "2.6.11"
   }
 }
