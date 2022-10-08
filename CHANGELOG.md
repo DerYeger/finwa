@@ -1,3 +1,10 @@
+## [2.10.125](https://github.com/DerYeger/finwa/compare/v2.10.124...v2.10.125) (2022-10-08)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([1b562ce](https://github.com/DerYeger/finwa/commit/1b562cefe1065c67c5e746f9b7bafac25db42251))
+
 ## [2.10.124](https://github.com/DerYeger/finwa/compare/v2.10.123...v2.10.124) (2022-10-08)
 
 
