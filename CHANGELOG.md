@@ -1,3 +1,10 @@
+## [2.10.126](https://github.com/DerYeger/finwa/compare/v2.10.125...v2.10.126) (2022-10-15)
+
+
+### Bug Fixes
+
+* **deps:** update jamesives/github-pages-deploy-action action to v4.4.1 ([40f510f](https://github.com/DerYeger/finwa/commit/40f510fc9f3566d7c8deb35a4d5fbc4215d441fa))
+
 ## [2.10.125](https://github.com/DerYeger/finwa/compare/v2.10.124...v2.10.125) (2022-10-08)
 
 
