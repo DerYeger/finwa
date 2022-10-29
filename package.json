@@ -1,7 +1,7 @@
 {
   "name": "finwa",
   "description": "FinWa visualizes monthly expenses for easier management of personal finances.",
-  "version": "2.10.130",
+  "version": "2.10.131",
   "private": true,
   "scripts": {
     "dev": "nuxt",
