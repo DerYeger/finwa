@@ -4492,10 +4492,10 @@ core-js-compat@^3.12.1, core-js-compat@^3.21.0, core-js-compat@^3.22.1:
     browserslist "^4.21.0"
     semver "7.0.0"
 
-core-js@3.25.5:
-  version "3.25.5"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.5.tgz#e86f651a2ca8a0237a5f064c2fe56cef89646e27"
-  integrity sha512-nbm6eZSjm+ZuBQxCUPQKQCoUEfFOXjUZ8dTTyikyKaWrTYmAVbykQfwsKE5dBK88u3QCkCrzsx/PPlKfhsvgpw==
+core-js@3.26.0:
+  version "3.26.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.26.0.tgz#a516db0ed0811be10eac5d94f3b8463d03faccfe"
+  integrity sha512-+DkDrhoR4Y0PxDz6rurahuB+I45OsEUv8E1maPTB6OuHRohMMcznBq9TMpdpDMm/hUPob/mJJS3PqgbHpMTQgw==
 
 core-js@^2.4.0, core-js@^2.6.5:
   version "2.6.12"
@@ -12523,10 +12523,10 @@ vue-no-ssr@^1.1.1:
   resolved "https://registry.yarnpkg.com/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz#875f3be6fb0ae41568a837f3ac1a80eaa137b998"
   integrity sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g==
 
-vue-persistent-storage-manager@2.0.67:
-  version "2.0.67"
-  resolved "https://registry.yarnpkg.com/vue-persistent-storage-manager/-/vue-persistent-storage-manager-2.0.67.tgz#3effc5cb3ed2d14f5ab96ee5f30d0edf1fd4cc2d"
-  integrity sha512-jTzxzOoDZs/OpnR4/BPv/IH5aIZ/UkfLCWSN/WeUqEsEarzNOnCvx6yphtjP7QJW9WQk89lsVxG2b2SlaAIhDw==
+vue-persistent-storage-manager@2.0.68:
+  version "2.0.68"
+  resolved "https://registry.yarnpkg.com/vue-persistent-storage-manager/-/vue-persistent-storage-manager-2.0.68.tgz#3844f73ab0e576d03c9faf7e89231d506351c8cb"
+  integrity sha512-CEtJAm91m/vFWQYy2KUMOSzuV0MXC5VXA3eT5p0+w0y9wkkyZGH3vEUrJeIvqwJJfS8CfmEvOlTXkL8Ed8ltMQ==
 
 vue-router@^3.5.1:
   version "3.5.4"
