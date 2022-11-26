@@ -1,3 +1,10 @@
+## [2.10.140](https://github.com/DerYeger/finwa/compare/v2.10.139...v2.10.140) (2022-11-26)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([e53fb49](https://github.com/DerYeger/finwa/commit/e53fb49f5debc2b68dfd31ce13375165f71f84fc))
+
 ## [2.10.139](https://github.com/DerYeger/finwa/compare/v2.10.138...v2.10.139) (2022-11-26)
 
 
