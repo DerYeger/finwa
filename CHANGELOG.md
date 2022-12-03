@@ -1,3 +1,10 @@
+## [2.10.142](https://github.com/DerYeger/finwa/compare/v2.10.141...v2.10.142) (2022-12-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/uuid to v9 ([502efdb](https://github.com/DerYeger/finwa/commit/502efdb8948f48837aa727dc32e1b4b796712eb8))
+
 ## [2.10.141](https://github.com/DerYeger/finwa/compare/v2.10.140...v2.10.141) (2022-12-03)
 
 
