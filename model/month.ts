@@ -19,7 +19,7 @@ export function currentMonthId(): string {
   return monthIdFromDate(new Date())
 }
 
-export function upcomingMonths(amount: number, offset: number = 0): Month[] {
+export function upcomingMonths(amount: number, offset = 0): Month[] {
   const now = new Date()
   return [...Array(amount).keys()].map((index) => {
     const date = new Date()
@@ -28,7 +28,7 @@ export function upcomingMonths(amount: number, offset: number = 0): Month[] {
   })
 }
 
-export function recentMonths(amount: number, offset: number = 0): Month[] {
+export function recentMonths(amount: number, offset = 0): Month[] {
   const now = new Date()
   return [...Array(amount).keys()].map((index) => {
     const date = new Date()
