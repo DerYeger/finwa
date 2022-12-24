@@ -1,3 +1,10 @@
+## [2.10.148](https://github.com/DerYeger/finwa/compare/v2.10.147...v2.10.148) (2022-12-24)
+
+
+### Bug Fixes
+
+* **deps:** update actions/stale action to v7 ([#73](https://github.com/DerYeger/finwa/issues/73)) ([0bb0e51](https://github.com/DerYeger/finwa/commit/0bb0e51a02d42556a6d3ddaff5ae1255a807c19c))
+
 ## [2.10.147](https://github.com/DerYeger/finwa/compare/v2.10.146...v2.10.147) (2022-12-24)
 
 
