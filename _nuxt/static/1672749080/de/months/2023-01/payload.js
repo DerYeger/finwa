@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/de/months/2023-01", (function(a){return {data:[{slug:a,monthId:a}],fetch:{},mutations:[]}}("2023-01")));
