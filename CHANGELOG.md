@@ -1,3 +1,10 @@
+## [2.10.150](https://github.com/DerYeger/finwa/compare/v2.10.149...v2.10.150) (2023-01-03)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#72](https://github.com/DerYeger/finwa/issues/72)) ([da1f450](https://github.com/DerYeger/finwa/commit/da1f4501f74a81512d4891e52076606a0299cf37))
+
 ## [2.10.149](https://github.com/DerYeger/finwa/compare/v2.10.148...v2.10.149) (2022-12-31)
 
 
