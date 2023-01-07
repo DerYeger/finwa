@@ -1,3 +1,10 @@
+## [2.10.151](https://github.com/DerYeger/finwa/compare/v2.10.150...v2.10.151) (2023-01-07)
+
+
+### Bug Fixes
+
+* **deps:** update commitlint monorepo to v17.4.0 ([5dbe945](https://github.com/DerYeger/finwa/commit/5dbe945ef53db617fd6c52c54bad51c798039fda))
+
 ## [2.10.150](https://github.com/DerYeger/finwa/compare/v2.10.149...v2.10.150) (2023-01-03)
 
 
