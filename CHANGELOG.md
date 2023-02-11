@@ -1,3 +1,10 @@
+## [2.10.156](https://github.com/DerYeger/finwa/compare/v2.10.155...v2.10.156) (2023-02-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @nuxt/types to v2.16.0 ([7bb69d7](https://github.com/DerYeger/finwa/commit/7bb69d7617524c1db5f0a2fda55e0e4f293add43))
+
 ## [2.10.155](https://github.com/DerYeger/finwa/compare/v2.10.154...v2.10.155) (2023-01-21)
 
 
