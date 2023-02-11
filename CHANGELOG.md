@@ -1,3 +1,10 @@
+## [2.10.157](https://github.com/DerYeger/finwa/compare/v2.10.156...v2.10.157) (2023-02-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency stylelint to v15 ([#75](https://github.com/DerYeger/finwa/issues/75)) ([bceebc9](https://github.com/DerYeger/finwa/commit/bceebc98f69bf6becc6c2cd53b0b5e626f52e56c))
+
 ## [2.10.156](https://github.com/DerYeger/finwa/compare/v2.10.155...v2.10.156) (2023-02-11)
 
 
